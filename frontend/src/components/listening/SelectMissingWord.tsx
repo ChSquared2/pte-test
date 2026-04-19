@@ -13,7 +13,7 @@ interface Props {
 
 export default function SelectMissingWord({ question, onNext }: Props) {
   const shuffledIndices = useMemo(
-    () => seededShuffle(question.options.map((_: any, i: number) => i), question.id),
+    () => seededShuffle<number>(question.options.map((_: any, i: number) => i), question.id),
     [question.id]
   );
 
