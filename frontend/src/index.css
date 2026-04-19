@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+:root {
+  --pte-blue: #003057;
+  --pte-gold: #F2A900;
+  --pte-light-blue: #0072CE;
+  --pte-green: #00A651;
+  --pte-red: #E31837;
+  --pte-gray: #F5F5F5;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--pte-gray);
+  color: #333;
+}
+
+* {
+  box-sizing: border-box;
+}

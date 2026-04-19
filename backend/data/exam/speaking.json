@@ -1,0 +1,79 @@
+{
+  "read_aloud": [
+    {
+      "id": "exam_ra_001",
+      "type": "read_aloud",
+      "section": "speaking",
+      "text": "The concept of sustainable development emerged in the late twentieth century as a response to growing awareness that economic growth could not continue indefinitely without considering its environmental and social consequences. It calls for meeting the needs of the present without compromising the ability of future generations to meet their own needs.",
+      "time_limit_seconds": 60,
+      "prep_time": 30,
+      "record_time": 40
+    },
+    {
+      "id": "exam_ra_002",
+      "type": "read_aloud",
+      "section": "speaking",
+      "text": "The human brain contains approximately eighty-six billion neurons, each forming thousands of connections with other neurons. These intricate networks enable everything from basic motor functions to complex abstract reasoning, making the brain the most sophisticated organ in the known universe.",
+      "time_limit_seconds": 60,
+      "prep_time": 30,
+      "record_time": 40
+    }
+  ],
+  "repeat_sentence": [
+    {
+      "id": "exam_rs_001",
+      "type": "repeat_sentence",
+      "section": "speaking",
+      "audio_url": "/api/audio/rs_001.mp3",
+      "transcript": "The university library will be closed for renovations throughout the summer break.",
+      "time_limit_seconds": 30,
+      "prep_time": 0,
+      "record_time": 15
+    },
+    {
+      "id": "exam_rs_002",
+      "type": "repeat_sentence",
+      "section": "speaking",
+      "audio_url": "/api/audio/rs_002.mp3",
+      "transcript": "Students are required to submit their research proposals before the end of the semester.",
+      "time_limit_seconds": 30,
+      "prep_time": 0,
+      "record_time": 15
+    }
+  ],
+  "describe_image": [
+    {
+      "id": "exam_di_001",
+      "type": "describe_image",
+      "section": "speaking",
+      "image_url": "/api/audio/chart_population.png",
+      "time_limit_seconds": 65,
+      "prep_time": 25,
+      "record_time": 40
+    }
+  ],
+  "answer_short_question": [
+    {
+      "id": "exam_asq_001",
+      "type": "answer_short_question",
+      "section": "speaking",
+      "audio_url": "/api/audio/asq_001.mp3",
+      "transcript": "What do we call the study of the stars and planets?",
+      "expected_answer": "astronomy",
+      "time_limit_seconds": 20,
+      "prep_time": 0,
+      "record_time": 10
+    },
+    {
+      "id": "exam_asq_002",
+      "type": "answer_short_question",
+      "section": "speaking",
+      "audio_url": "/api/audio/asq_002.mp3",
+      "transcript": "What is the name of the organ that pumps blood through the body?",
+      "expected_answer": "heart",
+      "time_limit_seconds": 20,
+      "prep_time": 0,
+      "record_time": 10
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "summarize_written_text": [
+    {
+      "id": "exam_swt_001",
+      "type": "summarize_written_text",
+      "section": "writing",
+      "passage": "The gig economy, characterized by short-term contracts and freelance work rather than permanent employment, has expanded rapidly in recent years, driven by digital platforms such as Uber, Fiverr, and TaskRabbit. Proponents argue that it offers workers unprecedented flexibility, allowing them to choose when, where, and how much they work. For businesses, it provides access to a global talent pool without the overhead costs associated with full-time employees. However, critics point out that gig workers typically lack access to benefits such as health insurance, paid leave, and retirement plans, leaving them financially vulnerable. The classification of these workers—whether as independent contractors or employees—remains a contentious legal issue in many jurisdictions, with significant implications for labor rights and tax revenue.",
+      "time_limit_seconds": 600
+    }
+  ],
+  "essay": [
+    {
+      "id": "exam_essay_001",
+      "type": "essay",
+      "section": "writing",
+      "prompt": "Some people believe that social media has brought people closer together, while others argue that it has made society more divided. Discuss both views and give your own opinion.",
+      "time_limit_seconds": 1200
+    }
+  ]
+}

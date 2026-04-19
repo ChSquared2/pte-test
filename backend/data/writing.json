@@ -1,0 +1,90 @@
+{
+  "summarize_written_text": [
+    {
+      "id": "swt_001",
+      "type": "summarize_written_text",
+      "section": "writing",
+      "passage": "The concept of universal basic income (UBI) has gained significant attention in recent years as automation and artificial intelligence threaten to displace millions of workers worldwide. Proponents argue that providing every citizen with a regular, unconditional cash payment would eliminate extreme poverty, reduce inequality, and give people the freedom to pursue education, start businesses, or care for family members without the fear of destitution. Several pilot programs around the world, including experiments in Finland, Kenya, and Stockton, California, have shown promising results, with recipients reporting improved mental health, increased entrepreneurial activity, and no significant reduction in work effort. Critics, however, raise concerns about the fiscal feasibility of such programs, arguing that the cost of providing meaningful payments to every citizen would require either massive tax increases or significant cuts to existing social programs. Others worry that UBI could lead to inflation, reduce the incentive to work, or fail to address the structural causes of poverty such as lack of education and healthcare access.",
+      "time_limit_seconds": 600
+    },
+    {
+      "id": "swt_002",
+      "type": "summarize_written_text",
+      "section": "writing",
+      "passage": "The human microbiome, the vast community of trillions of microorganisms living in and on our bodies, has emerged as one of the most exciting frontiers in medical research. Scientists have discovered that these microscopic inhabitants play crucial roles in digestion, immune function, and even mental health through what researchers call the gut-brain axis. Studies have linked disruptions in the microbiome to conditions ranging from obesity and diabetes to depression and autoimmune diseases. The composition of an individual's microbiome is influenced by factors including diet, antibiotic use, mode of birth delivery, and environmental exposures. This growing understanding has led to new therapeutic approaches, including fecal microbiota transplantation for treating recurrent Clostridium difficile infections, and the development of precision probiotics designed to restore specific microbial populations. However, researchers caution that the field is still in its early stages, and many commercial probiotic products lack sufficient evidence to support their health claims.",
+      "time_limit_seconds": 600
+    },
+    {
+      "id": "swt_003",
+      "type": "summarize_written_text",
+      "section": "writing",
+      "passage": "Urban vertical farming, the practice of growing crops in vertically stacked layers within controlled indoor environments, is increasingly being touted as a solution to the challenges of feeding a growing global population. These high-tech facilities use LED lighting, hydroponic or aeroponic systems, and climate control to produce crops year-round, regardless of external weather conditions. Advocates point out that vertical farms use up to 95% less water than traditional agriculture, eliminate the need for pesticides, and can be located close to urban consumers, dramatically reducing transportation costs and food miles. Companies such as AeroFarms, Plenty, and Bowery Farming have attracted billions of dollars in investment. However, vertical farming faces significant challenges, including extremely high energy costs for lighting and climate control, limited crop variety (mostly leafy greens and herbs), and the enormous capital investment required to build facilities. Critics argue that traditional farming methods, enhanced with precision agriculture technologies, may be a more cost-effective and scalable approach to improving food security.",
+      "time_limit_seconds": 600
+    },
+    {
+      "id": "swt_004",
+      "type": "summarize_written_text",
+      "section": "writing",
+      "passage": "The CRISPR-Cas9 gene-editing technology has revolutionized molecular biology by making precise modifications to DNA sequences faster, cheaper, and more accessible than ever before. Scientists have already used CRISPR to correct genetic mutations responsible for sickle cell anemia and certain forms of blindness in clinical trials, raising hopes for curing previously untreatable hereditary conditions. In agriculture, the technology has been applied to develop crops that are more resistant to drought and disease, potentially strengthening food security in vulnerable regions. However, the possibility of editing the human germline—making genetic changes that would be passed on to future generations—has ignited fierce ethical debate. In 2018, the scientific community was shocked when Chinese researcher He Jiankui announced the birth of twin girls whose embryos he had edited using CRISPR, an act widely condemned as premature and irresponsible. The incident highlighted the urgent need for international regulatory frameworks that can balance the enormous therapeutic potential of gene editing with safeguards against misuse, ensuring that the technology serves humanity without crossing ethical boundaries.",
+      "time_limit_seconds": 600
+    },
+    {
+      "id": "swt_005",
+      "type": "summarize_written_text",
+      "section": "writing",
+      "passage": "The shift toward remote work, accelerated dramatically by the COVID-19 pandemic, has sparked an ongoing debate about the future of the traditional office. Studies conducted by Stanford University found that remote workers were 13 percent more productive than their office-based counterparts, citing fewer distractions and the elimination of commuting time as key factors. Companies such as Spotify, Airbnb, and Atlassian have embraced permanent remote or hybrid models, reporting cost savings on real estate and improved employee satisfaction. However, critics argue that remote work erodes organizational culture, makes spontaneous collaboration more difficult, and disproportionately affects younger employees who benefit from in-person mentorship and networking opportunities. Mental health researchers have also raised concerns about the social isolation that can accompany prolonged remote work, particularly for individuals living alone. As a result, many organizations are experimenting with hybrid arrangements that attempt to balance flexibility with the benefits of face-to-face interaction, though the optimal formula remains elusive.",
+      "time_limit_seconds": 600
+    },
+    {
+      "id": "swt_006",
+      "type": "summarize_written_text",
+      "section": "writing",
+      "passage": "The rapid expansion of digital technology has fundamentally transformed the relationship between individuals and their personal data. Technology companies collect vast quantities of information through social media activity, search histories, location tracking, and smart devices, often using this data to build detailed consumer profiles for targeted advertising—a practice that scholar Shoshana Zuboff has termed 'surveillance capitalism.' In response, the European Union introduced the General Data Protection Regulation in 2018, granting citizens greater control over their personal information and imposing significant fines on companies that violate data protection standards. Meanwhile, the proliferation of facial recognition technology has raised additional concerns, as governments and private entities deploy these systems for security purposes with limited transparency or oversight. Privacy advocates argue that without stronger legal frameworks and greater public awareness, the erosion of privacy will have lasting consequences for individual autonomy and democratic freedoms, while technology companies contend that data collection enables the free services and personalized experiences that consumers have come to expect.",
+      "time_limit_seconds": 600
+    }
+  ],
+  "essay": [
+    {
+      "id": "essay_001",
+      "type": "essay",
+      "section": "writing",
+      "prompt": "Some people believe that technology has made our lives more stressful, while others think it has made life easier. Discuss both views and give your own opinion.",
+      "time_limit_seconds": 1200
+    },
+    {
+      "id": "essay_002",
+      "type": "essay",
+      "section": "writing",
+      "prompt": "In many countries, the gap between the rich and the poor is widening. What are the causes of this trend, and what measures can be taken to address it?",
+      "time_limit_seconds": 1200
+    },
+    {
+      "id": "essay_003",
+      "type": "essay",
+      "section": "writing",
+      "prompt": "Some people think that governments should invest more money in public transportation, while others believe the money should be spent on building new roads for cars. Discuss both views and give your opinion.",
+      "time_limit_seconds": 1200
+    },
+    {
+      "id": "essay_004",
+      "type": "essay",
+      "section": "writing",
+      "prompt": "Some educators argue that arts education, including music, visual arts, and drama, should be given equal importance to science and mathematics in school curricula. Others believe that limited resources should prioritize subjects that directly prepare students for the job market. Discuss both perspectives and give your own opinion.",
+      "time_limit_seconds": 1200
+    },
+    {
+      "id": "essay_005",
+      "type": "essay",
+      "section": "writing",
+      "prompt": "Some scientists argue that humanity must establish colonies on other planets to ensure long-term survival, while others believe that the enormous resources required would be better spent solving pressing problems on Earth such as climate change and poverty. Discuss both views and give your opinion.",
+      "time_limit_seconds": 1200
+    },
+    {
+      "id": "essay_006",
+      "type": "essay",
+      "section": "writing",
+      "prompt": "Many of the world's languages are at risk of disappearing within the next few decades. Some argue that governments should invest significantly in preserving endangered languages, while others believe that linguistic consolidation around a few major languages is a natural and even beneficial process. Discuss both perspectives and give your own opinion.",
+      "time_limit_seconds": 1200
+    }
+  ]
+}

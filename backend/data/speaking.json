@@ -1,0 +1,365 @@
+{
+  "read_aloud": [
+    {
+      "id": "ra_001",
+      "type": "read_aloud",
+      "section": "speaking",
+      "text": "The evolution of artificial intelligence has transformed numerous industries, from healthcare diagnostics to autonomous vehicle navigation. Machine learning algorithms can now process vast amounts of data at speeds that far surpass human capabilities, identifying patterns and making predictions with remarkable accuracy.",
+      "time_limit_seconds": 60,
+      "prep_time": 30,
+      "record_time": 40
+    },
+    {
+      "id": "ra_002",
+      "type": "read_aloud",
+      "section": "speaking",
+      "text": "Climate change represents one of the most significant challenges facing humanity in the twenty-first century. Rising global temperatures have led to more frequent extreme weather events, melting polar ice caps, and rising sea levels that threaten coastal communities worldwide.",
+      "time_limit_seconds": 60,
+      "prep_time": 30,
+      "record_time": 40
+    },
+    {
+      "id": "ra_003",
+      "type": "read_aloud",
+      "section": "speaking",
+      "text": "The discovery of antibiotics in the early twentieth century revolutionized medicine and dramatically increased human life expectancy. However, the overuse and misuse of these drugs has led to the emergence of antibiotic-resistant bacteria, posing a serious threat to global public health.",
+      "time_limit_seconds": 60,
+      "prep_time": 30,
+      "record_time": 40
+    },
+    {
+      "id": "ra_004",
+      "type": "read_aloud",
+      "section": "speaking",
+      "text": "Although approximately seventy percent of Earth's surface is covered by water, less than three percent of it is fresh water suitable for human consumption. Growing populations and industrial demands are placing unprecedented pressure on freshwater resources, making water scarcity one of the defining challenges of the coming decades.",
+      "time_limit_seconds": 60,
+      "prep_time": 30,
+      "record_time": 40
+    },
+    {
+      "id": "ra_005",
+      "type": "read_aloud",
+      "section": "speaking",
+      "text": "The global transition to renewable energy requires massive investment in infrastructure, including solar farms, wind turbines, and modernized electrical grids capable of handling variable power generation. Energy storage technologies, particularly lithium-ion batteries, are advancing rapidly but remain insufficient to fully address the intermittency challenge.",
+      "time_limit_seconds": 60,
+      "prep_time": 30,
+      "record_time": 40
+    },
+    {
+      "id": "ra_006",
+      "type": "read_aloud",
+      "section": "speaking",
+      "text": "Global supply chains have become increasingly complex and interconnected, with a single consumer product often involving raw materials, components, and assembly from dozens of countries. Recent disruptions caused by pandemics and geopolitical tensions have exposed the fragility of just-in-time manufacturing and prompted companies to reconsider their sourcing strategies.",
+      "time_limit_seconds": 60,
+      "prep_time": 30,
+      "record_time": 40
+    }
+  ],
+  "repeat_sentence": [
+    {
+      "id": "rs_001",
+      "type": "repeat_sentence",
+      "section": "speaking",
+      "audio_url": "/api/audio/rs_001.mp3",
+      "transcript": "The university library will be closed for renovations throughout the summer break.",
+      "time_limit_seconds": 30,
+      "prep_time": 0,
+      "record_time": 15
+    },
+    {
+      "id": "rs_002",
+      "type": "repeat_sentence",
+      "section": "speaking",
+      "audio_url": "/api/audio/rs_002.mp3",
+      "transcript": "Students are required to submit their research proposals before the end of the semester.",
+      "time_limit_seconds": 30,
+      "prep_time": 0,
+      "record_time": 15
+    },
+    {
+      "id": "rs_003",
+      "type": "repeat_sentence",
+      "section": "speaking",
+      "audio_url": "/api/audio/rs_003.mp3",
+      "transcript": "The professor recommended several additional readings for the final examination.",
+      "time_limit_seconds": 30,
+      "prep_time": 0,
+      "record_time": 15
+    },
+    {
+      "id": "rs_004",
+      "type": "repeat_sentence",
+      "section": "speaking",
+      "audio_url": "/api/audio/rs_004.mp3",
+      "transcript": "Recent archaeological discoveries have significantly altered our understanding of ancient civilizations.",
+      "time_limit_seconds": 30,
+      "prep_time": 0,
+      "record_time": 15
+    },
+    {
+      "id": "rs_005",
+      "type": "repeat_sentence",
+      "section": "speaking",
+      "audio_url": "/api/audio/rs_005.mp3",
+      "transcript": "Deep sea exploration has revealed ecosystems thriving in conditions previously thought impossible for life.",
+      "time_limit_seconds": 30,
+      "prep_time": 0,
+      "record_time": 15
+    }
+  ],
+  "describe_image": [
+    {
+      "id": "di_001",
+      "type": "describe_image",
+      "section": "speaking",
+      "image_url": "/api/audio/scene_classroom.svg",
+      "time_limit_seconds": 65,
+      "prep_time": 25,
+      "record_time": 40
+    },
+    {
+      "id": "di_002",
+      "type": "describe_image",
+      "section": "speaking",
+      "image_url": "/api/audio/scene_market.svg",
+      "time_limit_seconds": 65,
+      "prep_time": 25,
+      "record_time": 40
+    },
+    {
+      "id": "di_003",
+      "type": "describe_image",
+      "section": "speaking",
+      "image_url": "/api/audio/scene_park.svg",
+      "time_limit_seconds": 65,
+      "prep_time": 25,
+      "record_time": 40
+    },
+    {
+      "id": "di_004",
+      "type": "describe_image",
+      "section": "speaking",
+      "image_url": "/api/audio/scene_laboratory.svg",
+      "time_limit_seconds": 65,
+      "prep_time": 25,
+      "record_time": 40
+    },
+    {
+      "id": "di_005",
+      "type": "describe_image",
+      "section": "speaking",
+      "image_url": "/api/audio/scene_health_campaign.svg",
+      "time_limit_seconds": 65,
+      "prep_time": 25,
+      "record_time": 40
+    },
+    {
+      "id": "di_006",
+      "type": "describe_image",
+      "section": "speaking",
+      "image_url": "/api/audio/scene_olympic_stadium.svg",
+      "time_limit_seconds": 65,
+      "prep_time": 25,
+      "record_time": 40
+    }
+  ],
+  "retell_lecture": [
+    {
+      "id": "rl_001",
+      "type": "retell_lecture",
+      "section": "speaking",
+      "audio_url": "/api/audio/rl_001.mp3",
+      "transcript": "Today I want to talk about the concept of neuroplasticity. For a long time, scientists believed that the brain was essentially fixed after childhood. However, research over the past few decades has shown that the brain continues to change and adapt throughout our lives. When we learn new skills or form new memories, our neurons create new connections. This has profound implications for rehabilitation after brain injuries and for education.",
+      "time_limit_seconds": 60,
+      "prep_time": 10,
+      "record_time": 40
+    },
+    {
+      "id": "rl_002",
+      "type": "retell_lecture",
+      "section": "speaking",
+      "audio_url": "/api/audio/rl_002.mp3",
+      "transcript": "In today's session, we will examine how rapid urbanization is reshaping economies in developing countries. As people migrate from rural areas to cities in search of better opportunities, urban centers become engines of economic growth. However, this rapid influx often outpaces infrastructure development, leading to overcrowded housing, inadequate sanitation, and strained public services. Economists argue that sustainable urban planning is essential to harness the benefits of urbanization while mitigating its social costs.",
+      "time_limit_seconds": 60,
+      "prep_time": 10,
+      "record_time": 40
+    },
+    {
+      "id": "rl_003",
+      "type": "retell_lecture",
+      "section": "speaking",
+      "audio_url": "/api/audio/rl_003.mp3",
+      "transcript": "Today we are going to discuss the growing problem of food waste. According to the United Nations, approximately one third of all food produced globally is lost or wasted each year. In developed countries, most waste occurs at the consumer level, where people buy more than they can consume. In developing nations, the problem lies primarily in inadequate storage and transportation infrastructure. Some innovative solutions are emerging, including apps that connect restaurants with surplus food to consumers at discounted prices, and composting programs that convert food waste into agricultural fertilizer.",
+      "time_limit_seconds": 60,
+      "prep_time": 10,
+      "record_time": 40
+    },
+    {
+      "id": "rl_004",
+      "type": "retell_lecture",
+      "section": "speaking",
+      "audio_url": "/api/audio/rl_004.mp3",
+      "transcript": "In this lecture, I want to explore the remarkable advances in bioengineering, particularly in the field of artificial organs. The shortage of donor organs remains a critical problem, with thousands of patients dying each year while waiting for transplants. Researchers are now using three-dimensional bioprinting to create functional tissue structures using a patient's own cells, which could eliminate the risk of immune rejection. While fully functional bioprinted organs such as kidneys and hearts remain years away, simpler structures like skin grafts and cartilage are already being tested in clinical trials.",
+      "time_limit_seconds": 60,
+      "prep_time": 10,
+      "record_time": 40
+    }
+  ],
+  "answer_short_question": [
+    {
+      "id": "asq_001",
+      "type": "answer_short_question",
+      "section": "speaking",
+      "audio_url": "/api/audio/asq_001.mp3",
+      "transcript": "What do we call the study of the stars and planets?",
+      "expected_answer": "astronomy",
+      "time_limit_seconds": 20,
+      "prep_time": 0,
+      "record_time": 10
+    },
+    {
+      "id": "asq_002",
+      "type": "answer_short_question",
+      "section": "speaking",
+      "audio_url": "/api/audio/asq_002.mp3",
+      "transcript": "What is the name of the organ that pumps blood through the body?",
+      "expected_answer": "heart",
+      "time_limit_seconds": 20,
+      "prep_time": 0,
+      "record_time": 10
+    },
+    {
+      "id": "asq_003",
+      "type": "answer_short_question",
+      "section": "speaking",
+      "audio_url": "/api/audio/asq_003.mp3",
+      "transcript": "What do you call the person who flies an airplane?",
+      "expected_answer": "pilot",
+      "time_limit_seconds": 20,
+      "prep_time": 0,
+      "record_time": 10
+    },
+    {
+      "id": "asq_004",
+      "type": "answer_short_question",
+      "section": "speaking",
+      "audio_url": "/api/audio/asq_004.mp3",
+      "transcript": "What is the term for an animal that eats only plants?",
+      "expected_answer": "herbivore",
+      "time_limit_seconds": 20,
+      "prep_time": 0,
+      "record_time": 10
+    },
+    {
+      "id": "asq_005",
+      "type": "answer_short_question",
+      "section": "speaking",
+      "audio_url": "/api/audio/asq_005.mp3",
+      "transcript": "What term describes the delivery of computing services such as storage and processing power over the internet?",
+      "expected_answer": "cloud computing",
+      "time_limit_seconds": 20,
+      "prep_time": 0,
+      "record_time": 10
+    },
+    {
+      "id": "asq_006",
+      "type": "answer_short_question",
+      "section": "speaking",
+      "audio_url": "/api/audio/asq_006.mp3",
+      "transcript": "What is the practice called that uses music to improve a patient's health and well-being?",
+      "expected_answer": "music therapy",
+      "time_limit_seconds": 20,
+      "prep_time": 0,
+      "record_time": 10
+    }
+  ],
+  "summarize_group_discussion": [
+    {
+      "id": "sgd_001",
+      "type": "summarize_group_discussion",
+      "section": "speaking",
+      "audio_url": "/api/audio/sgd_001.mp3",
+      "transcript": "The discussion centered on whether remote work should become permanent. Speaker A argued that remote work increases productivity and improves work-life balance. Speaker B countered that it leads to isolation and weakens team collaboration. Speaker C suggested a hybrid model as a compromise, combining the benefits of both approaches.",
+      "time_limit_seconds": 130,
+      "prep_time": 10,
+      "record_time": 120
+    },
+    {
+      "id": "sgd_002",
+      "type": "summarize_group_discussion",
+      "section": "speaking",
+      "audio_url": "/api/audio/sgd_002.mp3",
+      "transcript": "The group debated the value of standardized testing in education. Speaker A maintained that standardized tests provide an objective measure of student achievement and help identify schools that need improvement. Speaker B argued that these tests narrow the curriculum and place excessive stress on students. Speaker C proposed that standardized testing should be supplemented with portfolio-based assessments to capture a broader range of student abilities.",
+      "time_limit_seconds": 130,
+      "prep_time": 10,
+      "record_time": 120
+    },
+    {
+      "id": "sgd_003",
+      "type": "summarize_group_discussion",
+      "section": "speaking",
+      "audio_url": "/api/audio/sgd_003.mp3",
+      "transcript": "The panel discussed the transition to electric vehicles. Speaker A argued that electric vehicles are essential for reducing carbon emissions from transportation, which accounts for nearly a quarter of global greenhouse gas output. Speaker B raised concerns about the environmental costs of lithium mining for batteries and the lack of recycling infrastructure. Speaker C emphasized the need for governments to invest heavily in charging networks, particularly in rural and underserved areas, to make electric vehicles a viable option for all consumers.",
+      "time_limit_seconds": 130,
+      "prep_time": 10,
+      "record_time": 120
+    },
+    {
+      "id": "sgd_004",
+      "type": "summarize_group_discussion",
+      "section": "speaking",
+      "audio_url": "/api/audio/sgd_004.mp3",
+      "transcript": "The discussion focused on digital literacy in modern education. Speaker A contended that coding and computational thinking should be mandatory in all schools from an early age, as these skills are becoming as fundamental as reading and writing. Speaker B countered that not every student needs to learn programming and that schools should focus on critical thinking and media literacy to help students evaluate online information. Speaker C suggested integrating digital skills across existing subjects rather than creating separate courses, to avoid overcrowding the curriculum.",
+      "time_limit_seconds": 130,
+      "prep_time": 10,
+      "record_time": 120
+    }
+  ],
+  "respond_to_situation": [
+    {
+      "id": "rts_001",
+      "type": "respond_to_situation",
+      "section": "speaking",
+      "scenario": "You are a university student. Your professor has asked you to lead a group project, but one of your team members is not contributing. Explain the situation to your professor and suggest a solution.",
+      "time_limit_seconds": 50,
+      "prep_time": 10,
+      "record_time": 40
+    },
+    {
+      "id": "rts_002",
+      "type": "respond_to_situation",
+      "section": "speaking",
+      "scenario": "You work at a hotel. A guest has complained that their room is too noisy because of construction next door. Apologize to the guest and offer a solution.",
+      "time_limit_seconds": 50,
+      "prep_time": 10,
+      "record_time": 40
+    },
+    {
+      "id": "rts_003",
+      "type": "respond_to_situation",
+      "section": "speaking",
+      "scenario": "You are a new employee at a company. You have been given a project deadline that you believe is unrealistic given the scope of work. Explain the situation to your manager and propose an alternative timeline.",
+      "time_limit_seconds": 50,
+      "prep_time": 10,
+      "record_time": 40
+    },
+    {
+      "id": "rts_004",
+      "type": "respond_to_situation",
+      "section": "speaking",
+      "scenario": "You are a community leader. The local council has decided to discontinue the neighborhood recycling program due to budget cuts. Explain to community members why recycling is important and propose alternative solutions to keep the program running.",
+      "time_limit_seconds": 50,
+      "prep_time": 10,
+      "record_time": 40
+    },
+    {
+      "id": "rts_005",
+      "type": "respond_to_situation",
+      "section": "speaking",
+      "scenario": "You are a teacher at a high school. The school board is considering replacing traditional science laboratory sessions with virtual reality simulations to reduce costs. Present the advantages and disadvantages of this proposal to the school board.",
+      "time_limit_seconds": 50,
+      "prep_time": 10,
+      "record_time": 40
+    }
+  ]
+}

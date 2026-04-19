@@ -1,0 +1,118 @@
+{
+  "mcq_single_reading": [
+    {
+      "id": "exam_mcs_r_001",
+      "type": "mcq_single_reading",
+      "section": "reading",
+      "prompt": "What is the main purpose of the passage?",
+      "passage": "The placebo effect, in which patients experience real improvements in their condition after receiving an inert treatment, has long puzzled medical researchers. Recent studies using brain imaging technology have revealed that placebos can trigger genuine neurological changes, including the release of endorphins and dopamine. This has led some scientists to argue that the placebo effect should not be dismissed as mere psychological trickery but should be harnessed as a legitimate therapeutic tool. Ethical questions remain, however, about whether it is acceptable for doctors to prescribe treatments they know to be pharmacologically inactive.",
+      "options": [
+        "To argue that all medicine is based on the placebo effect.",
+        "To explain how placebos cause real neurological changes and raise ethical questions about their use.",
+        "To discourage the use of placebos in clinical trials.",
+        "To compare the effectiveness of placebos with traditional medications."
+      ],
+      "correct_answer": 1,
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "exam_mcs_r_002",
+      "type": "mcq_single_reading",
+      "section": "reading",
+      "prompt": "According to the passage, what is the key challenge of deep-sea mining?",
+      "passage": "Deep-sea mining, the extraction of mineral deposits from the ocean floor, has attracted growing interest as terrestrial sources of critical metals such as cobalt, manganese, and rare earth elements become increasingly scarce. The deep ocean contains vast reserves of polymetallic nodules, cobalt-rich crusts, and hydrothermal vent deposits that could supply the materials needed for electric vehicle batteries and renewable energy technologies. However, marine biologists warn that mining operations could cause irreversible damage to fragile deep-sea ecosystems that are poorly understood and home to species found nowhere else on Earth.",
+      "options": [
+        "The cost of extracting minerals from the ocean floor is prohibitively high.",
+        "Deep-sea mineral deposits are too small to be commercially viable.",
+        "Mining could irreversibly damage poorly understood deep-sea ecosystems.",
+        "There is no demand for the minerals found on the ocean floor."
+      ],
+      "correct_answer": 2,
+      "time_limit_seconds": 120
+    }
+  ],
+  "mcq_multiple_reading": [
+    {
+      "id": "exam_mcm_r_001",
+      "type": "mcq_multiple_reading",
+      "section": "reading",
+      "prompt": "Which of the following are mentioned as benefits of urban beekeeping? Select all that apply.",
+      "passage": "Urban beekeeping has emerged as a popular movement in cities worldwide, driven by growing awareness of the critical role bees play in pollinating food crops. City rooftops, parks, and community gardens now host thousands of managed hives. Proponents highlight multiple benefits: urban beekeeping increases local pollination rates, supports biodiversity, produces honey that reflects the unique floral composition of each neighborhood, and provides educational opportunities for communities to learn about ecology. Studies have also found that managing beehives reduces stress and improves mental well-being among beekeepers.",
+      "options": [
+        "Increased local pollination rates.",
+        "Production of neighborhood-specific honey.",
+        "Elimination of all urban pests.",
+        "Educational opportunities about ecology.",
+        "Improved mental well-being for beekeepers."
+      ],
+      "correct_answers": [0, 1, 3, 4],
+      "time_limit_seconds": 120
+    }
+  ],
+  "reorder_paragraphs": [
+    {
+      "id": "exam_rop_001",
+      "type": "reorder_paragraphs",
+      "section": "reading",
+      "paragraphs": [
+        "This innovation allowed sailors to determine their position at sea with unprecedented accuracy, dramatically reducing shipwrecks and opening new trade routes.",
+        "The problem of determining longitude at sea was one of the greatest scientific challenges of the eighteenth century.",
+        "In 1714, the British Parliament offered a prize of twenty thousand pounds to anyone who could devise a practical method for measuring longitude.",
+        "It was John Harrison, a self-taught clockmaker, who ultimately solved the problem by building a series of increasingly precise marine chronometers.",
+        "Harrison's achievement demonstrated that practical ingenuity could sometimes succeed where theoretical science had failed."
+      ],
+      "correct_order": [1, 2, 3, 0, 4],
+      "time_limit_seconds": 120
+    }
+  ],
+  "fill_blanks_dropdown": [
+    {
+      "id": "exam_fbd_001",
+      "type": "fill_blanks_dropdown",
+      "section": "reading",
+      "text": "The rise of artificial intelligence has ___BLANK0___ fundamental questions about the nature of creativity. While AI systems can now ___BLANK1___ original music, art, and literature, critics argue that these outputs lack the emotional ___BLANK2___ that characterizes truly great human works. Others maintain that creativity is ___BLANK3___ a process of recombining existing ideas, something AI excels at.",
+      "blanks": [
+        {"index": 0, "options": ["raised", "lowered", "avoided", "ignored"], "answer": "raised"},
+        {"index": 1, "options": ["produce", "consume", "destroy", "ignore"], "answer": "produce"},
+        {"index": 2, "options": ["depth", "speed", "cost", "size"], "answer": "depth"},
+        {"index": 3, "options": ["fundamentally", "rarely", "never", "occasionally"], "answer": "fundamentally"}
+      ],
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "exam_fbd_002",
+      "type": "fill_blanks_dropdown",
+      "section": "reading",
+      "text": "Sleep deprivation has become a ___BLANK0___ public health concern in modern societies. Research consistently shows that insufficient sleep ___BLANK1___ cognitive performance, weakens the immune system, and increases the risk of chronic diseases. Despite this evidence, many people continue to ___BLANK2___ sleep in favor of work or entertainment, often ___BLANK3___ the long-term consequences.",
+      "blanks": [
+        {"index": 0, "options": ["growing", "shrinking", "minor", "solved"], "answer": "growing"},
+        {"index": 1, "options": ["impairs", "enhances", "maintains", "ignores"], "answer": "impairs"},
+        {"index": 2, "options": ["sacrifice", "prioritize", "extend", "protect"], "answer": "sacrifice"},
+        {"index": 3, "options": ["underestimating", "exaggerating", "celebrating", "documenting"], "answer": "underestimating"}
+      ],
+      "time_limit_seconds": 120
+    }
+  ],
+  "fill_blanks_drag": [
+    {
+      "id": "exam_fbd_drag_001",
+      "type": "fill_blanks_drag",
+      "section": "reading",
+      "text": "The theory of evolution by natural ___BLANK0___, proposed by Charles Darwin in 1859, fundamentally changed our ___BLANK1___ of life on Earth. Darwin argued that organisms with traits better suited to their ___BLANK2___ are more likely to survive and reproduce, passing those advantageous traits to future ___BLANK3___.",
+      "blank_positions": [0, 1, 2, 3],
+      "options": ["selection", "understanding", "environment", "generations", "creation", "discovery"],
+      "correct_answers": ["selection", "understanding", "environment", "generations"],
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "exam_fbd_drag_002",
+      "type": "fill_blanks_drag",
+      "section": "reading",
+      "text": "The ___BLANK0___ of plastics revolutionized manufacturing in the twentieth century, enabling the mass ___BLANK1___ of affordable consumer goods. However, the ___BLANK2___ of plastic waste has become one of the most pressing ___BLANK3___ challenges of our time.",
+      "blank_positions": [0, 1, 2, 3],
+      "options": ["invention", "production", "accumulation", "environmental", "reduction", "historical"],
+      "correct_answers": ["invention", "production", "accumulation", "environmental"],
+      "time_limit_seconds": 120
+    }
+  ]
+}

@@ -1,0 +1,402 @@
+{
+  "summarize_spoken_text": [
+    {
+      "id": "sst_001",
+      "type": "summarize_spoken_text",
+      "section": "listening",
+      "audio_url": "/api/audio/sst_001.mp3",
+      "transcript": "Today's lecture explores the impact of social media on democratic processes. Research shows that social media platforms have fundamentally changed how political information is disseminated and consumed. While these platforms have democratized access to information, allowing citizens to engage more directly with political discourse, they have also created echo chambers where people primarily encounter viewpoints that align with their existing beliefs. Furthermore, the spread of misinformation through social media has become a major concern, with studies showing that false news stories spread faster and reach more people than accurate reports. Governments around the world are grappling with how to regulate these platforms without infringing on free speech.",
+      "time_limit_seconds": 600
+    },
+    {
+      "id": "sst_002",
+      "type": "summarize_spoken_text",
+      "section": "listening",
+      "audio_url": "/api/audio/sst_002.mp3",
+      "transcript": "This lecture explores how cognitive biases affect human decision-making. Research by Daniel Kahneman and Amos Tversky demonstrated that people consistently deviate from rational choice theory in predictable ways. For instance, the anchoring effect causes people to rely too heavily on the first piece of information they encounter when making judgments. Similarly, confirmation bias leads individuals to seek out information that supports their pre-existing beliefs while ignoring contradictory evidence. Understanding these biases is crucial not only for psychologists but also for policymakers, marketers, and anyone who wishes to make more informed decisions.",
+      "time_limit_seconds": 600
+    },
+    {
+      "id": "sst_003",
+      "type": "summarize_spoken_text",
+      "section": "listening",
+      "audio_url": "/api/audio/sst_003.mp3",
+      "transcript": "Today's lecture examines the theory of plate tectonics, which explains how Earth's outer shell is divided into several large plates that float on the semi-fluid mantle beneath them. These plates are in constant slow motion, driven by convection currents in the mantle. Where plates collide, one may be forced beneath the other in a process called subduction, generating earthquakes and volcanic activity. Where plates pull apart, new crust is formed at mid-ocean ridges. The theory of plate tectonics, first widely accepted in the 1960s, unified decades of geological observations and provided a coherent framework for understanding earthquakes, mountain formation, and the distribution of fossils across continents.",
+      "time_limit_seconds": 600
+    },
+    {
+      "id": "sst_004",
+      "type": "summarize_spoken_text",
+      "section": "listening",
+      "audio_url": "/api/audio/sst_004.mp3",
+      "transcript": "This lecture covers the revolutionary advances in genome sequencing technology. The Human Genome Project, completed in 2003, took thirteen years and cost approximately three billion dollars to sequence a single human genome. Today, the same task can be accomplished in a matter of hours for under a thousand dollars, thanks to next-generation sequencing technologies. This dramatic reduction in cost has opened the door to personalized medicine, where treatments can be tailored to an individual's genetic profile. However, the widespread availability of genetic data raises important ethical questions about privacy, discrimination by employers or insurers, and the psychological impact of knowing one's predisposition to certain diseases.",
+      "time_limit_seconds": 600
+    }
+  ],
+  "mcq_multiple_listening": [
+    {
+      "id": "mcm_l_001",
+      "type": "mcq_multiple_listening",
+      "section": "listening",
+      "audio_url": "/api/audio/mcm_l_001.mp3",
+      "transcript": "The Great Barrier Reef is the world's largest coral reef system, stretching over 2,300 kilometers along Australia's northeast coast. It supports an incredible diversity of marine life, including over 1,500 species of fish, 400 types of coral, and numerous species of dolphins, whales, and sea turtles. However, the reef has lost more than half its coral cover since 1995 due to climate change, pollution, and crown-of-thorns starfish outbreaks.",
+      "prompt": "According to the speaker, which of the following are true about the Great Barrier Reef?",
+      "options": [
+        "It is located along Australia's northeast coast.",
+        "It supports over 2,000 species of fish.",
+        "It has lost more than half its coral since 1995.",
+        "It is the world's largest coral reef system.",
+        "Crown-of-thorns starfish have contributed to coral loss."
+      ],
+      "correct_answers": [0, 2, 3, 4],
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "mcm_l_002",
+      "type": "mcq_multiple_listening",
+      "section": "listening",
+      "audio_url": "/api/audio/mcm_l_002.mp3",
+      "transcript": "The internet originated as a military research project called ARPANET in the late 1960s. It was initially designed to allow researchers at different universities to share computing resources. The invention of the World Wide Web by Tim Berners-Lee in 1989 transformed the internet into an accessible platform for the general public. Today, over five billion people use the internet, and it has fundamentally reshaped commerce, communication, and education.",
+      "prompt": "According to the speaker, which of the following are true about the internet?",
+      "options": [
+        "It began as a military research project.",
+        "Tim Berners-Lee invented the internet in the 1960s.",
+        "It was originally designed for sharing computing resources.",
+        "The World Wide Web made the internet accessible to the public.",
+        "Over five billion people use the internet today."
+      ],
+      "correct_answers": [0, 2, 3, 4],
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "mcm_l_003",
+      "type": "mcq_multiple_listening",
+      "section": "listening",
+      "audio_url": "/api/audio/mcm_l_003.mp3",
+      "transcript": "Ocean acidification is often called climate change's equally evil twin. As the ocean absorbs carbon dioxide from the atmosphere, a chemical reaction occurs that lowers the water's pH, making it more acidic. This increased acidity dissolves the calcium carbonate that shellfish, corals, and certain plankton species use to build their shells and skeletons. Since the beginning of the Industrial Revolution, ocean acidity has increased by approximately thirty percent, threatening marine food chains from the bottom up.",
+      "prompt": "According to the speaker, which of the following are true about ocean acidification?",
+      "options": [
+        "It is caused by the ocean absorbing carbon dioxide.",
+        "It has decreased ocean acidity by thirty percent.",
+        "It threatens organisms that build shells from calcium carbonate.",
+        "It affects marine food chains starting from the bottom.",
+        "It has been occurring since the Industrial Revolution."
+      ],
+      "correct_answers": [0, 2, 3, 4],
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "mcm_l_004",
+      "type": "mcq_multiple_listening",
+      "section": "listening",
+      "audio_url": "/api/audio/mcm_l_004.mp3",
+      "transcript": "The Silk Road was not a single route but a vast network of trade paths connecting China to the Mediterranean, active for over fifteen hundred years. Merchants transported silk, spices, precious metals, and gemstones across thousands of kilometers. However, the Silk Road facilitated far more than commerce; it was a conduit for the exchange of ideas, religions, technologies, and even diseases. Buddhism spread from India to China along these routes, and the Black Death is believed to have traveled from Central Asia to Europe through Silk Road trade networks.",
+      "prompt": "Based on the lecture, which statements about the Silk Road are correct?",
+      "options": [
+        "It consisted of multiple interconnected trade routes.",
+        "It was active for over fifteen hundred years.",
+        "It exclusively transported luxury goods like silk.",
+        "It facilitated the spread of religions and diseases.",
+        "The Black Death may have traveled along Silk Road networks."
+      ],
+      "correct_answers": [0, 1, 3, 4],
+      "time_limit_seconds": 120
+    }
+  ],
+  "fill_blanks_type_in": [
+    {
+      "id": "fbt_001",
+      "type": "fill_blanks_type_in",
+      "section": "listening",
+      "audio_url": "/api/audio/fbt_001.mp3",
+      "transcript_with_blanks": "The research team conducted a comprehensive ___BLANK0___ of the data collected over a five-year ___BLANK1___. Their findings suggest that regular ___BLANK2___ can significantly reduce the risk of heart ___BLANK3___.",
+      "correct_answers": ["analysis", "period", "exercise", "disease"],
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "fbt_002",
+      "type": "fill_blanks_type_in",
+      "section": "listening",
+      "audio_url": "/api/audio/fbt_002.mp3",
+      "transcript_with_blanks": "Deforestation contributes significantly to global ___BLANK0___ change because trees absorb carbon ___BLANK1___ from the atmosphere. When forests are cleared, the stored ___BLANK2___ is released, accelerating the greenhouse ___BLANK3___.",
+      "correct_answers": ["climate", "dioxide", "carbon", "effect"],
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "fbt_003",
+      "type": "fill_blanks_type_in",
+      "section": "listening",
+      "audio_url": "/api/audio/fbt_003.mp3",
+      "transcript_with_blanks": "Behavioral economics studies how ___BLANK0___ factors influence people's financial decisions. Research has shown that individuals often make ___BLANK1___ choices due to cognitive biases such as loss ___BLANK2___ and the tendency to favor immediate ___BLANK3___ over long-term benefits.",
+      "correct_answers": ["psychological", "irrational", "aversion", "rewards"],
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "fbt_004",
+      "type": "fill_blanks_type_in",
+      "section": "listening",
+      "audio_url": "/api/audio/fbt_004.mp3",
+      "transcript_with_blanks": "Urban farming initiatives are helping to address food ___BLANK0___ in many cities by converting vacant lots and rooftops into productive ___BLANK1___. These projects not only provide fresh ___BLANK2___ to local residents but also strengthen community ___BLANK3___ and reduce transportation emissions.",
+      "correct_answers": ["insecurity", "gardens", "produce", "bonds"],
+      "time_limit_seconds": 120
+    }
+  ],
+  "highlight_correct_summary": [
+    {
+      "id": "hcs_001",
+      "type": "highlight_correct_summary",
+      "section": "listening",
+      "audio_url": "/api/audio/hcs_001.mp3",
+      "transcript": "Renewable energy sources have seen dramatic cost reductions over the past decade. Solar panel costs have dropped by nearly 90 percent, making solar energy competitive with fossil fuels in many markets. Wind energy has also become increasingly affordable. However, the intermittent nature of these sources remains a challenge, requiring investment in energy storage solutions such as batteries.",
+      "options": [
+        "Renewable energy is now cheaper than all fossil fuels worldwide, eliminating the need for energy storage.",
+        "Solar and wind energy costs have dropped significantly, but their intermittent nature requires energy storage solutions.",
+        "The cost of renewable energy has remained stable over the past decade despite government subsidies.",
+        "Battery technology has solved all the challenges associated with renewable energy intermittency."
+      ],
+      "correct_answer": 1,
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "hcs_002",
+      "type": "highlight_correct_summary",
+      "section": "listening",
+      "audio_url": "/api/audio/hcs_002.mp3",
+      "transcript": "Alexander Graham Bell is widely credited with inventing the telephone in 1876, though other inventors were working on similar devices at the same time. The telephone transformed business and personal communication, reducing the need for written correspondence and enabling real-time conversations across great distances. Within decades, telephone networks spanned entire continents.",
+      "options": [
+        "Bell was the only person working on telephone technology in the 1870s, which is why he received sole credit for the invention.",
+        "Bell is credited with inventing the telephone, which revolutionized communication by enabling real-time conversations over long distances.",
+        "The telephone replaced all forms of written communication immediately after its invention in the late nineteenth century.",
+        "Telephone networks took centuries to spread beyond local areas due to technological limitations."
+      ],
+      "correct_answer": 1,
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "hcs_003",
+      "type": "highlight_correct_summary",
+      "section": "listening",
+      "audio_url": "/api/audio/hcs_003.mp3",
+      "transcript": "Antibiotic resistance is emerging as one of the greatest threats to global public health. Bacteria evolve rapidly, and the overuse of antibiotics in both human medicine and agriculture has accelerated the development of drug-resistant strains known as superbugs. The World Health Organization warns that without urgent action, common infections could once again become life-threatening, as existing antibiotics lose their effectiveness. Developing new antibiotics is a slow and expensive process, and pharmaceutical companies have shown limited interest due to low profit margins.",
+      "options": [
+        "Antibiotic resistance is a minor concern that only affects developing countries with limited healthcare.",
+        "Overuse of antibiotics has accelerated resistant bacteria, and the slow development of new drugs makes this a growing global health threat.",
+        "Pharmaceutical companies are investing heavily in antibiotic research due to strong profit incentives.",
+        "The World Health Organization has declared that antibiotic resistance has been successfully contained."
+      ],
+      "correct_answer": 1,
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "hcs_004",
+      "type": "highlight_correct_summary",
+      "section": "listening",
+      "audio_url": "/api/audio/hcs_004.mp3",
+      "transcript": "Caffeine is the world's most widely consumed psychoactive substance, found in coffee, tea, chocolate, and many soft drinks. It works by blocking adenosine receptors in the brain, which normally promote drowsiness, thereby increasing alertness and concentration. Regular consumption leads to tolerance, meaning that over time, higher doses are needed to achieve the same effect. While moderate caffeine intake is generally considered safe, excessive consumption can cause anxiety, insomnia, and elevated heart rate.",
+      "options": [
+        "Caffeine works by activating adenosine receptors, which increases drowsiness and relaxation.",
+        "Caffeine blocks adenosine receptors to increase alertness, but regular use builds tolerance and excessive intake can cause health issues.",
+        "Caffeine consumption has no known side effects regardless of the amount consumed.",
+        "Caffeine is only found in coffee and has no psychoactive properties."
+      ],
+      "correct_answer": 1,
+      "time_limit_seconds": 120
+    }
+  ],
+  "mcq_single_listening": [
+    {
+      "id": "mcs_l_001",
+      "type": "mcq_single_listening",
+      "section": "listening",
+      "audio_url": "/api/audio/mcs_l_001.mp3",
+      "transcript": "The speaker discusses the importance of sleep for memory consolidation. During deep sleep, the brain replays experiences from the day, strengthening neural connections associated with important information while pruning unnecessary ones. This process is essential for converting short-term memories into long-term ones.",
+      "prompt": "What is the main topic of the lecture?",
+      "options": [
+        "The dangers of sleep deprivation on physical health.",
+        "How the brain processes and stores memories during sleep.",
+        "The different stages of sleep and their duration.",
+        "Why some people need more sleep than others."
+      ],
+      "correct_answer": 1,
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "mcs_l_002",
+      "type": "mcq_single_listening",
+      "section": "listening",
+      "audio_url": "/api/audio/mcs_l_002.mp3",
+      "transcript": "Wetlands serve as natural sponges, absorbing excess rainfall and slowly releasing it over time. This capacity makes them highly effective at reducing the severity of floods in downstream areas. Despite their ecological importance, wetlands have been drained extensively for agriculture and urban development, diminishing their ability to buffer against extreme weather events.",
+      "prompt": "What is the speaker's main point about wetlands?",
+      "options": [
+        "Wetlands are primarily valuable as sites for agricultural development.",
+        "Wetlands act as natural flood buffers, but their destruction has reduced this capacity.",
+        "Wetlands have no significant role in managing water flow.",
+        "Draining wetlands has improved flood management in urban areas."
+      ],
+      "correct_answer": 1,
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "mcs_l_003",
+      "type": "mcq_single_listening",
+      "section": "listening",
+      "audio_url": "/api/audio/mcs_l_003.mp3",
+      "transcript": "Earthquake prediction remains one of the most challenging problems in geoscience. While seismologists can identify regions at high risk based on tectonic plate boundaries and historical patterns, they cannot predict the exact timing, location, or magnitude of a specific earthquake. Some researchers have explored potential precursors such as changes in groundwater levels, unusual animal behavior, and small foreshocks, but none of these indicators has proven reliable enough for public warnings. Current efforts focus instead on early warning systems that detect the initial seismic waves and provide seconds to minutes of advance notice.",
+      "prompt": "What is the speaker's main point about earthquake prediction?",
+      "options": [
+        "Scientists can now accurately predict earthquakes days in advance.",
+        "Precise earthquake prediction is not yet possible, so efforts focus on early warning systems.",
+        "Animal behavior has been proven to be a reliable predictor of earthquakes.",
+        "Earthquake prediction is no longer a priority for geoscientists."
+      ],
+      "correct_answer": 1,
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "mcs_l_004",
+      "type": "mcq_single_listening",
+      "section": "listening",
+      "audio_url": "/api/audio/mcs_l_004.mp3",
+      "transcript": "Space debris, also known as orbital junk, poses an increasing threat to active satellites and space stations. There are currently over 27,000 pieces of trackable debris orbiting Earth, along with millions of smaller fragments too small to monitor. Each collision generates additional fragments in a cascading chain reaction that scientists call the Kessler syndrome, which could eventually render certain orbits unusable. Space agencies are now developing solutions including nets, harpoons, and laser systems designed to capture or deorbit defunct satellites and large debris.",
+      "prompt": "What is the primary concern regarding space debris according to the speaker?",
+      "options": [
+        "Space debris is decreasing thanks to international cleanup efforts.",
+        "Cascading collisions could make certain orbits unusable, threatening active spacecraft.",
+        "Space debris only affects low Earth orbit and poses no risk to satellites.",
+        "Current tracking systems can monitor all debris regardless of size."
+      ],
+      "correct_answer": 1,
+      "time_limit_seconds": 120
+    }
+  ],
+  "select_missing_word": [
+    {
+      "id": "smw_001",
+      "type": "select_missing_word",
+      "section": "listening",
+      "audio_url": "/api/audio/smw_001.mp3",
+      "transcript": "The professor explained that while many factors contribute to economic growth, the most significant driver in modern economies is technological...",
+      "options": ["innovation", "regulation", "conservation", "depreciation"],
+      "correct_answer": 0,
+      "time_limit_seconds": 60
+    },
+    {
+      "id": "smw_002",
+      "type": "select_missing_word",
+      "section": "listening",
+      "audio_url": "/api/audio/smw_002.mp3",
+      "transcript": "Studies have consistently demonstrated that students who get adequate sleep before an exam perform significantly better than those who stay up all night studying. This is because sleep plays an essential role in memory...",
+      "options": ["consolidation", "deterioration", "elimination", "fragmentation"],
+      "correct_answer": 0,
+      "time_limit_seconds": 60
+    },
+    {
+      "id": "smw_003",
+      "type": "select_missing_word",
+      "section": "listening",
+      "audio_url": "/api/audio/smw_003.mp3",
+      "transcript": "Researchers are increasingly recognizing that indigenous communities possess valuable ecological knowledge accumulated over thousands of years, which can complement scientific approaches to environmental...",
+      "options": ["management", "destruction", "exploitation", "reduction"],
+      "correct_answer": 0,
+      "time_limit_seconds": 60
+    },
+    {
+      "id": "smw_004",
+      "type": "select_missing_word",
+      "section": "listening",
+      "audio_url": "/api/audio/smw_004.mp3",
+      "transcript": "The fashion industry is the second largest polluter globally after oil, and the rise of fast fashion has dramatically increased textile waste in...",
+      "options": ["landfills", "factories", "warehouses", "boutiques"],
+      "correct_answer": 0,
+      "time_limit_seconds": 60
+    }
+  ],
+  "highlight_incorrect_words": [
+    {
+      "id": "hiw_001",
+      "type": "highlight_incorrect_words",
+      "section": "listening",
+      "audio_url": "/api/audio/hiw_001.mp3",
+      "transcript": "The government announced new measures to protect endangered species in national parks. The plan includes increased funding for conservation programs and stricter penalties for illegal hunting activities.",
+      "incorrect_indices": [3, 8, 14],
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "hiw_002",
+      "type": "highlight_incorrect_words",
+      "section": "listening",
+      "audio_url": "/api/audio/hiw_002.mp3",
+      "transcript": "Research indicates that bilingual individuals often demonstrate greater cognitive flexibility and improved problem-solving abilities compared to monolingual speakers.",
+      "incorrect_indices": [2, 7, 12],
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "hiw_003",
+      "type": "highlight_incorrect_words",
+      "section": "listening",
+      "audio_url": "/api/audio/hiw_003.mp3",
+      "transcript": "Autonomous vehicles rely on advanced sensor technology including cameras and radar to navigate roads safely without human intervention.",
+      "incorrect_indices": [1, 6, 11],
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "hiw_004",
+      "type": "highlight_incorrect_words",
+      "section": "listening",
+      "audio_url": "/api/audio/hiw_004.mp3",
+      "transcript": "Quantum mechanics describes the behavior of particles at the subatomic level where classical physics fails to provide accurate predictions.",
+      "incorrect_indices": [2, 8, 13],
+      "time_limit_seconds": 120
+    }
+  ],
+  "write_from_dictation": [
+    {
+      "id": "wfd_001",
+      "type": "write_from_dictation",
+      "section": "listening",
+      "audio_url": "/api/audio/wfd_001.mp3",
+      "correct_text": "The assignment must be submitted by the end of this week.",
+      "time_limit_seconds": 60
+    },
+    {
+      "id": "wfd_002",
+      "type": "write_from_dictation",
+      "section": "listening",
+      "audio_url": "/api/audio/wfd_002.mp3",
+      "correct_text": "Students are expected to attend all scheduled laboratory sessions.",
+      "time_limit_seconds": 60
+    },
+    {
+      "id": "wfd_003",
+      "type": "write_from_dictation",
+      "section": "listening",
+      "audio_url": "/api/audio/wfd_003.mp3",
+      "correct_text": "The library has an extensive collection of academic journals and research papers.",
+      "time_limit_seconds": 60
+    },
+    {
+      "id": "wfd_004",
+      "type": "write_from_dictation",
+      "section": "listening",
+      "audio_url": "/api/audio/wfd_004.mp3",
+      "correct_text": "Climate change is having a profound impact on global agricultural productivity.",
+      "time_limit_seconds": 60
+    },
+    {
+      "id": "wfd_005",
+      "type": "write_from_dictation",
+      "section": "listening",
+      "audio_url": "/api/audio/wfd_005.mp3",
+      "correct_text": "Desalination technology has become increasingly important for providing fresh water in arid regions.",
+      "time_limit_seconds": 60
+    },
+    {
+      "id": "wfd_006",
+      "type": "write_from_dictation",
+      "section": "listening",
+      "audio_url": "/api/audio/wfd_006.mp3",
+      "correct_text": "Scientists are developing new methods to capture and store carbon dioxide from industrial emissions.",
+      "time_limit_seconds": 60
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "grammar_error_correction": [
+    {
+      "id": "gec_001",
+      "type": "grammar_error_correction",
+      "section": "grammar",
+      "sentence": "Jenny has some long hair.",
+      "underlined_word": "some",
+      "options": ["much", "many", "very"],
+      "correct_answer": 2,
+      "time_limit_seconds": 60
+    },
+    {
+      "id": "gec_002",
+      "type": "grammar_error_correction",
+      "section": "grammar",
+      "sentence": "She don't like going to the gym.",
+      "underlined_word": "don't",
+      "options": ["doesn't", "didn't", "won't"],
+      "correct_answer": 0,
+      "time_limit_seconds": 60
+    },
+    {
+      "id": "gec_003",
+      "type": "grammar_error_correction",
+      "section": "grammar",
+      "sentence": "They have been to Paris last year.",
+      "underlined_word": "have been",
+      "options": ["went", "had gone", "are going"],
+      "correct_answer": 0,
+      "time_limit_seconds": 60
+    },
+    {
+      "id": "gec_004",
+      "type": "grammar_error_correction",
+      "section": "grammar",
+      "sentence": "The children was playing in the garden.",
+      "underlined_word": "was",
+      "options": ["were", "is", "has been"],
+      "correct_answer": 0,
+      "time_limit_seconds": 60
+    },
+    {
+      "id": "gec_005",
+      "type": "grammar_error_correction",
+      "section": "grammar",
+      "sentence": "He can to swim very fast.",
+      "underlined_word": "to swim",
+      "options": ["swim", "swimming", "swam"],
+      "correct_answer": 0,
+      "time_limit_seconds": 60
+    }
+  ],
+  "grammar_select_blanks": [
+    {
+      "id": "gsb_001",
+      "type": "grammar_select_blanks",
+      "section": "grammar",
+      "items": [
+        {"text_before": "After the traffic lights, ", "text_after": " left.", "options": ["turn", "turning", "turned", "turns"], "answer": "turn"},
+        {"text_before": "Jack had no ", "text_after": " in his car so he walked home.", "options": ["petrol", "wheel", "seat", "mirror"], "answer": "petrol"},
+        {"text_before": "George learned to ", "text_after": " a bike when he was seven.", "options": ["ride", "drive", "fly", "sail"], "answer": "ride"}
+      ],
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gsb_002",
+      "type": "grammar_select_blanks",
+      "section": "grammar",
+      "items": [
+        {"text_before": "If I ", "text_after": " earlier, I would have caught the train.", "options": ["had left", "have left", "will leave", "leaving"], "answer": "had left"},
+        {"text_before": "She ", "text_after": " studying English for three years.", "options": ["has been", "is", "was", "had"], "answer": "has been"},
+        {"text_before": "The book ", "text_after": " by a famous author last year.", "options": ["was written", "wrote", "has written", "is writing"], "answer": "was written"}
+      ],
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gsb_003",
+      "type": "grammar_select_blanks",
+      "section": "grammar",
+      "items": [
+        {"text_before": "We ", "text_after": " go to the beach if the weather is nice.", "options": ["will", "would", "did", "were"], "answer": "will"},
+        {"text_before": "He asked me ", "text_after": " I wanted to join them for dinner.", "options": ["whether", "that", "what", "which"], "answer": "whether"},
+        {"text_before": "The meeting was postponed ", "text_after": " the director was ill.", "options": ["because", "although", "despite", "unless"], "answer": "because"}
+      ],
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gsb_004",
+      "type": "grammar_select_blanks",
+      "section": "grammar",
+      "items": [
+        {"text_before": "You should ", "text_after": " the doctor if you feel worse.", "options": ["see", "seeing", "to see", "saw"], "answer": "see"},
+        {"text_before": "Neither Tom ", "text_after": " his brother likes football.", "options": ["nor", "or", "and", "but"], "answer": "nor"},
+        {"text_before": "This is the restaurant ", "text_after": " we had dinner last week.", "options": ["where", "which", "what", "who"], "answer": "where"}
+      ],
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gsb_005",
+      "type": "grammar_select_blanks",
+      "section": "grammar",
+      "items": [
+        {"text_before": "I wish I ", "text_after": " more time to finish the project.", "options": ["had", "have", "will have", "having"], "answer": "had"},
+        {"text_before": "By next month, she ", "text_after": " here for ten years.", "options": ["will have worked", "works", "worked", "is working"], "answer": "will have worked"}
+      ],
+      "time_limit_seconds": 120
+    }
+  ],
+  "grammar_drag_dialogue": [
+    {
+      "id": "gdd_001",
+      "type": "grammar_drag_dialogue",
+      "section": "grammar",
+      "word_bank": ["menu", "price", "time", "begin", "tomato", "drink", "salad", "order"],
+      "lines": [
+        {"speaker": "Waiter", "parts": [{"text": "Are you ready to "}, {"blank": true}, {"text": "?"}], "answer": "order"},
+        {"speaker": "Customer", "parts": [{"text": "Yes, I'll have the "}, {"blank": true}, {"text": " soup, thanks."}], "answer": "tomato"},
+        {"speaker": "Waiter", "parts": [{"text": "What would you like to "}, {"blank": true}, {"text": "?"}], "answer": "drink"},
+        {"speaker": "Customer", "parts": [{"text": "Just water please."}]},
+        {"speaker": "Waiter", "parts": [{"text": "Anything else?"}]},
+        {"speaker": "Customer", "parts": [{"text": "Actually I've changed my mind, I'll have a chicken "}, {"blank": true}, {"text": " instead of the soup."}], "answer": "salad"},
+        {"speaker": "Waiter", "parts": [{"text": "Sure."}]},
+        {"speaker": "Customer", "parts": [{"text": "That's the same "}, {"blank": true}, {"text": " as the soup, isn't it?"}], "answer": "price"},
+        {"speaker": "Waiter", "parts": [{"text": "Yes, that's $11."}]}
+      ],
+      "correct_answers": ["order", "tomato", "drink", "salad", "price"],
+      "time_limit_seconds": 180
+    },
+    {
+      "id": "gdd_002",
+      "type": "grammar_drag_dialogue",
+      "section": "grammar",
+      "word_bank": ["reservation", "table", "window", "menu", "special", "dessert", "bill", "tip"],
+      "lines": [
+        {"speaker": "Host", "parts": [{"text": "Good evening. Do you have a "}, {"blank": true}, {"text": "?"}], "answer": "reservation"},
+        {"speaker": "Guest", "parts": [{"text": "Yes, under the name Smith. Could we have a "}, {"blank": true}, {"text": " by the "}, {"blank": true}, {"text": "?"}], "answer": "table"},
+        {"speaker": "Host", "parts": [{"text": "Of course. Here is your "}, {"blank": true}, {"text": "."}], "answer": "menu"},
+        {"speaker": "Waiter", "parts": [{"text": "Today's "}, {"blank": true}, {"text": " is grilled salmon."}], "answer": "special"},
+        {"speaker": "Guest", "parts": [{"text": "Sounds great. And could we see the "}, {"blank": true}, {"text": " menu afterwards?"}], "answer": "dessert"},
+        {"speaker": "Waiter", "parts": [{"text": "Of course. I'll bring the "}, {"blank": true}, {"text": " when you're ready."}], "answer": "bill"}
+      ],
+      "correct_answers": ["reservation", "table", "window", "menu", "special", "dessert", "bill"],
+      "time_limit_seconds": 180
+    },
+    {
+      "id": "gdd_003",
+      "type": "grammar_drag_dialogue",
+      "section": "grammar",
+      "word_bank": ["appointment", "symptoms", "prescription", "temperature", "rest", "pharmacy", "dose", "allergies"],
+      "lines": [
+        {"speaker": "Receptionist", "parts": [{"text": "Do you have an "}, {"blank": true}, {"text": "?"}], "answer": "appointment"},
+        {"speaker": "Patient", "parts": [{"text": "Yes, at 10 o'clock."}]},
+        {"speaker": "Doctor", "parts": [{"text": "What "}, {"blank": true}, {"text": " are you experiencing?"}], "answer": "symptoms"},
+        {"speaker": "Patient", "parts": [{"text": "I have a sore throat and a high "}, {"blank": true}, {"text": "."}], "answer": "temperature"},
+        {"speaker": "Doctor", "parts": [{"text": "Do you have any "}, {"blank": true}, {"text": "?"}], "answer": "allergies"},
+        {"speaker": "Patient", "parts": [{"text": "No, none."}]},
+        {"speaker": "Doctor", "parts": [{"text": "I'll write you a "}, {"blank": true}, {"text": ". Take one "}, {"blank": true}, {"text": " twice a day and get plenty of "}, {"blank": true}, {"text": "."}], "answer": "prescription"}
+      ],
+      "correct_answers": ["appointment", "symptoms", "temperature", "allergies", "prescription", "dose", "rest"],
+      "time_limit_seconds": 180
+    },
+    {
+      "id": "gdd_004",
+      "type": "grammar_drag_dialogue",
+      "section": "grammar",
+      "word_bank": ["platform", "single", "return", "delayed", "connection", "luggage", "ticket", "departure"],
+      "lines": [
+        {"speaker": "Passenger", "parts": [{"text": "I'd like a "}, {"blank": true}, {"text": " to London, please."}], "answer": "return"},
+        {"speaker": "Clerk", "parts": [{"text": "Would you like a "}, {"blank": true}, {"text": " or return?"}], "answer": "single"},
+        {"speaker": "Passenger", "parts": [{"text": "Return please. Which "}, {"blank": true}, {"text": " does it leave from?"}], "answer": "platform"},
+        {"speaker": "Clerk", "parts": [{"text": "Platform 3. But I should mention the 10:15 is "}, {"blank": true}, {"text": " by 20 minutes."}], "answer": "delayed"},
+        {"speaker": "Passenger", "parts": [{"text": "Will I still make my "}, {"blank": true}, {"text": " at Birmingham?"}], "answer": "connection"}
+      ],
+      "correct_answers": ["return", "single", "platform", "delayed", "connection"],
+      "time_limit_seconds": 180
+    },
+    {
+      "id": "gdd_005",
+      "type": "grammar_drag_dialogue",
+      "section": "grammar",
+      "word_bank": ["check", "available", "nights", "breakfast", "view", "rate", "reception", "checkout"],
+      "lines": [
+        {"speaker": "Guest", "parts": [{"text": "I'd like to "}, {"blank": true}, {"text": " in, please."}], "answer": "check"},
+        {"speaker": "Receptionist", "parts": [{"text": "How many "}, {"blank": true}, {"text": " will you be staying?"}], "answer": "nights"},
+        {"speaker": "Guest", "parts": [{"text": "Three. Is a room with a sea "}, {"blank": true}, {"text": " "}, {"blank": true}, {"text": "?"}], "answer": "view"},
+        {"speaker": "Receptionist", "parts": [{"text": "Yes, the "}, {"blank": true}, {"text": " is $150 per night including "}, {"blank": true}, {"text": "."}], "answer": "rate"},
+        {"speaker": "Guest", "parts": [{"text": "What time is "}, {"blank": true}, {"text": "?"}], "answer": "checkout"}
+      ],
+      "correct_answers": ["check", "nights", "view", "available", "rate", "breakfast", "checkout"],
+      "time_limit_seconds": 180
+    }
+  ]
+}
