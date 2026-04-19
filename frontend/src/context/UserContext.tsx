@@ -1,11 +1,12 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 
-export type UserId = 'nicole' | 'asly';
+export type UserId = 'nicole' | 'asly' | 'ch';
 
 export const USER_LABELS: Record<UserId, string> = {
   nicole: 'Nicole <3',
   asly: 'Asly',
+  ch: 'Ch',
 };
 
 const STORAGE_KEY = 'pte_current_user';
@@ -20,7 +21,7 @@ const UserContext = createContext<UserContextValue | undefined>(undefined);
 export function UserProvider({ children }: { children: ReactNode }) {
   const [currentUser, setCurrentUserState] = useState<UserId | null>(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
-    return stored === 'nicole' || stored === 'asly' ? stored : null;
+    return stored === 'nicole' || stored === 'asly' || stored === 'ch' ? stored : null;
   });
 
   useEffect(() => {
@@ -43,5 +44,5 @@ export function useUser() {
 
 export function getStoredUserId(): UserId {
   const stored = localStorage.getItem(STORAGE_KEY);
-  return stored === 'asly' ? 'asly' : 'nicole';
+  return stored === 'asly' ? 'asly' : stored === 'ch' ? 'ch' : 'nicole';
 }
