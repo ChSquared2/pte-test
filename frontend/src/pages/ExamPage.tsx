@@ -317,7 +317,7 @@ function ExamQuestionRenderer({ question, onAnswer, onSkip }: {
       case 'vocabulary_word_order':
         return <ExamWordOrder question={question as any} onAnswer={setAnswer} />;
       default:
-        return <p className="text-gray-500">Unsupported type: {question.type}</p>;
+        return <p className="text-gray-500">Unsupported type: {(question as any).type}</p>;
     }
   };
 

@@ -16,7 +16,7 @@ export default function ScoreDisplay({ result, onNext, onBack }: ScoreDisplayPro
   const color = percentage >= 70 ? 'text-green-600' : percentage >= 40 ? 'text-yellow-600' : 'text-red-600';
   const bgColor = percentage >= 70 ? 'bg-green-50' : percentage >= 40 ? 'bg-yellow-50' : 'bg-red-50';
 
-  const wordResults = result.score_details.word_results as WordResult[] | undefined;
+  const wordResults = result.score_details.word_results as unknown as WordResult[] | undefined;
   const wordsCorrect = result.score_details.words_correct as number | undefined;
   const wordsExpected = result.score_details.words_expected as number | undefined;
   const isSpeakingStrict = wordResults && wordResults.length > 0;
