@@ -57,7 +57,7 @@ export default function SelectMissingWord({ question, onNext }: Props) {
   return (
     <QuestionLayout
       title="Select Missing Word"
-      instruction="Listen to the audio. The last word or group of words is replaced by a beep. Select the option that best completes the recording."
+      instruction="Listen to the audio carefully. One of the alternatives below is the last word or phrase missing from the final part of the audio. Select the option that best completes the recording."
       timeLimit={isReview ? undefined : question.time_limit_seconds}
       onTimeExpire={handleSubmit}
     >
