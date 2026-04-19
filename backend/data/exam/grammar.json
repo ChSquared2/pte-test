@@ -6,8 +6,12 @@
       "section": "grammar",
       "sentence": "The students has completed their assignments on time.",
       "underlined_word": "has",
-      "options": ["have", "had", "having"],
-      "correct_answer": 0,
+      "options": [
+        "had",
+        "have",
+        "having"
+      ],
+      "correct_answer": 1,
       "time_limit_seconds": 60
     },
     {
@@ -16,7 +20,11 @@
       "section": "grammar",
       "sentence": "We should of left earlier to avoid the traffic.",
       "underlined_word": "of",
-      "options": ["have", "has", "had"],
+      "options": [
+        "have",
+        "has",
+        "had"
+      ],
       "correct_answer": 0,
       "time_limit_seconds": 60
     }
@@ -27,9 +35,39 @@
       "type": "grammar_select_blanks",
       "section": "grammar",
       "items": [
-        {"text_before": "The report must ", "text_after": " by Friday at the latest.", "options": ["be submitted", "submit", "submitting", "submitted"], "answer": "be submitted"},
-        {"text_before": "She speaks French as ", "text_after": " she were a native speaker.", "options": ["if", "like", "when", "so"], "answer": "if"},
-        {"text_before": "Not until the sun set ", "text_after": " they realize how late it was.", "options": ["did", "do", "were", "had"], "answer": "did"}
+        {
+          "text_before": "The report must ",
+          "text_after": " by Friday at the latest.",
+          "options": [
+            "be submitted",
+            "submit",
+            "submitting",
+            "submitted"
+          ],
+          "answer": "be submitted"
+        },
+        {
+          "text_before": "She speaks French as ",
+          "text_after": " she were a native speaker.",
+          "options": [
+            "if",
+            "like",
+            "when",
+            "so"
+          ],
+          "answer": "if"
+        },
+        {
+          "text_before": "Not until the sun set ",
+          "text_after": " they realize how late it was.",
+          "options": [
+            "did",
+            "do",
+            "were",
+            "had"
+          ],
+          "answer": "did"
+        }
       ],
       "time_limit_seconds": 120
     },
@@ -38,9 +76,39 @@
       "type": "grammar_select_blanks",
       "section": "grammar",
       "items": [
-        {"text_before": "The more you practice, the ", "text_after": " you will become.", "options": ["better", "best", "good", "well"], "answer": "better"},
-        {"text_before": "Had I known about the delay, I ", "text_after": " taken a different route.", "options": ["would have", "will have", "should", "could"], "answer": "would have"},
-        {"text_before": "The factory, ", "text_after": " was built in 1920, is now a museum.", "options": ["which", "that", "what", "where"], "answer": "which"}
+        {
+          "text_before": "The more you practice, the ",
+          "text_after": " you will become.",
+          "options": [
+            "better",
+            "best",
+            "good",
+            "well"
+          ],
+          "answer": "better"
+        },
+        {
+          "text_before": "Had I known about the delay, I ",
+          "text_after": " taken a different route.",
+          "options": [
+            "would have",
+            "will have",
+            "should",
+            "could"
+          ],
+          "answer": "would have"
+        },
+        {
+          "text_before": "The factory, ",
+          "text_after": " was built in 1920, is now a museum.",
+          "options": [
+            "which",
+            "that",
+            "what",
+            "where"
+          ],
+          "answer": "which"
+        }
       ],
       "time_limit_seconds": 120
     }
@@ -50,15 +118,100 @@
       "id": "exam_gdd_001",
       "type": "grammar_drag_dialogue",
       "section": "grammar",
-      "word_bank": ["interview", "position", "experience", "salary", "references", "qualifications", "start", "benefits"],
-      "lines": [
-        {"speaker": "Interviewer", "parts": [{"text": "Thank you for coming to this "}, {"blank": true}, {"text": "."}], "answer": "interview"},
-        {"speaker": "Candidate", "parts": [{"text": "Thank you. I'm very interested in the "}, {"blank": true}, {"text": "."}], "answer": "position"},
-        {"speaker": "Interviewer", "parts": [{"text": "Can you tell me about your previous "}, {"blank": true}, {"text": "?"}], "answer": "experience"},
-        {"speaker": "Candidate", "parts": [{"text": "I worked as a project manager for five years. Here are my "}, {"blank": true}, {"text": "."}], "answer": "references"},
-        {"speaker": "Interviewer", "parts": [{"text": "When would you be able to "}, {"blank": true}, {"text": "?"}], "answer": "start"}
+      "word_bank": [
+        "interview",
+        "position",
+        "experience",
+        "salary",
+        "references",
+        "qualifications",
+        "start",
+        "benefits"
       ],
-      "correct_answers": ["interview", "position", "experience", "references", "start"],
+      "lines": [
+        {
+          "speaker": "Interviewer",
+          "parts": [
+            {
+              "text": "Thank you for coming to this "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": "."
+            }
+          ],
+          "answer": "interview"
+        },
+        {
+          "speaker": "Candidate",
+          "parts": [
+            {
+              "text": "Thank you. I'm very interested in the "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": "."
+            }
+          ],
+          "answer": "position"
+        },
+        {
+          "speaker": "Interviewer",
+          "parts": [
+            {
+              "text": "Can you tell me about your previous "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": "?"
+            }
+          ],
+          "answer": "experience"
+        },
+        {
+          "speaker": "Candidate",
+          "parts": [
+            {
+              "text": "I worked as a project manager for five years. Here are my "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": "."
+            }
+          ],
+          "answer": "references"
+        },
+        {
+          "speaker": "Interviewer",
+          "parts": [
+            {
+              "text": "When would you be able to "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": "?"
+            }
+          ],
+          "answer": "start"
+        }
+      ],
+      "correct_answers": [
+        "interview",
+        "position",
+        "experience",
+        "references",
+        "start"
+      ],
       "time_limit_seconds": 180
     }
   ]

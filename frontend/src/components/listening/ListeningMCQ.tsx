@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import type { SubmitAnswerResponse } from '../../types';
 import { submitAnswer } from '../../services/api';
 import QuestionLayout from '../common/QuestionLayout';
 import ScoreDisplay from '../common/ScoreDisplay';
 import AudioPlayer from '../common/AudioPlayer';
+import { seededShuffle } from '../../utils/shuffle';
 
 interface Props {
   question: any;
@@ -12,16 +13,24 @@ interface Props {
 }
 
 export default function ListeningMCQ({ question, onNext, multiple = false }: Props) {
-  const [selectedSingle, setSelectedSingle] = useState<number | null>(null);
-  const [selectedMulti, setSelectedMulti] = useState<Set<number>>(new Set());
+  // Shuffle options: shuffledIndices[displayPos] = originalIndex
+  const shuffledIndices = useMemo(
+    () => seededShuffle(question.options.map((_: any, i: number) => i), question.id),
+    [question.id]
+  );
+
+  const [selectedSingle, setSelectedSingle] = useState<number | null>(null); // display index
+  const [selectedMulti, setSelectedMulti] = useState<Set<number>>(new Set()); // display indices
   const [result, setResult] = useState<SubmitAnswerResponse | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [showingScore, setShowingScore] = useState(true);
 
-  const toggleMulti = (idx: number) => {
+  const toOriginal = (displayIdx: number) => shuffledIndices[displayIdx];
+
+  const toggleMulti = (displayIdx: number) => {
     setSelectedMulti((prev) => {
       const next = new Set(prev);
-      if (next.has(idx)) next.delete(idx); else next.add(idx);
+      if (next.has(displayIdx)) next.delete(displayIdx); else next.add(displayIdx);
       return next;
     });
   };
@@ -29,7 +38,9 @@ export default function ListeningMCQ({ question, onNext, multiple = false }: Pro
   const handleSubmit = async () => {
     setSubmitting(true);
     try {
-      const userAnswer = multiple ? Array.from(selectedMulti) : selectedSingle;
+      const userAnswer = multiple
+        ? Array.from(selectedMulti).map(toOriginal)
+        : selectedSingle !== null ? toOriginal(selectedSingle) : null;
       const res = await submitAnswer({
         mode: 'practice',
         question_type: question.type,
@@ -59,24 +70,25 @@ export default function ListeningMCQ({ question, onNext, multiple = false }: Pro
   const disabled = multiple ? selectedMulti.size === 0 : selectedSingle === null;
 
   // Correct answer highlighting
-  const correctSingle = isReview && !multiple ? (result.correct_answers as number) : null;
-  const correctMultiSet = isReview && multiple ? new Set(result.correct_answers as number[]) : new Set<number>();
+  const correctSingleOrig = isReview && !multiple ? (result.correct_answers as number) : null;
+  const correctMultiOrigSet = isReview && multiple ? new Set(result.correct_answers as number[]) : new Set<number>();
 
-  const getOptionStyle = (idx: number) => {
+  const getOptionStyle = (displayIdx: number) => {
     if (isReview) {
+      const origIdx = toOriginal(displayIdx);
       if (multiple) {
-        const isCorrect = correctMultiSet.has(idx);
-        const isSelected = selectedMulti.has(idx);
+        const isCorrect = correctMultiOrigSet.has(origIdx);
+        const isSelected = selectedMulti.has(displayIdx);
         if (isCorrect) return 'border-green-500 bg-green-50';
         if (isSelected && !isCorrect) return 'border-red-500 bg-red-50';
         return 'border-gray-200';
       } else {
-        if (idx === correctSingle) return 'border-green-500 bg-green-50';
-        if (idx === selectedSingle) return 'border-red-500 bg-red-50';
+        if (origIdx === correctSingleOrig) return 'border-green-500 bg-green-50';
+        if (displayIdx === selectedSingle) return 'border-red-500 bg-red-50';
         return 'border-gray-200';
       }
     }
-    const isSelected = multiple ? selectedMulti.has(idx) : selectedSingle === idx;
+    const isSelected = multiple ? selectedMulti.has(displayIdx) : selectedSingle === displayIdx;
     return isSelected ? 'border-[#0072CE] bg-blue-50' : 'border-gray-200 hover:border-gray-300';
   };
 
@@ -92,23 +104,23 @@ export default function ListeningMCQ({ question, onNext, multiple = false }: Pro
       </div>
       {question.prompt && <p className="font-medium text-[#003057] mb-3">{question.prompt}</p>}
       <div className="space-y-2">
-        {question.options.map((opt: string, idx: number) => (
-          <label key={idx} className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${getOptionStyle(idx)}`}>
+        {shuffledIndices.map((origIdx: number, displayIdx: number) => (
+          <label key={origIdx} className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${getOptionStyle(displayIdx)}`}>
             {multiple
-              ? <input type="checkbox" checked={selectedMulti.has(idx)} onChange={() => !isReview && toggleMulti(idx)} disabled={isReview} className="mt-0.5" />
-              : <input type="radio" checked={selectedSingle === idx} onChange={() => !isReview && setSelectedSingle(idx)} disabled={isReview} className="mt-0.5" />
+              ? <input type="checkbox" checked={selectedMulti.has(displayIdx)} onChange={() => !isReview && toggleMulti(displayIdx)} disabled={isReview} className="mt-0.5" />
+              : <input type="radio" checked={selectedSingle === displayIdx} onChange={() => !isReview && setSelectedSingle(displayIdx)} disabled={isReview} className="mt-0.5" />
             }
-            <span className="text-sm flex-1">{opt}</span>
-            {isReview && !multiple && idx === correctSingle && (
+            <span className="text-sm flex-1">{question.options[origIdx]}</span>
+            {isReview && !multiple && toOriginal(displayIdx) === correctSingleOrig && (
               <span className="text-xs font-semibold text-green-600">Correct</span>
             )}
-            {isReview && !multiple && idx === selectedSingle && idx !== correctSingle && (
+            {isReview && !multiple && displayIdx === selectedSingle && toOriginal(displayIdx) !== correctSingleOrig && (
               <span className="text-xs font-semibold text-red-600">Your answer</span>
             )}
-            {isReview && multiple && correctMultiSet.has(idx) && (
+            {isReview && multiple && correctMultiOrigSet.has(origIdx) && (
               <span className="text-xs font-semibold text-green-600">Correct</span>
             )}
-            {isReview && multiple && selectedMulti.has(idx) && !correctMultiSet.has(idx) && (
+            {isReview && multiple && selectedMulti.has(displayIdx) && !correctMultiOrigSet.has(origIdx) && (
               <span className="text-xs font-semibold text-red-600">Incorrect</span>
             )}
           </label>

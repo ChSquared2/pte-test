@@ -7,10 +7,10 @@
       "prompt": "What is the main idea of the passage?",
       "passage": "The development of the printing press in the 15th century by Johannes Gutenberg revolutionized the way information was disseminated across Europe. Before this invention, books were painstakingly copied by hand, making them extremely expensive and accessible only to the wealthy and the clergy. The printing press made it possible to produce books quickly and cheaply, which in turn led to a dramatic increase in literacy rates. This democratization of knowledge is often cited as one of the key factors that led to the Renaissance and the Scientific Revolution.",
       "options": [
-        "Johannes Gutenberg was a wealthy inventor who lived in the 15th century.",
-        "The printing press transformed knowledge distribution and contributed to major intellectual movements.",
         "Books were expensive before the printing press was invented.",
-        "The Renaissance was caused solely by the invention of the printing press."
+        "The printing press transformed knowledge distribution and contributed to major intellectual movements.",
+        "The Renaissance was caused solely by the invention of the printing press.",
+        "Johannes Gutenberg was a wealthy inventor who lived in the 15th century."
       ],
       "correct_answer": 1,
       "time_limit_seconds": 120
@@ -22,12 +22,12 @@
       "prompt": "According to the passage, what is the primary challenge facing coral reefs?",
       "passage": "Coral reefs, often referred to as the rainforests of the sea, are among the most biodiverse ecosystems on the planet. They provide habitat for approximately 25% of all marine species, despite covering less than 1% of the ocean floor. However, coral reefs are under unprecedented threat from rising ocean temperatures caused by climate change. When water temperatures rise even slightly above normal, corals expel the symbiotic algae living in their tissues, causing them to turn white in a process known as coral bleaching. If the stress persists, the corals eventually die, leading to the collapse of the entire reef ecosystem.",
       "options": [
-        "Overfishing is destroying coral reef habitats worldwide.",
-        "Rising ocean temperatures from climate change are causing coral bleaching and death.",
+        "Symbiotic algae are parasites that harm coral reefs.",
         "Coral reefs cover too small an area to sustain marine biodiversity.",
-        "Symbiotic algae are parasites that harm coral reefs."
+        "Overfishing is destroying coral reef habitats worldwide.",
+        "Rising ocean temperatures from climate change are causing coral bleaching and death."
       ],
-      "correct_answer": 1,
+      "correct_answer": 3,
       "time_limit_seconds": 120
     },
     {
@@ -37,12 +37,12 @@
       "prompt": "What does the author imply about artificial intelligence?",
       "passage": "Artificial intelligence has made remarkable strides in recent years, from defeating world champions in complex board games to generating human-like text and images. Yet despite these impressive achievements, current AI systems remain fundamentally limited. They excel at pattern recognition and data processing but lack genuine understanding or consciousness. A language model can produce eloquent prose without comprehending a single word it generates. This distinction between performing intelligence and possessing intelligence is crucial as society grapples with how to integrate these powerful tools into everyday life.",
       "options": [
-        "AI systems are becoming conscious and will soon surpass human intelligence.",
         "Current AI is impressive in performance but lacks true understanding.",
+        "Language models understand the text they generate at a deep level.",
         "AI should not be integrated into everyday life due to its limitations.",
-        "Language models understand the text they generate at a deep level."
+        "AI systems are becoming conscious and will soon surpass human intelligence."
       ],
-      "correct_answer": 1,
+      "correct_answer": 0,
       "time_limit_seconds": 120
     },
     {
@@ -52,12 +52,12 @@
       "prompt": "What is the author's main argument about space exploration?",
       "passage": "Investment in space exploration has long been criticized as an extravagant use of public funds, yet the economic returns tell a different story. Technologies originally developed for space missions have found widespread commercial applications on Earth. Water purification systems designed for astronauts now provide clean drinking water in developing nations. Memory foam, initially created for spacecraft cushioning, has become a billion-dollar industry in consumer products. Satellite communications, perhaps the most transformative spin-off, underpin global telecommunications, weather forecasting, and navigation systems. Economists estimate that every dollar invested in space programs generates between seven and fourteen dollars in economic activity through these secondary applications. The multiplier effect of space spending consistently exceeds that of many other categories of government investment, suggesting that the returns extend far beyond scientific discovery.",
       "options": [
-        "Space exploration is too expensive for governments to justify funding.",
         "Investment in space exploration generates significant economic returns through technology spin-offs.",
         "Space technology has primarily benefited the telecommunications industry alone.",
+        "Space exploration is too expensive for governments to justify funding.",
         "Private companies should replace government space agencies to reduce costs."
       ],
-      "correct_answer": 1,
+      "correct_answer": 0,
       "time_limit_seconds": 120
     },
     {
@@ -67,12 +67,12 @@
       "prompt": "What does the passage suggest is the primary advantage of quantum computing?",
       "passage": "Quantum computing represents a fundamentally different approach to processing information. While classical computers use bits that exist in one of two states—zero or one—quantum computers use quantum bits, or qubits, which can exist in multiple states simultaneously through a phenomenon known as superposition. This property, combined with quantum entanglement, allows quantum computers to explore vast numbers of possible solutions in parallel. Researchers believe that quantum computers could revolutionize fields such as drug discovery, cryptography, and materials science by solving problems that would take classical supercomputers millions of years to complete. However, quantum computers are extremely sensitive to environmental interference, a challenge known as decoherence, which currently limits the duration and reliability of quantum calculations.",
       "options": [
-        "Quantum computers are cheaper to manufacture than classical computers.",
         "Qubits can process multiple states simultaneously, enabling parallel problem-solving at unprecedented scale.",
         "Quantum computers have completely replaced classical supercomputers in research laboratories.",
-        "Decoherence makes quantum computers more reliable than traditional systems."
+        "Decoherence makes quantum computers more reliable than traditional systems.",
+        "Quantum computers are cheaper to manufacture than classical computers."
       ],
-      "correct_answer": 1,
+      "correct_answer": 0,
       "time_limit_seconds": 120
     },
     {
@@ -82,12 +82,12 @@
       "prompt": "According to the passage, why are microplastics considered particularly harmful?",
       "passage": "Microplastics—tiny plastic fragments smaller than five millimeters—have become one of the most pervasive pollutants in the world's oceans. Unlike larger debris, microplastics are nearly impossible to remove from marine environments once dispersed. They originate from the breakdown of larger plastic items, the shedding of synthetic textile fibers during laundry, and the abrasion of vehicle tires on roads. Marine organisms, from plankton to whales, ingest these particles, which can carry toxic chemicals such as pesticides and heavy metals adsorbed onto their surfaces. Studies have detected microplastics in seafood consumed by humans, in tap water, and even in the air we breathe, raising concerns about long-term effects on human health, including potential disruptions to the endocrine system and immune function.",
       "options": [
-        "They are easily visible and therefore avoidable by marine organisms.",
         "They are nearly impossible to remove and carry toxic chemicals into the food chain, ultimately reaching humans.",
+        "They dissolve quickly in salt water, releasing nutrients beneficial to marine life.",
         "They only affect deep-ocean species that have no contact with human activities.",
-        "They dissolve quickly in salt water, releasing nutrients beneficial to marine life."
+        "They are easily visible and therefore avoidable by marine organisms."
       ],
-      "correct_answer": 1,
+      "correct_answer": 0,
       "time_limit_seconds": 120
     }
   ],
@@ -99,13 +99,17 @@
       "prompt": "Which of the following statements are supported by the passage? Select all that apply.",
       "passage": "Urban green spaces, such as parks, gardens, and tree-lined streets, provide numerous benefits to city residents. Research has shown that access to green spaces reduces stress levels and improves mental health outcomes. Studies have found that people living near parks report lower rates of anxiety and depression compared to those in areas with little vegetation. Furthermore, urban trees help mitigate the heat island effect by providing shade and releasing moisture through transpiration. Green spaces also serve as natural water management systems, absorbing rainfall and reducing the risk of flooding. Additionally, they create habitats for urban wildlife, supporting biodiversity within cities.",
       "options": [
-        "Green spaces have measurable positive effects on mental health.",
-        "Urban trees can help lower temperatures in cities.",
         "Parks are the most expensive infrastructure investment for cities.",
+        "Urban trees can help lower temperatures in cities.",
+        "Green spaces have measurable positive effects on mental health.",
         "Green spaces can reduce flooding risks.",
         "Urban wildlife cannot survive without green spaces."
       ],
-      "correct_answers": [0, 1, 3],
+      "correct_answers": [
+        1,
+        2,
+        3
+      ],
       "time_limit_seconds": 120
     },
     {
@@ -115,13 +119,18 @@
       "prompt": "Based on the passage, which factors contributed to the decline of ancient Rome?",
       "passage": "The fall of the Roman Empire was not a sudden event but a gradual decline that occurred over several centuries. Historians have identified multiple contributing factors, including political instability marked by frequent changes in leadership, often through violent means. The empire's vast territorial extent made it increasingly difficult to govern and defend, particularly against the growing pressure from Germanic tribes along its borders. Economic troubles, including heavy taxation, inflation, and a reliance on slave labor that stifled technological innovation, further weakened the empire. The division of the empire into eastern and western halves in 285 AD, while intended to improve governance, ultimately led to a divergence in fortune, with the western half succumbing to invasion in 476 AD.",
       "options": [
-        "Political instability and frequent leadership changes.",
         "Difficulty in governing and defending vast territories.",
-        "A sudden natural disaster that destroyed Rome.",
         "Economic problems including taxation and inflation.",
+        "Political instability and frequent leadership changes.",
+        "A sudden natural disaster that destroyed Rome.",
         "The division of the empire into two halves."
       ],
-      "correct_answers": [0, 1, 3, 4],
+      "correct_answers": [
+        0,
+        1,
+        2,
+        4
+      ],
       "time_limit_seconds": 120
     },
     {
@@ -131,13 +140,18 @@
       "prompt": "Which of the following are identified as causes or consequences of insect decline? Select all that apply.",
       "passage": "Insect populations worldwide have declined by more than forty percent over the past three decades, a trend that scientists describe as an ecological catastrophe in the making. Intensive agriculture is a primary driver, as the conversion of diverse natural landscapes into monoculture croplands eliminates the habitats on which insects depend. Neonicotinoid pesticides, widely used in modern farming, have been shown to disorient bees, impair their ability to reproduce, and weaken their immune systems. Climate change compounds these pressures by altering the timing of seasonal events, causing mismatches between insect life cycles and the availability of food sources. Light pollution from urban areas disrupts the navigation and mating behavior of nocturnal insects such as moths and fireflies. The consequences of this decline extend far beyond the insect world: approximately seventy-five percent of flowering plants depend on insect pollination, and the loss of pollinators threatens global food security.",
       "options": [
+        "Climate change contributes to insect population loss.",
         "Intensive agriculture reduces insect habitats.",
         "Neonicotinoid pesticides harm insect populations.",
         "Insect decline has no measurable effect on food production.",
-        "Light pollution disrupts insect behavior.",
-        "Climate change contributes to insect population loss."
+        "Light pollution disrupts insect behavior."
       ],
-      "correct_answers": [0, 1, 3, 4],
+      "correct_answers": [
+        0,
+        1,
+        2,
+        4
+      ],
       "time_limit_seconds": 120
     },
     {
@@ -147,13 +161,18 @@
       "prompt": "Which of the following are supported by the passage about ancient Egyptian pyramid construction? Select all that apply.",
       "passage": "The construction of the Great Pyramid of Giza, completed around 2560 BCE, remains one of the most extraordinary engineering achievements in human history. The pyramid contains approximately 2.3 million limestone blocks, each weighing an average of 2.5 tons, yet was built with remarkable precision—the base is level to within just 2.1 centimeters across its 230-meter length. Recent archaeological evidence suggests that the workforce consisted not of slaves, as long believed, but of skilled laborers organized into competing teams. Workers' villages discovered near the site reveal that builders received medical care, ate well, and were buried with honor. Engineers likely used a combination of ramps, levers, and water lubrication to transport and position the massive stones, though the exact methods remain a subject of scholarly debate.",
       "options": [
-        "The pyramid's base demonstrates extraordinary precision in leveling.",
-        "Archaeological evidence suggests builders were skilled laborers, not slaves.",
-        "The exact construction methods have been definitively proven by modern scholars.",
+        "Water lubrication may have been used to move stone blocks.",
         "Workers received medical care and proper burials.",
-        "Water lubrication may have been used to move stone blocks."
+        "The pyramid's base demonstrates extraordinary precision in leveling.",
+        "The exact construction methods have been definitively proven by modern scholars.",
+        "Archaeological evidence suggests builders were skilled laborers, not slaves."
       ],
-      "correct_answers": [0, 1, 3, 4],
+      "correct_answers": [
+        0,
+        1,
+        2,
+        4
+      ],
       "time_limit_seconds": 120
     },
     {
@@ -163,13 +182,18 @@
       "prompt": "Based on the passage, which statements about circadian rhythms are correct? Select all that apply.",
       "passage": "Circadian rhythms are roughly 24-hour cycles that govern fundamental biological processes in nearly all living organisms. In humans, the master clock resides in the suprachiasmatic nucleus of the hypothalamus and is primarily synchronized by exposure to light. This clock regulates the release of melatonin, a hormone that promotes sleep, as well as body temperature, hormone secretion, and metabolic activity. Disruption of circadian rhythms—through shift work, jet lag, or excessive exposure to blue light from screens at night—has been linked to a range of health problems, including obesity, cardiovascular disease, depression, and impaired cognitive performance. Researchers have also discovered that individual organs possess their own peripheral clocks, which can fall out of sync with the master clock when meal timing or activity patterns are irregular.",
       "options": [
-        "The master circadian clock is located in the hypothalamus.",
-        "Circadian rhythms regulate melatonin release and body temperature.",
+        "Individual organs have their own peripheral clocks.",
         "Only humans possess circadian rhythms.",
-        "Blue light exposure at night can disrupt circadian rhythms.",
-        "Individual organs have their own peripheral clocks."
+        "Circadian rhythms regulate melatonin release and body temperature.",
+        "The master circadian clock is located in the hypothalamus.",
+        "Blue light exposure at night can disrupt circadian rhythms."
       ],
-      "correct_answers": [0, 1, 3, 4],
+      "correct_answers": [
+        0,
+        2,
+        3,
+        4
+      ],
       "time_limit_seconds": 120
     }
   ],
@@ -185,7 +209,13 @@
         "These energy carriers are then used in the Calvin cycle, which takes place in the stroma of the chloroplast, where carbon dioxide is fixed into glucose molecules.",
         "Without photosynthesis, life on Earth as we know it would be impossible, as it forms the base of nearly all food chains and is responsible for the oxygen in our atmosphere."
       ],
-      "correct_order": [1, 0, 2, 3, 4],
+      "correct_order": [
+        1,
+        0,
+        2,
+        3,
+        4
+      ],
       "time_limit_seconds": 120
     },
     {
@@ -199,7 +229,13 @@
         "Efforts to preserve endangered languages include documentation projects, community language programs, and the development of digital resources.",
         "The primary drivers of language loss include globalization, urbanization, and the dominance of a few major languages in education, media, and commerce."
       ],
-      "correct_order": [1, 0, 4, 2, 3],
+      "correct_order": [
+        1,
+        0,
+        4,
+        2,
+        3
+      ],
       "time_limit_seconds": 120
     },
     {
@@ -213,7 +249,13 @@
         "Perhaps most alarmingly, the sleep-deprived participants were largely unaware of their declining performance, believing they had adapted to less sleep.",
         "These findings have important implications for professions that require sustained attention, such as healthcare, aviation, and transportation."
       ],
-      "correct_order": [1, 2, 0, 3, 4],
+      "correct_order": [
+        1,
+        2,
+        0,
+        3,
+        4
+      ],
       "time_limit_seconds": 120
     },
     {
@@ -227,7 +269,13 @@
         "However, it was not until the seventeenth century that thinkers like Francis Bacon and Galileo Galilei formalized the process of empirical observation and experimentation.",
         "This emphasis on evidence-based inquiry led to an explosion of discoveries during the Scientific Revolution, fundamentally altering humanity's understanding of physics, astronomy, and biology."
       ],
-      "correct_order": [2, 3, 0, 4, 1],
+      "correct_order": [
+        2,
+        3,
+        0,
+        4,
+        1
+      ],
       "time_limit_seconds": 120
     },
     {
@@ -241,7 +289,13 @@
         "Bitcoin, the first cryptocurrency, was introduced in 2009 by an anonymous creator using the pseudonym Satoshi Nakamoto as an alternative to traditional banking systems.",
         "However, regulatory challenges remain significant, as governments worldwide struggle to establish frameworks that encourage innovation while preventing illicit activities such as money laundering."
       ],
-      "correct_order": [1, 3, 0, 2, 4],
+      "correct_order": [
+        1,
+        3,
+        0,
+        2,
+        4
+      ],
       "time_limit_seconds": 120
     },
     {
@@ -255,7 +309,13 @@
         "These journeys require enormous energy reserves, and many species nearly double their body weight before departure by accumulating fat through intensive feeding.",
         "Conservation organizations are responding by establishing networks of protected stopover sites where migratory birds can rest and refuel during their journeys."
       ],
-      "correct_order": [1, 0, 3, 2, 4],
+      "correct_order": [
+        1,
+        0,
+        3,
+        2,
+        4
+      ],
       "time_limit_seconds": 120
     }
   ],
@@ -266,10 +326,46 @@
       "section": "reading",
       "text": "The Amazon rainforest, often ___BLANK0___ as the 'lungs of the Earth,' plays a crucial role in regulating the global climate. It ___BLANK1___ approximately 20% of the world's oxygen and stores vast amounts of carbon dioxide. However, deforestation has ___BLANK2___ at an alarming rate in recent decades, threatening not only the biodiversity of the region but also the ___BLANK3___ of the entire planet.",
       "blanks": [
-        {"index": 0, "options": ["referred to", "known as", "described", "called"], "answer": "described"},
-        {"index": 1, "options": ["creates", "generates", "produces", "makes"], "answer": "produces"},
-        {"index": 2, "options": ["increased", "accelerated", "expanded", "grown"], "answer": "accelerated"},
-        {"index": 3, "options": ["stability", "balance", "condition", "status"], "answer": "stability"}
+        {
+          "index": 0,
+          "options": [
+            "referred to",
+            "known as",
+            "described",
+            "called"
+          ],
+          "answer": "described"
+        },
+        {
+          "index": 1,
+          "options": [
+            "creates",
+            "generates",
+            "produces",
+            "makes"
+          ],
+          "answer": "produces"
+        },
+        {
+          "index": 2,
+          "options": [
+            "increased",
+            "accelerated",
+            "expanded",
+            "grown"
+          ],
+          "answer": "accelerated"
+        },
+        {
+          "index": 3,
+          "options": [
+            "stability",
+            "balance",
+            "condition",
+            "status"
+          ],
+          "answer": "stability"
+        }
       ],
       "time_limit_seconds": 120
     },
@@ -279,9 +375,36 @@
       "section": "reading",
       "text": "The human brain is remarkably ___BLANK0___, meaning it can reorganize itself by forming new neural connections throughout life. This ability, known as neuroplasticity, is ___BLANK1___ important during early childhood development but continues into adulthood. Research has shown that learning new skills, such as playing a musical instrument or speaking a foreign language, can ___BLANK2___ strengthen neural pathways and even increase brain volume in certain regions.",
       "blanks": [
-        {"index": 0, "options": ["adaptable", "flexible", "versatile", "resilient"], "answer": "adaptable"},
-        {"index": 1, "options": ["specifically", "particularly", "especially", "exclusively"], "answer": "particularly"},
-        {"index": 2, "options": ["significantly", "considerably", "substantially", "dramatically"], "answer": "significantly"}
+        {
+          "index": 0,
+          "options": [
+            "adaptable",
+            "flexible",
+            "versatile",
+            "resilient"
+          ],
+          "answer": "adaptable"
+        },
+        {
+          "index": 1,
+          "options": [
+            "specifically",
+            "particularly",
+            "especially",
+            "exclusively"
+          ],
+          "answer": "particularly"
+        },
+        {
+          "index": 2,
+          "options": [
+            "significantly",
+            "considerably",
+            "substantially",
+            "dramatically"
+          ],
+          "answer": "significantly"
+        }
       ],
       "time_limit_seconds": 120
     },
@@ -291,10 +414,46 @@
       "section": "reading",
       "text": "Biodiversity, the variety of life forms within an ecosystem, is ___BLANK0___ for maintaining ecological balance. Diverse ecosystems tend to be more ___BLANK1___ to environmental disturbances such as droughts or disease outbreaks. The loss of even a single species can trigger a ___BLANK2___ reaction throughout the food web, ultimately affecting the ___BLANK3___ of ecosystem services upon which human societies depend.",
       "blanks": [
-        {"index": 0, "options": ["essential", "important", "necessary", "vital"], "answer": "essential"},
-        {"index": 1, "options": ["resistant", "resilient", "immune", "tolerant"], "answer": "resilient"},
-        {"index": 2, "options": ["chain", "cascade", "series", "sequence"], "answer": "cascade"},
-        {"index": 3, "options": ["provision", "delivery", "supply", "availability"], "answer": "provision"}
+        {
+          "index": 0,
+          "options": [
+            "essential",
+            "important",
+            "necessary",
+            "vital"
+          ],
+          "answer": "essential"
+        },
+        {
+          "index": 1,
+          "options": [
+            "resistant",
+            "resilient",
+            "immune",
+            "tolerant"
+          ],
+          "answer": "resilient"
+        },
+        {
+          "index": 2,
+          "options": [
+            "chain",
+            "cascade",
+            "series",
+            "sequence"
+          ],
+          "answer": "cascade"
+        },
+        {
+          "index": 3,
+          "options": [
+            "provision",
+            "delivery",
+            "supply",
+            "availability"
+          ],
+          "answer": "provision"
+        }
       ],
       "time_limit_seconds": 120
     },
@@ -304,10 +463,46 @@
       "section": "reading",
       "text": "Mathematics has ___BLANK0___ over thousands of years from simple counting systems used by ancient civilizations to the highly ___BLANK1___ discipline it is today. The ancient Greeks made ___BLANK2___ contributions to geometry and number theory, while scholars in the Islamic Golden Age developed algebra as a systematic method for solving equations. The invention of calculus in the seventeenth century by Newton and Leibniz ___BLANK3___ a new era in mathematical thinking.",
       "blanks": [
-        {"index": 0, "options": ["evolved", "changed", "shifted", "grown"], "answer": "evolved"},
-        {"index": 1, "options": ["abstract", "complex", "sophisticated", "elaborate"], "answer": "sophisticated"},
-        {"index": 2, "options": ["fundamental", "significant", "critical", "profound"], "answer": "fundamental"},
-        {"index": 3, "options": ["initiated", "launched", "ushered in", "introduced"], "answer": "ushered in"}
+        {
+          "index": 0,
+          "options": [
+            "evolved",
+            "changed",
+            "shifted",
+            "grown"
+          ],
+          "answer": "evolved"
+        },
+        {
+          "index": 1,
+          "options": [
+            "abstract",
+            "complex",
+            "sophisticated",
+            "elaborate"
+          ],
+          "answer": "sophisticated"
+        },
+        {
+          "index": 2,
+          "options": [
+            "fundamental",
+            "significant",
+            "critical",
+            "profound"
+          ],
+          "answer": "fundamental"
+        },
+        {
+          "index": 3,
+          "options": [
+            "initiated",
+            "launched",
+            "ushered in",
+            "introduced"
+          ],
+          "answer": "ushered in"
+        }
       ],
       "time_limit_seconds": 120
     },
@@ -317,10 +512,46 @@
       "section": "reading",
       "text": "The fast fashion industry has come under increasing ___BLANK0___ for its environmental impact. The production of cheap, disposable clothing generates enormous amounts of textile ___BLANK1___, with an estimated 92 million tons ending up in landfills each year. Sustainable fashion advocates argue that consumers should ___BLANK2___ quality over quantity and support brands that use ethically sourced materials. Some companies are now ___BLANK3___ circular business models, in which garments are designed to be recycled or repurposed at the end of their life cycle.",
       "blanks": [
-        {"index": 0, "options": ["scrutiny", "criticism", "attention", "pressure"], "answer": "scrutiny"},
-        {"index": 1, "options": ["waste", "debris", "residue", "refuse"], "answer": "waste"},
-        {"index": 2, "options": ["prioritize", "prefer", "favor", "choose"], "answer": "prioritize"},
-        {"index": 3, "options": ["adopting", "implementing", "embracing", "pursuing"], "answer": "adopting"}
+        {
+          "index": 0,
+          "options": [
+            "scrutiny",
+            "criticism",
+            "attention",
+            "pressure"
+          ],
+          "answer": "scrutiny"
+        },
+        {
+          "index": 1,
+          "options": [
+            "waste",
+            "debris",
+            "residue",
+            "refuse"
+          ],
+          "answer": "waste"
+        },
+        {
+          "index": 2,
+          "options": [
+            "prioritize",
+            "prefer",
+            "favor",
+            "choose"
+          ],
+          "answer": "prioritize"
+        },
+        {
+          "index": 3,
+          "options": [
+            "adopting",
+            "implementing",
+            "embracing",
+            "pursuing"
+          ],
+          "answer": "adopting"
+        }
       ],
       "time_limit_seconds": 120
     }
@@ -331,9 +562,26 @@
       "type": "fill_blanks_drag",
       "section": "reading",
       "text": "The Industrial Revolution, which began in Britain in the late 18th century, ___BLANK0___ the way goods were manufactured. Factories replaced ___BLANK1___ workshops, and steam-powered machines dramatically increased ___BLANK2___. This shift had profound social consequences, as millions of people ___BLANK3___ from rural areas to cities in search of employment.",
-      "blank_positions": [0, 1, 2, 3],
-      "options": ["transformed", "traditional", "productivity", "migrated", "economic", "industrial"],
-      "correct_answers": ["transformed", "traditional", "productivity", "migrated"],
+      "blank_positions": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "options": [
+        "transformed",
+        "traditional",
+        "productivity",
+        "migrated",
+        "economic",
+        "industrial"
+      ],
+      "correct_answers": [
+        "transformed",
+        "traditional",
+        "productivity",
+        "migrated"
+      ],
       "time_limit_seconds": 120
     },
     {
@@ -341,9 +589,26 @@
       "type": "fill_blanks_drag",
       "section": "reading",
       "text": "Ocean currents play a ___BLANK0___ role in regulating Earth's climate by distributing heat from the ___BLANK1___ to the poles. The Gulf Stream, for example, carries warm water from the Gulf of Mexico across the ___BLANK2___, keeping Western Europe significantly warmer than other regions at the same ___BLANK3___.",
-      "blank_positions": [0, 1, 2, 3],
-      "options": ["vital", "equator", "Atlantic", "latitude", "temperature", "critical"],
-      "correct_answers": ["vital", "equator", "Atlantic", "latitude"],
+      "blank_positions": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "options": [
+        "vital",
+        "equator",
+        "Atlantic",
+        "latitude",
+        "temperature",
+        "critical"
+      ],
+      "correct_answers": [
+        "vital",
+        "equator",
+        "Atlantic",
+        "latitude"
+      ],
       "time_limit_seconds": 120
     },
     {
@@ -351,9 +616,26 @@
       "type": "fill_blanks_drag",
       "section": "reading",
       "text": "Vaccination is widely ___BLANK0___ as one of the greatest achievements in public health. By introducing a weakened or ___BLANK1___ form of a pathogen into the body, vaccines stimulate the immune system to produce ___BLANK2___, providing protection against future ___BLANK3___.",
-      "blank_positions": [0, 1, 2, 3],
-      "options": ["regarded", "inactivated", "antibodies", "infections", "considered", "diseases"],
-      "correct_answers": ["regarded", "inactivated", "antibodies", "infections"],
+      "blank_positions": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "options": [
+        "regarded",
+        "inactivated",
+        "antibodies",
+        "infections",
+        "considered",
+        "diseases"
+      ],
+      "correct_answers": [
+        "regarded",
+        "inactivated",
+        "antibodies",
+        "infections"
+      ],
       "time_limit_seconds": 120
     },
     {
@@ -361,9 +643,26 @@
       "type": "fill_blanks_drag",
       "section": "reading",
       "text": "The invention of writing was a ___BLANK0___ milestone in human civilization. The earliest known writing system, cuneiform, was ___BLANK1___ by the Sumerians around 3400 BCE to record commercial ___BLANK2___. Over centuries, writing evolved from simple pictographs into complex alphabetic systems capable of expressing ___BLANK3___ thought.",
-      "blank_positions": [0, 1, 2, 3],
-      "options": ["pivotal", "developed", "transactions", "abstract", "ancient", "numerical"],
-      "correct_answers": ["pivotal", "developed", "transactions", "abstract"],
+      "blank_positions": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "options": [
+        "pivotal",
+        "developed",
+        "transactions",
+        "abstract",
+        "ancient",
+        "numerical"
+      ],
+      "correct_answers": [
+        "pivotal",
+        "developed",
+        "transactions",
+        "abstract"
+      ],
       "time_limit_seconds": 120
     },
     {
@@ -371,9 +670,26 @@
       "type": "fill_blanks_drag",
       "section": "reading",
       "text": "Volcanic eruptions occur when ___BLANK0___ rock, known as magma, rises through cracks in the Earth's crust. The ___BLANK1___ of an eruption depends largely on the composition of the magma: those rich in silica tend to produce ___BLANK2___ eruptions, while low-silica magma flows more freely. Volcanologists use seismic ___BLANK3___ and satellite imagery to monitor active volcanoes and predict potential eruptions.",
-      "blank_positions": [0, 1, 2, 3],
-      "options": ["molten", "intensity", "explosive", "monitoring", "dormant", "gradual"],
-      "correct_answers": ["molten", "intensity", "explosive", "monitoring"],
+      "blank_positions": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "options": [
+        "molten",
+        "intensity",
+        "explosive",
+        "monitoring",
+        "dormant",
+        "gradual"
+      ],
+      "correct_answers": [
+        "molten",
+        "intensity",
+        "explosive",
+        "monitoring"
+      ],
       "time_limit_seconds": 120
     },
     {
@@ -381,9 +697,26 @@
       "type": "fill_blanks_drag",
       "section": "reading",
       "text": "Arctic permafrost, ground that has remained ___BLANK0___ for at least two consecutive years, stores approximately twice as much carbon as the entire ___BLANK1___. As global temperatures rise, this permafrost is beginning to thaw, releasing methane and carbon dioxide into the atmosphere. Scientists warn that this process could create a dangerous ___BLANK2___ loop, in which warming accelerates further thawing, which in turn produces more greenhouse gas ___BLANK3___.",
-      "blank_positions": [0, 1, 2, 3],
-      "options": ["frozen", "atmosphere", "feedback", "emissions", "solid", "pollution"],
-      "correct_answers": ["frozen", "atmosphere", "feedback", "emissions"],
+      "blank_positions": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "options": [
+        "frozen",
+        "atmosphere",
+        "feedback",
+        "emissions",
+        "solid",
+        "pollution"
+      ],
+      "correct_answers": [
+        "frozen",
+        "atmosphere",
+        "feedback",
+        "emissions"
+      ],
       "time_limit_seconds": 120
     }
   ]

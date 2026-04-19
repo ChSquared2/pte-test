@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import type { SubmitAnswerResponse } from '../../types';
 import { submitAnswer } from '../../services/api';
 import QuestionLayout from '../common/QuestionLayout';
 import ScoreDisplay from '../common/ScoreDisplay';
 import AudioPlayer from '../common/AudioPlayer';
+import { seededShuffle } from '../../utils/shuffle';
 
 interface Props {
   question: any;
@@ -11,10 +12,17 @@ interface Props {
 }
 
 export default function SelectMissingWord({ question, onNext }: Props) {
-  const [selected, setSelected] = useState<number | null>(null);
+  const shuffledIndices = useMemo(
+    () => seededShuffle(question.options.map((_: any, i: number) => i), question.id),
+    [question.id]
+  );
+
+  const [selected, setSelected] = useState<number | null>(null); // display index
   const [result, setResult] = useState<SubmitAnswerResponse | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [showingScore, setShowingScore] = useState(true);
+
+  const toOriginal = (displayIdx: number) => shuffledIndices[displayIdx];
 
   const handleSubmit = async () => {
     if (selected === null) return;
@@ -22,7 +30,7 @@ export default function SelectMissingWord({ question, onNext }: Props) {
     try {
       const res = await submitAnswer({
         mode: 'practice', question_type: 'select_missing_word', section: 'listening',
-        question_id: question.id, user_answer: selected, time_spent_seconds: 0,
+        question_id: question.id, user_answer: toOriginal(selected), time_spent_seconds: 0,
       });
       setResult(res);
       setShowingScore(true);
@@ -34,15 +42,16 @@ export default function SelectMissingWord({ question, onNext }: Props) {
   }
 
   const isReview = result !== null;
-  const correctAnswer = isReview ? (result.correct_answers as number) : null;
+  const correctOriginal = isReview ? (result.correct_answers as number) : null;
 
-  const getOptionStyle = (idx: number) => {
+  const getOptionStyle = (displayIdx: number) => {
     if (isReview) {
-      if (idx === correctAnswer) return 'border-green-500 bg-green-50';
-      if (idx === selected) return 'border-red-500 bg-red-50';
+      const origIdx = toOriginal(displayIdx);
+      if (origIdx === correctOriginal) return 'border-green-500 bg-green-50';
+      if (displayIdx === selected) return 'border-red-500 bg-red-50';
       return 'border-gray-200';
     }
-    return selected === idx ? 'border-[#0072CE] bg-blue-50' : 'border-gray-200 hover:border-gray-300';
+    return selected === displayIdx ? 'border-[#0072CE] bg-blue-50' : 'border-gray-200 hover:border-gray-300';
   };
 
   return (
@@ -56,16 +65,16 @@ export default function SelectMissingWord({ question, onNext }: Props) {
         <AudioPlayer src={question.audio_url} playbackRate={0.75} maxPlays={1} />
       </div>
       <div className="space-y-2">
-        {question.options.map((opt: string, idx: number) => (
-          <label key={idx} className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${getOptionStyle(idx)}`}>
-            <input type="radio" checked={selected === idx}
-              onChange={() => !isReview && setSelected(idx)}
+        {shuffledIndices.map((origIdx: number, displayIdx: number) => (
+          <label key={origIdx} className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${getOptionStyle(displayIdx)}`}>
+            <input type="radio" checked={selected === displayIdx}
+              onChange={() => !isReview && setSelected(displayIdx)}
               disabled={isReview} />
-            <span className="text-sm flex-1">{opt}</span>
-            {isReview && idx === correctAnswer && (
+            <span className="text-sm flex-1">{question.options[origIdx]}</span>
+            {isReview && toOriginal(displayIdx) === correctOriginal && (
               <span className="text-xs font-semibold text-green-600">Correct</span>
             )}
-            {isReview && idx === selected && idx !== correctAnswer && (
+            {isReview && displayIdx === selected && toOriginal(displayIdx) !== correctOriginal && (
               <span className="text-xs font-semibold text-red-600">Your answer</span>
             )}
           </label>

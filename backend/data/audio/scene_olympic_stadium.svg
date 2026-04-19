@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="Arial, sans-serif">
+  <!-- Sky -->
+  <rect width="800" height="500" fill="#1a237e"/>
+  <!-- Stadium structure -->
+  <path d="M0,350 Q400,200 800,350" fill="#37474f"/>
+  <path d="M0,360 Q400,220 800,360" fill="#455a64"/>
+  <!-- Track -->
+  <ellipse cx="400" cy="400" rx="350" ry="80" fill="#c62828"/>
+  <ellipse cx="400" cy="400" rx="300" ry="65" fill="#e53935"/>
+  <ellipse cx="400" cy="400" rx="250" ry="50" fill="#4CAF50"/>
+  <!-- Lane lines -->
+  <ellipse cx="400" cy="400" rx="340" ry="75" fill="none" stroke="white" stroke-width="1" stroke-dasharray="8,4"/>
+  <ellipse cx="400" cy="400" rx="320" ry="70" fill="none" stroke="white" stroke-width="1" stroke-dasharray="8,4"/>
+  <!-- Scoreboard -->
+  <rect x="300" y="80" width="200" height="80" rx="5" fill="#111"/>
+  <rect x="305" y="85" width="190" height="70" rx="3" fill="#1b5e20"/>
+  <text x="340" y="115" font-size="16" font-weight="bold" fill="#FFD700">OLYMPICS</text>
+  <text x="345" y="140" font-size="22" font-weight="bold" fill="white">9.58s</text>
+  <!-- Olympic rings -->
+  <circle cx="360" cy="50" r="15" fill="none" stroke="#0085C7" stroke-width="3"/>
+  <circle cx="395" cy="50" r="15" fill="none" stroke="#000" stroke-width="3"/>
+  <circle cx="430" cy="50" r="15" fill="none" stroke="#DF0024" stroke-width="3"/>
+  <circle cx="377" cy="65" r="15" fill="none" stroke="#F4C300" stroke-width="3"/>
+  <circle cx="413" cy="65" r="15" fill="none" stroke="#009F3D" stroke-width="3"/>
+  <!-- Floodlights -->
+  <rect x="60" y="100" width="8" height="200" fill="#666"/>
+  <rect x="40" y="90" width="48" height="20" rx="3" fill="#888"/>
+  <circle cx="50" cy="88" r="6" fill="#FFE082"/>
+  <circle cx="64" cy="88" r="6" fill="#FFE082"/>
+  <circle cx="78" cy="88" r="6" fill="#FFE082"/>
+  <rect x="732" y="100" width="8" height="200" fill="#666"/>
+  <rect x="712" y="90" width="48" height="20" rx="3" fill="#888"/>
+  <circle cx="722" cy="88" r="6" fill="#FFE082"/>
+  <circle cx="736" cy="88" r="6" fill="#FFE082"/>
+  <circle cx="750" cy="88" r="6" fill="#FFE082"/>
+  <!-- Runners on track -->
+  <!-- Runner 1 (gold) -->
+  <circle cx="300" cy="370" r="8" fill="#fdd9b5"/>
+  <rect x="293" y="378" width="14" height="20" rx="2" fill="#F44336"/>
+  <rect x="291" y="398" width="6" height="14" fill="#333"/>
+  <rect x="301" y="398" width="6" height="14" fill="#333"/>
+  <text x="290" y="365" font-size="10" fill="#FFD700" font-weight="bold">1</text>
+  <!-- Runner 2 -->
+  <circle cx="340" cy="375" r="8" fill="#c68642"/>
+  <rect x="333" y="383" width="14" height="20" rx="2" fill="#2196F3"/>
+  <rect x="331" y="403" width="6" height="14" fill="#333"/>
+  <rect x="341" y="403" width="6" height="14" fill="#333"/>
+  <text x="332" y="370" font-size="10" fill="#ccc" font-weight="bold">2</text>
+  <!-- Runner 3 -->
+  <circle cx="380" cy="378" r="8" fill="#fdd9b5"/>
+  <rect x="373" y="386" width="14" height="20" rx="2" fill="#4CAF50"/>
+  <rect x="371" y="406" width="6" height="14" fill="#333"/>
+  <rect x="381" y="406" width="6" height="14" fill="#333"/>
+  <text x="372" y="373" font-size="10" fill="#cd7f32" font-weight="bold">3</text>
+  <!-- Crowd (dots) -->
+  <g fill="#FFE0B2" opacity="0.6">
+    <circle cx="100" cy="280" r="4"/><circle cx="120" cy="275" r="4"/><circle cx="140" cy="270" r="4"/>
+    <circle cx="160" cy="268" r="4"/><circle cx="180" cy="265" r="4"/><circle cx="200" cy="260" r="4"/>
+    <circle cx="220" cy="258" r="4"/><circle cx="240" cy="255" r="4"/><circle cx="260" cy="250" r="4"/>
+    <circle cx="540" cy="250" r="4"/><circle cx="560" cy="255" r="4"/><circle cx="580" cy="258" r="4"/>
+    <circle cx="600" cy="260" r="4"/><circle cx="620" cy="265" r="4"/><circle cx="640" cy="268" r="4"/>
+    <circle cx="660" cy="270" r="4"/><circle cx="680" cy="275" r="4"/><circle cx="700" cy="280" r="4"/>
+  </g>
+  <g fill="#FFCC80" opacity="0.5">
+    <circle cx="110" cy="290" r="4"/><circle cx="130" cy="285" r="4"/><circle cx="150" cy="280" r="4"/>
+    <circle cx="170" cy="278" r="4"/><circle cx="190" cy="275" r="4"/><circle cx="210" cy="270" r="4"/>
+    <circle cx="590" cy="270" r="4"/><circle cx="610" cy="275" r="4"/><circle cx="630" cy="278" r="4"/>
+    <circle cx="650" cy="280" r="4"/><circle cx="670" cy="285" r="4"/><circle cx="690" cy="290" r="4"/>
+  </g>
+  <!-- Flags -->
+  <rect x="130" y="170" width="4" height="60" fill="#999"/>
+  <rect x="134" y="170" width="30" height="18" fill="#F44336"/>
+  <rect x="134" y="188" width="30" height="6" fill="white"/>
+  <rect x="134" y="194" width="30" height="6" fill="#2196F3"/>
+  <rect x="660" y="170" width="4" height="60" fill="#999"/>
+  <rect x="664" y="170" width="30" height="20" fill="#FFD700"/>
+  <rect x="664" y="190" width="30" height="10" fill="#4CAF50"/>
+  <!-- Stars in sky -->
+  <circle cx="100" cy="30" r="2" fill="white"/><circle cx="200" cy="50" r="1.5" fill="white"/>
+  <circle cx="600" cy="25" r="2" fill="white"/><circle cx="700" cy="45" r="1.5" fill="white"/>
+  <circle cx="500" cy="20" r="1" fill="white"/><circle cx="150" cy="70" r="1" fill="white"/>
+</svg>

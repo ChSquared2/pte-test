@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import type { MCQMultipleQuestion, SubmitAnswerResponse } from '../../types';
 import { submitAnswer } from '../../services/api';
 import QuestionLayout from '../common/QuestionLayout';
 import ScoreDisplay from '../common/ScoreDisplay';
+import { seededShuffle } from '../../utils/shuffle';
 
 interface Props {
   question: MCQMultipleQuestion;
@@ -10,16 +11,24 @@ interface Props {
 }
 
 export default function MCQMultiple({ question, onNext }: Props) {
-  const [selected, setSelected] = useState<Set<number>>(new Set());
+  // Shuffle options: shuffledIndices[displayPos] = originalIndex
+  const shuffledIndices = useMemo(
+    () => seededShuffle(question.options.map((_, i) => i), question.id),
+    [question.id]
+  );
+
+  const [selected, setSelected] = useState<Set<number>>(new Set()); // display indices
   const [result, setResult] = useState<SubmitAnswerResponse | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [showingScore, setShowingScore] = useState(true);
 
-  const toggle = (idx: number) => {
+  const toOriginal = (displayIdx: number) => shuffledIndices[displayIdx];
+
+  const toggle = (displayIdx: number) => {
     setSelected((prev) => {
       const next = new Set(prev);
-      if (next.has(idx)) next.delete(idx);
-      else next.add(idx);
+      if (next.has(displayIdx)) next.delete(displayIdx);
+      else next.add(displayIdx);
       return next;
     });
   };
@@ -28,12 +37,14 @@ export default function MCQMultiple({ question, onNext }: Props) {
     if (selected.size === 0) return;
     setSubmitting(true);
     try {
+      // Convert display indices to original indices for submission
+      const originalIndices = Array.from(selected).map(toOriginal);
       const res = await submitAnswer({
         mode: 'practice',
         question_type: question.type,
         section: question.section,
         question_id: question.id,
-        user_answer: Array.from(selected),
+        user_answer: originalIndices,
         time_spent_seconds: 0,
       });
       setResult(res);
@@ -48,18 +59,18 @@ export default function MCQMultiple({ question, onNext }: Props) {
   }
 
   const isReview = result !== null;
-  const correctSet = isReview ? new Set(result.correct_answers as number[]) : new Set<number>();
+  const correctOriginals = isReview ? new Set(result.correct_answers as number[]) : new Set<number>();
 
-  const getOptionStyle = (idx: number) => {
+  const getOptionStyle = (displayIdx: number) => {
     if (isReview) {
-      const isCorrect = correctSet.has(idx);
-      const isSelected = selected.has(idx);
-      if (isCorrect && isSelected) return 'border-green-500 bg-green-50';
-      if (isCorrect && !isSelected) return 'border-green-500 bg-green-50';
-      if (!isCorrect && isSelected) return 'border-red-500 bg-red-50';
+      const origIdx = toOriginal(displayIdx);
+      const isCorrect = correctOriginals.has(origIdx);
+      const isSelected = selected.has(displayIdx);
+      if (isCorrect) return 'border-green-500 bg-green-50';
+      if (isSelected && !isCorrect) return 'border-red-500 bg-red-50';
       return 'border-gray-200';
     }
-    return selected.has(idx) ? 'border-[#0072CE] bg-blue-50' : 'border-gray-200 hover:border-gray-300';
+    return selected.has(displayIdx) ? 'border-[#0072CE] bg-blue-50' : 'border-gray-200 hover:border-gray-300';
   };
 
   return (
@@ -76,23 +87,23 @@ export default function MCQMultiple({ question, onNext }: Props) {
       <p className="font-medium text-[#003057] mb-3">{question.prompt}</p>
 
       <div className="space-y-2">
-        {question.options.map((option, idx) => (
+        {shuffledIndices.map((origIdx, displayIdx) => (
           <label
-            key={idx}
-            className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${getOptionStyle(idx)}`}
+            key={origIdx}
+            className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${getOptionStyle(displayIdx)}`}
           >
             <input
               type="checkbox"
-              checked={selected.has(idx)}
-              onChange={() => !isReview && toggle(idx)}
+              checked={selected.has(displayIdx)}
+              onChange={() => !isReview && toggle(displayIdx)}
               disabled={isReview}
               className="mt-0.5"
             />
-            <span className="text-sm flex-1">{option}</span>
-            {isReview && correctSet.has(idx) && (
+            <span className="text-sm flex-1">{question.options[origIdx]}</span>
+            {isReview && correctOriginals.has(origIdx) && (
               <span className="text-xs font-semibold text-green-600">Correct</span>
             )}
-            {isReview && selected.has(idx) && !correctSet.has(idx) && (
+            {isReview && selected.has(displayIdx) && !correctOriginals.has(origIdx) && (
               <span className="text-xs font-semibold text-red-600">Incorrect</span>
             )}
           </label>
