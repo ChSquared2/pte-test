@@ -3,7 +3,7 @@ import json
 import os
 
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
-MODEL = "gemini-2.0-flash"
+MODEL = "gemini-2.5-flash"
 
 
 def _parse_json_response(text: str) -> dict:
