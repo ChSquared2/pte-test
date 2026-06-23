@@ -33,6 +33,7 @@ export default function GrammarDragDialogue({ question, onNext }: Props) {
 
   const [placed, setPlaced] = useState<(string | null)[]>(new Array(blankCount).fill(null));
   const [dragWord, setDragWord] = useState<string | null>(null);
+  const [selectedWord, setSelectedWord] = useState<string | null>(null);
   const [result, setResult] = useState<SubmitAnswerResponse | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [showingScore, setShowingScore] = useState(true);
@@ -49,9 +50,18 @@ export default function GrammarDragDialogue({ question, onNext }: Props) {
     const next = [...placed]; next[idx] = null; setPlaced(next);
   };
 
-  const clickPlace = (word: string) => {
-    const emptyIdx = placed.findIndex((w) => w === null);
-    if (emptyIdx !== -1) { const next = [...placed]; next[emptyIdx] = word; setPlaced(next); }
+  // Tap-to-select a word, then tap a gap to place it (mobile), alongside drag.
+  const tapWord = (word: string) => {
+    setSelectedWord((prev) => (prev === word ? null : word));
+  };
+
+  const tapBlank = (idx: number) => {
+    if (selectedWord) {
+      const next = [...placed]; next[idx] = selectedWord; setPlaced(next);
+      setSelectedWord(null);
+    } else if (placed[idx]) {
+      remove(idx);
+    }
   };
 
   const handleSubmit = async () => {
@@ -82,25 +92,35 @@ export default function GrammarDragDialogue({ question, onNext }: Props) {
   return (
     <QuestionLayout
       title="Complete the Dialogue"
-      instruction="Complete the dialogue using words from the box. Drag words into the gaps."
+      instruction="Tap a word then tap a gap to place it (or drag on desktop). Tap a placed word to remove it."
       timeLimit={isReview ? undefined : question.time_limit_seconds}
       onTimeExpire={handleSubmit}
     >
       {/* Word bank */}
       {!isReview && (
-        <div className="flex flex-wrap gap-2 p-3 bg-white border rounded-lg mb-6">
-          <span className="text-xs text-gray-400 w-full mb-1">Word Bank:</span>
-          {available.map((w: string) => (
-            <span
-              key={w}
-              draggable
-              onDragStart={() => setDragWord(w)}
-              onClick={() => clickPlace(w)}
-              className="px-3 py-1.5 bg-[#F2A900] text-[#003057] rounded text-sm cursor-grab hover:bg-[#e09d00] font-medium"
-            >
-              {w}
-            </span>
-          ))}
+        <div className="flex flex-wrap gap-2.5 p-3 bg-white border rounded-lg mb-6">
+          <span className="text-xs text-gray-400 w-full mb-1">
+            Word Bank{' '}
+            <span className="text-gray-300">— tap a word, then tap a gap (or drag on desktop)</span>
+          </span>
+          {available.map((w: string) => {
+            const isSelected = selectedWord === w;
+            return (
+              <span
+                key={w}
+                draggable
+                onDragStart={() => setDragWord(w)}
+                onClick={() => tapWord(w)}
+                className={`tap-target inline-flex items-center px-3.5 py-2 rounded text-sm cursor-grab font-medium transition-colors ${
+                  isSelected
+                    ? 'bg-[#0072CE] text-white ring-2 ring-offset-1 ring-[#0072CE]'
+                    : 'bg-[#F2A900] text-[#003057] hover:bg-[#e09d00]'
+                }`}
+              >
+                {w}
+              </span>
+            );
+          })}
         </div>
       )}
 
@@ -122,18 +142,20 @@ export default function GrammarDragDialogue({ question, onNext }: Props) {
                   return (
                     <span key={partIdx} className="inline-block mx-1">
                       <span
-                        className={`inline-block px-3 py-0.5 min-w-[80px] border-2 rounded text-center text-sm ${
+                        className={`inline-block px-3 py-1.5 min-w-[88px] border-2 rounded text-center text-sm align-middle ${
                           isReview
                             ? isCorrect
                               ? 'border-green-500 bg-green-50 text-green-700 font-medium'
                               : 'border-red-500 bg-red-50 text-red-700 font-medium'
                             : word
                               ? 'border-[#0072CE] bg-blue-50 font-medium cursor-pointer border-dashed'
-                              : 'border-gray-400 bg-gray-100 border-dashed'
+                              : selectedWord
+                                ? 'border-[#0072CE] bg-blue-50/40 border-dashed cursor-pointer'
+                                : 'border-gray-400 bg-gray-100 border-dashed cursor-pointer'
                         }`}
                         onDragOver={!isReview ? (e) => e.preventDefault() : undefined}
                         onDrop={!isReview ? () => drop(bi) : undefined}
-                        onClick={!isReview && word ? () => remove(bi) : undefined}
+                        onClick={!isReview ? () => tapBlank(bi) : undefined}
                       >
                         {word || '___'}
                       </span>

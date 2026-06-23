@@ -7,6 +7,15 @@
   --pte-green: #00A651;
   --pte-red: #E31837;
   --pte-gray: #F5F5F5;
+
+  /* Mobile layout tokens */
+  --bottom-nav-h: 64px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html {
+  /* Avoid iOS auto-zoom on focus by keeping a sane base size */
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -18,4 +27,43 @@ body {
 
 * {
   box-sizing: border-box;
+  /* Remove the 300ms tap delay and the grey tap highlight on mobile */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Buttons/links respond instantly to taps */
+button,
+a,
+[role="button"],
+input,
+select,
+textarea,
+label {
+  touch-action: manipulation;
+}
+
+/* Minimum comfortable touch target (44x44 per WCAG/Apple HIG) */
+.tap-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Space reserved at the bottom so content/sticky bars clear the mobile nav
+   and the device home indicator. Used by the page shell on small screens. */
+.pb-bottom-nav {
+  padding-bottom: calc(var(--bottom-nav-h) + var(--safe-bottom));
+}
+
+/* Sticky action/nav bars that hug the bottom safe area */
+.safe-bottom {
+  padding-bottom: var(--safe-bottom);
+}
+
+/* Hide scrollbar on horizontal tab strips while keeping scroll/swipe */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

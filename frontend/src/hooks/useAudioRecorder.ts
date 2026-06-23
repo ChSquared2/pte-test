@@ -4,22 +4,45 @@ interface UseAudioRecorderReturn {
   isRecording: boolean;
   audioBlob: Blob | null;
   audioUrl: string | null;
+  error: string | null;
   startRecording: () => Promise<void>;
   stopRecording: () => Promise<Blob | null>;
   reset: () => void;
+}
+
+// Pick a container/codec the current browser actually supports.
+// iOS Safari does NOT support audio/webm — it records audio/mp4. Desktop
+// Chrome/Firefox prefer webm/opus. Fall back to the browser default ('').
+function pickMimeType(): string {
+  if (typeof MediaRecorder === 'undefined' || !MediaRecorder.isTypeSupported) return '';
+  const candidates = [
+    'audio/webm;codecs=opus',
+    'audio/webm',
+    'audio/mp4',
+    'audio/mpeg',
+  ];
+  return candidates.find((t) => MediaRecorder.isTypeSupported(t)) ?? '';
 }
 
 export function useAudioRecorder(): UseAudioRecorderReturn {
   const [isRecording, setIsRecording] = useState(false);
   const [audioBlob, setAudioBlob] = useState<Blob | null>(null);
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const mediaRecorder = useRef<MediaRecorder | null>(null);
   const chunks = useRef<Blob[]>([]);
 
   const startRecording = useCallback(async () => {
+    setError(null);
+    if (!navigator.mediaDevices?.getUserMedia) {
+      setError('Microphone recording is not supported in this browser.');
+      return;
+    }
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const recorder = new MediaRecorder(stream, { mimeType: 'audio/webm;codecs=opus' });
+      const mimeType = pickMimeType();
+      const recorder = new MediaRecorder(stream, mimeType ? { mimeType } : undefined);
+      const outType = recorder.mimeType || mimeType || 'audio/webm';
       chunks.current = [];
 
       recorder.ondataavailable = (e) => {
@@ -27,7 +50,7 @@ export function useAudioRecorder(): UseAudioRecorderReturn {
       };
 
       recorder.onstop = () => {
-        const blob = new Blob(chunks.current, { type: 'audio/webm' });
+        const blob = new Blob(chunks.current, { type: outType });
         setAudioBlob(blob);
         setAudioUrl(URL.createObjectURL(blob));
         // Stop all tracks
@@ -39,6 +62,14 @@ export function useAudioRecorder(): UseAudioRecorderReturn {
       setIsRecording(true);
     } catch (err) {
       console.error('Failed to start recording:', err);
+      const name = (err as DOMException)?.name;
+      setError(
+        name === 'NotAllowedError' || name === 'SecurityError'
+          ? 'Microphone access was denied. Enable mic permission for this site, then try again.'
+          : name === 'NotFoundError'
+            ? 'No microphone was found on this device.'
+            : 'Could not start recording. Check your microphone and try again.'
+      );
     }
   }, []);
 
@@ -50,7 +81,9 @@ export function useAudioRecorder(): UseAudioRecorderReturn {
       }
 
       mediaRecorder.current.onstop = () => {
-        const blob = new Blob(chunks.current, { type: 'audio/webm' });
+        const blob = new Blob(chunks.current, {
+          type: mediaRecorder.current?.mimeType || 'audio/webm',
+        });
         setAudioBlob(blob);
         setAudioUrl(URL.createObjectURL(blob));
         setIsRecording(false);
@@ -68,7 +101,8 @@ export function useAudioRecorder(): UseAudioRecorderReturn {
     setAudioBlob(null);
     setAudioUrl(null);
     setIsRecording(false);
+    setError(null);
   }, [audioUrl]);
 
-  return { isRecording, audioBlob, audioUrl, startRecording, stopRecording, reset };
+  return { isRecording, audioBlob, audioUrl, error, startRecording, stopRecording, reset };
 }

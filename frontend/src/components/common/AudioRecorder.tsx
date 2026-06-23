@@ -62,7 +62,8 @@ export default function AudioRecorder({ maxDuration, onRecordingComplete, autoSt
   };
 
   const handleStart = () => {
-    if (!hasStarted.current) {
+    // Allow a retry if a previous attempt failed (e.g. denied mic permission).
+    if (!hasStarted.current || recorder.error) {
       hasStarted.current = true;
       recorder.startRecording();
     }
@@ -83,7 +84,7 @@ export default function AudioRecorder({ maxDuration, onRecordingComplete, autoSt
               recorder.startRecording();
             }
           }}
-          className="mt-3 bg-[#0072CE] text-white py-1.5 px-4 rounded-lg text-sm hover:bg-[#005fa3] transition-colors"
+          className="tap-target mt-3 w-full sm:w-auto bg-[#0072CE] text-white py-2.5 px-5 rounded-lg text-sm font-medium hover:bg-[#005fa3] active:bg-[#004f8a] transition-colors"
         >
           Start Recording Now
         </button>
@@ -102,7 +103,7 @@ export default function AudioRecorder({ maxDuration, onRecordingComplete, autoSt
         <Timer formattedTime={recordTimer.formattedTime} progress={recordTimer.progress} isWarning />
         <button
           onClick={handleStop}
-          className="mt-3 bg-red-600 text-white py-1.5 px-4 rounded-lg text-sm hover:bg-red-700 transition-colors"
+          className="tap-target mt-3 w-full bg-red-600 text-white py-3 px-4 rounded-lg text-sm font-medium hover:bg-red-700 active:bg-red-800 transition-colors"
         >
           Stop Recording
         </button>
@@ -110,14 +111,19 @@ export default function AudioRecorder({ maxDuration, onRecordingComplete, autoSt
     );
   }
 
-  // Not started - show start button
+  // Not started - show start button (and any mic error)
   return (
     <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center">
+      {recorder.error && (
+        <p className="mb-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg p-2.5">
+          {recorder.error}
+        </p>
+      )}
       <button
         onClick={handleStart}
-        className="bg-[#0072CE] text-white py-2 px-6 rounded-lg hover:bg-[#005fa3] transition-colors"
+        className="tap-target w-full sm:w-auto bg-[#0072CE] text-white py-3 px-6 rounded-lg font-medium hover:bg-[#005fa3] active:bg-[#004f8a] transition-colors"
       >
-        Start Recording
+        {recorder.error ? 'Try Again' : 'Start Recording'}
       </button>
     </div>
   );

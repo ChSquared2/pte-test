@@ -33,12 +33,12 @@ import GrammarDragDialogue from '../components/grammar/GrammarDragDialogue';
 import VocabularyFillTable from '../components/vocabulary/VocabularyFillTable';
 import VocabularyWordOrder from '../components/vocabulary/VocabularyWordOrder';
 
-const SECTIONS: { key: Section; label: string; color: string }[] = [
-  { key: 'speaking', label: 'Speaking & Writing', color: '#0072CE' },
-  { key: 'reading', label: 'Reading', color: '#00A651' },
-  { key: 'grammar', label: 'Grammar', color: '#9B59B6' },
-  { key: 'vocabulary', label: 'Vocabulary', color: '#E67E22' },
-  { key: 'listening', label: 'Listening', color: '#F2A900' },
+const SECTIONS: { key: Section; label: string; short: string; color: string }[] = [
+  { key: 'speaking', label: 'Speaking & Writing', short: 'Speaking', color: '#0072CE' },
+  { key: 'reading', label: 'Reading', short: 'Reading', color: '#00A651' },
+  { key: 'grammar', label: 'Grammar', short: 'Grammar', color: '#9B59B6' },
+  { key: 'vocabulary', label: 'Vocabulary', short: 'Vocab', color: '#E67E22' },
+  { key: 'listening', label: 'Listening', short: 'Listening', color: '#F2A900' },
 ];
 
 interface QuestionTypeInfo {
@@ -161,24 +161,25 @@ export default function PracticePage() {
   const currentQuestion = questions[currentIndex];
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold text-[#003057] mb-6">Practice Mode</h1>
+    <div className="max-w-6xl mx-auto px-4 py-5 sm:py-8">
+      <h1 className="text-xl sm:text-2xl font-bold text-[#003057] mb-4 sm:mb-6">Practice Mode</h1>
 
-      {/* Section Tabs */}
-      <div className="flex gap-1 mb-8 bg-white rounded-lg shadow p-1">
+      {/* Section Tabs — horizontally scrollable on mobile, evenly spread on desktop */}
+      <div className="flex gap-1 mb-6 sm:mb-8 bg-white rounded-lg shadow p-1 overflow-x-auto no-scrollbar snap-x">
         {SECTIONS.map((s) => (
           <button key={s.key}
             onClick={() => { setActiveSection(s.key); setSelectedType(null); setQuestions([]); setRoundComplete(false); }}
-            className={`flex-1 py-3 px-4 rounded-md text-sm font-medium transition-colors ${
+            className={`tap-target snap-start flex-shrink-0 sm:flex-1 sm:flex-shrink py-2.5 px-4 rounded-md text-sm font-medium whitespace-nowrap transition-colors ${
               activeSection === s.key ? 'text-white' : 'text-gray-600 hover:bg-gray-100'
             }`}
             style={activeSection === s.key ? { backgroundColor: s.color } : {}}>
-            {s.label}
+            <span className="sm:hidden">{s.short}</span>
+            <span className="hidden sm:inline">{s.label}</span>
           </button>
         ))}
       </div>
 
-      <div className="bg-white rounded-xl shadow-md p-6">
+      <div className="bg-white rounded-xl shadow-md p-4 sm:p-6">
         {/* Type Selection */}
         {!selectedType && (
           <div>
@@ -212,16 +213,16 @@ export default function PracticePage() {
             <p className="text-gray-500 mb-6">
               You finished all {questions.length} questions.
             </p>
-            <div className="flex gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 sm:justify-center">
               <button
                 onClick={handleNewRound}
-                className="px-6 py-2.5 bg-[#0072CE] text-white rounded-lg hover:bg-[#005fa3] transition-colors font-medium"
+                className="tap-target px-6 py-3 bg-[#0072CE] text-white rounded-lg hover:bg-[#005fa3] active:bg-[#004f8a] transition-colors font-medium"
               >
                 Practice Again (Shuffled)
               </button>
               <button
                 onClick={handleBack}
-                className="px-6 py-2.5 border border-gray-300 text-gray-600 rounded-lg hover:bg-gray-50 transition-colors"
+                className="tap-target px-6 py-3 border border-gray-300 text-gray-600 rounded-lg hover:bg-gray-50 active:bg-gray-100 transition-colors"
               >
                 Back to Question Types
               </button>
@@ -232,23 +233,22 @@ export default function PracticePage() {
         {/* Question Display */}
         {selectedType && !loading && !roundComplete && currentQuestion && (
           <div>
-            <div className="flex items-center justify-between mb-4">
-              <button onClick={handleBack} className="text-sm text-[#0072CE] hover:underline">
+            <div className="mb-4 space-y-3 sm:space-y-0 sm:flex sm:items-center sm:justify-between">
+              <button onClick={handleBack}
+                className="tap-target inline-flex items-center text-sm text-[#0072CE] hover:underline">
                 &larr; Back to question types
               </button>
-              <div className="flex items-center gap-4">
-                {currentIndex > 0 && (
-                  <button onClick={handlePrevious}
-                    className="px-4 py-1.5 text-sm border border-gray-300 text-gray-600 rounded-md hover:bg-gray-50 transition-colors">
-                    &larr; Previous
-                  </button>
-                )}
-                <span className="text-sm text-gray-400">
-                  {roundNumber > 1 && <span className="text-[#0072CE] font-medium">Round {roundNumber} &mdash; </span>}
-                  Question {currentIndex + 1} of {questions.length}
+              <div className="flex items-center justify-between gap-3 sm:gap-4">
+                <button onClick={handlePrevious} disabled={currentIndex === 0}
+                  className="tap-target px-4 py-2 text-sm border border-gray-300 text-gray-600 rounded-md hover:bg-gray-50 active:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors">
+                  &larr; Prev
+                </button>
+                <span className="text-xs sm:text-sm text-gray-400 text-center">
+                  {roundNumber > 1 && <span className="text-[#0072CE] font-medium">R{roundNumber} &mdash; </span>}
+                  {currentIndex + 1} / {questions.length}
                 </span>
                 <button onClick={handleNext}
-                  className="px-4 py-1.5 text-sm border border-gray-300 text-gray-600 rounded-md hover:bg-gray-50 transition-colors">
+                  className="tap-target px-4 py-2 text-sm border border-gray-300 text-gray-600 rounded-md hover:bg-gray-50 active:bg-gray-100 transition-colors">
                   Skip &rarr;
                 </button>
               </div>

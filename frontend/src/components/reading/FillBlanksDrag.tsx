@@ -17,6 +17,7 @@ export default function FillBlanksDrag({ question, onNext }: Props) {
   const [result, setResult] = useState<SubmitAnswerResponse | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [draggedWord, setDraggedWord] = useState<string | null>(null);
+  const [selectedWord, setSelectedWord] = useState<string | null>(null);
   const [showingScore, setShowingScore] = useState(true);
 
   const shuffledOptions = useMemo<string[]>(
@@ -42,6 +43,26 @@ export default function FillBlanksDrag({ question, onNext }: Props) {
       next[blankIndex] = null;
       return next;
     });
+  };
+
+  // Tap-to-select a word, then tap a blank to place it (mobile-friendly,
+  // works alongside drag & drop for desktop).
+  const handleWordTap = (word: string) => {
+    setSelectedWord((prev) => (prev === word ? null : word));
+  };
+
+  const handleBlankTap = (blankIndex: number) => {
+    if (isReview) return;
+    if (selectedWord) {
+      setPlacedWords((prev) => {
+        const next = [...prev];
+        next[blankIndex] = selectedWord;
+        return next;
+      });
+      setSelectedWord(null);
+    } else if (placedWords[blankIndex]) {
+      handleRemove(blankIndex);
+    }
   };
 
   const handleSubmit = async () => {
@@ -82,19 +103,21 @@ export default function FillBlanksDrag({ question, onNext }: Props) {
         return (
           <span key={`blank-${blankIndex}`} className="inline-block mx-1">
             <span
-              className={`inline-block px-3 py-1 min-w-[80px] border-2 rounded text-center text-sm ${
+              className={`inline-block px-3 py-1.5 min-w-[88px] border-2 rounded text-center text-sm align-middle ${
                 isReview
                   ? isCorrect
                     ? 'border-green-500 bg-green-50 text-green-700 font-medium'
                     : 'border-red-500 bg-red-50 text-red-700 font-medium'
                   : word
                     ? 'border-[#0072CE] bg-blue-50 font-medium cursor-pointer border-dashed'
-                    : 'border-gray-400 bg-gray-100 border-dashed'
+                    : selectedWord
+                      ? 'border-[#0072CE] bg-blue-50/40 border-dashed cursor-pointer'
+                      : 'border-gray-400 bg-gray-100 border-dashed cursor-pointer'
               }`}
               onDragOver={!isReview ? (e) => e.preventDefault() : undefined}
               onDrop={!isReview ? () => handleDrop(blankIndex) : undefined}
-              onClick={!isReview && word ? () => handleRemove(blankIndex) : undefined}
-              title={isReview ? undefined : word ? 'Click to remove' : 'Drop a word here'}
+              onClick={!isReview ? () => handleBlankTap(blankIndex) : undefined}
+              title={isReview ? undefined : word ? 'Tap to remove' : 'Tap to place the selected word'}
             >
               {word || '___'}
             </span>
@@ -111,7 +134,7 @@ export default function FillBlanksDrag({ question, onNext }: Props) {
   return (
     <QuestionLayout
       title="Fill in the Blanks (Drag & Drop)"
-      instruction="Drag words from the box below and drop them into the blanks. Click a placed word to remove it."
+      instruction="Tap a word then tap a blank to place it (or drag on desktop). Tap a placed word to remove it."
       timeLimit={isReview ? undefined : question.time_limit_seconds}
       onTimeExpire={handleSubmit}
     >
@@ -121,28 +144,29 @@ export default function FillBlanksDrag({ question, onNext }: Props) {
 
       {/* Word bank */}
       {!isReview && (
-        <div className="flex flex-wrap gap-2 p-3 bg-white border rounded-lg">
-          <span className="text-xs text-gray-400 w-full mb-1">Word Bank:</span>
-          {availableWords.map((word) => (
-            <span
-              key={word}
-              draggable
-              onDragStart={() => setDraggedWord(word)}
-              onClick={() => {
-                const emptyIdx = placedWords.findIndex((w) => w === null);
-                if (emptyIdx !== -1) {
-                  setPlacedWords((prev) => {
-                    const next = [...prev];
-                    next[emptyIdx] = word;
-                    return next;
-                  });
-                }
-              }}
-              className="px-3 py-1.5 bg-[#003057] text-white rounded text-sm cursor-grab active:cursor-grabbing hover:bg-[#004080] transition-colors"
-            >
-              {word}
-            </span>
-          ))}
+        <div className="flex flex-wrap gap-2.5 p-3 bg-white border rounded-lg">
+          <span className="text-xs text-gray-400 w-full mb-1">
+            Word Bank{' '}
+            <span className="text-gray-300">— tap a word, then tap a blank (or drag on desktop)</span>
+          </span>
+          {availableWords.map((word) => {
+            const isSelected = selectedWord === word;
+            return (
+              <span
+                key={word}
+                draggable
+                onDragStart={() => setDraggedWord(word)}
+                onClick={() => handleWordTap(word)}
+                className={`tap-target inline-flex items-center px-3.5 py-2 rounded text-sm font-medium cursor-grab active:cursor-grabbing transition-colors ${
+                  isSelected
+                    ? 'bg-[#0072CE] text-white ring-2 ring-offset-1 ring-[#0072CE]'
+                    : 'bg-[#003057] text-white hover:bg-[#004080]'
+                }`}
+              >
+                {word}
+              </span>
+            );
+          })}
           {availableWords.length === 0 && (
             <span className="text-xs text-gray-400">All words placed</span>
           )}

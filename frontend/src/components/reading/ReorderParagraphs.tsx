@@ -114,18 +114,20 @@ export default function ReorderParagraphs({ question, onNext }: Props) {
               <p className="flex-1 text-sm leading-relaxed">{question.paragraphs[paraIdx]}</p>
 
               {!isReview && (
-                <div className="flex flex-col gap-1 flex-shrink-0">
+                <div className="flex flex-col gap-1.5 flex-shrink-0">
                   <button
                     onClick={() => moveItem(posIdx, 'up')}
                     disabled={posIdx === 0}
-                    className="p-1 rounded hover:bg-gray-100 disabled:opacity-30 text-xs"
+                    aria-label="Move up"
+                    className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-200 bg-white hover:bg-gray-100 active:bg-gray-200 disabled:opacity-30 text-sm"
                   >
                     ▲
                   </button>
                   <button
                     onClick={() => moveItem(posIdx, 'down')}
                     disabled={posIdx === order.length - 1}
-                    className="p-1 rounded hover:bg-gray-100 disabled:opacity-30 text-xs"
+                    aria-label="Move down"
+                    className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-200 bg-white hover:bg-gray-100 active:bg-gray-200 disabled:opacity-30 text-sm"
                   >
                     ▼
                   </button>

@@ -88,7 +88,7 @@ export default function SpeakingQuestion({
       {/* Image to describe */}
       {imageUrl && (
         <div className="mb-4">
-          <img src={imageUrl} alt="Describe this image" className="max-w-full rounded-lg border" />
+          <img src={imageUrl} alt="Describe this image" className="w-full max-h-[45vh] object-contain rounded-lg border" />
         </div>
       )}
 
