@@ -1,9 +1,16 @@
 from google import genai
+from google.genai import types
 import json
 import os
 
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 MODEL = "gemini-2.5-flash"
+
+# Disable "thinking" for scoring: these are structured JSON tasks where the
+# extra reasoning latency/tokens of 2.5-flash add no quality, only delay.
+GEN_CONFIG = types.GenerateContentConfig(
+    thinking_config=types.ThinkingConfig(thinking_budget=0)
+)
 
 
 def _parse_json_response(text: str) -> dict:
@@ -15,7 +22,9 @@ def _parse_json_response(text: str) -> dict:
 
 
 def _generate(prompt: str) -> str:
-    response = client.models.generate_content(model=MODEL, contents=prompt)
+    response = client.models.generate_content(
+        model=MODEL, contents=prompt, config=GEN_CONFIG
+    )
     return response.text
 
 
@@ -124,17 +133,17 @@ Respond ONLY with valid JSON:
         return {"score_details": {"error": str(e)}, "total_score": 0, "max_score": 100, "feedback": f"Scoring unavailable: {str(e)}"}
 
 
-def _upload_audio(audio_path: str):
-    """Upload audio file to Gemini and wait for ACTIVE state."""
-    import time
+def _audio_part(audio_path: str):
+    """Read the audio as inline bytes for the request.
+
+    Speaking clips are a few seconds / a few hundred KB, well under the ~20MB
+    inline limit. Inline avoids the Files API upload round-trip and the
+    ACTIVE-state polling loop, which were the main source of speaking latency.
+    """
     mime = "audio/webm" if audio_path.endswith(".webm") else "audio/wav"
-    audio_file = client.files.upload(file=audio_path, config={"mime_type": mime})
-    for _ in range(15):
-        if audio_file.state.name == "ACTIVE":
-            break
-        time.sleep(2)
-        audio_file = client.files.get(name=audio_file.name)
-    return audio_file
+    with open(audio_path, "rb") as f:
+        data = f.read()
+    return types.Part.from_bytes(data=data, mime_type=mime)
 
 
 def _score_speaking_strict(audio_path: str, question_type: str, reference_text: str) -> dict:
@@ -182,10 +191,10 @@ Respond ONLY with valid JSON (no other text):
 }}"""
 
     try:
-        audio_file = _upload_audio(audio_path)
         response = client.models.generate_content(
             model=MODEL,
-            contents=[scoring_prompt, audio_file],
+            contents=[scoring_prompt, _audio_part(audio_path)],
+            config=GEN_CONFIG,
         )
         scores = _parse_json_response(response.text)
 
@@ -252,10 +261,10 @@ Respond ONLY with valid JSON:
 {{"content": X, "pronunciation": X, "oral_fluency": X, "feedback": "2-3 sentences of specific feedback listing what was missing or wrong"}}"""
 
     try:
-        audio_file = _upload_audio(audio_path)
         response = client.models.generate_content(
             model=MODEL,
-            contents=[scoring_prompt, audio_file],
+            contents=[scoring_prompt, _audio_part(audio_path)],
+            config=GEN_CONFIG,
         )
         scores = _parse_json_response(response.text)
         criteria = ["content", "pronunciation", "oral_fluency"]
