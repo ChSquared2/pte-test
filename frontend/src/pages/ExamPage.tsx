@@ -3,6 +3,8 @@ import { useExamEngine } from '../hooks/useExamEngine';
 import { useState } from 'react';
 import type { Question } from '../types';
 
+import ExamErrorBoundary from '../components/common/ExamErrorBoundary';
+
 // Practice components reused in exam mode for AI-scored types
 import SpeakingQuestion from '../components/speaking/SpeakingQuestion';
 import Essay from '../components/writing/Essay';
@@ -187,19 +189,21 @@ export default function ExamPage() {
 
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="bg-white rounded-xl shadow-md p-6">
-          {AI_SCORED_TYPES.has(exam.currentQuestion!.type) ? (
-            <AIScoredQuestionRenderer
-              question={exam.currentQuestion!}
-              onNext={() => exam.submitCurrentAnswer('__prescored__')}
-              sessionId={exam.sessionId}
-            />
-          ) : (
-            <ExamQuestionRenderer
-              question={exam.currentQuestion!}
-              onAnswer={exam.submitCurrentAnswer}
-              onSkip={exam.skipQuestion}
-            />
-          )}
+          <ExamErrorBoundary resetKey={exam.overallQuestionIndex} onSkip={exam.skipQuestion}>
+            {AI_SCORED_TYPES.has(exam.currentQuestion!.type) ? (
+              <AIScoredQuestionRenderer
+                question={exam.currentQuestion!}
+                onNext={() => exam.submitCurrentAnswer('__prescored__')}
+                sessionId={exam.sessionId}
+              />
+            ) : (
+              <ExamQuestionRenderer
+                question={exam.currentQuestion!}
+                onAnswer={exam.submitCurrentAnswer}
+                onSkip={exam.skipQuestion}
+              />
+            )}
+          </ExamErrorBoundary>
         </div>
       </div>
     </div>
