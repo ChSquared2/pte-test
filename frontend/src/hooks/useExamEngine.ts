@@ -4,6 +4,33 @@ import { startExam, submitExamSection, completeExam } from '../services/api';
 
 export type ExamState = 'NOT_STARTED' | 'IN_PROGRESS' | 'SECTION_BREAK' | 'SUBMITTING' | 'COMPLETED';
 
+const STORAGE_KEY = 'pte_exam_progress';
+const SAVE_TTL_MS = 6 * 60 * 60 * 1000; // resume is offered for 6h after last save
+
+function readSavedExam(): any | null {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    const s = JSON.parse(raw);
+    if (!s || !s.sessionId || !Array.isArray(s.sections)) return null;
+    if (Date.now() - (s.savedAt || 0) > SAVE_TTL_MS) {
+      localStorage.removeItem(STORAGE_KEY);
+      return null;
+    }
+    return s;
+  } catch {
+    return null;
+  }
+}
+
+function clearSavedExam() {
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+  } catch {
+    /* ignore */
+  }
+}
+
 interface ExamSection {
   key: string;
   label: string;
@@ -30,6 +57,7 @@ export function useExamEngine() {
   const [isTrial, setIsTrial] = useState(false);
   const [sectionTimeRemaining, setSectionTimeRemaining] = useState(0);
   const [questionTimeRemaining, setQuestionTimeRemaining] = useState(0);
+  const [hasSavedExam, setHasSavedExam] = useState<boolean>(() => !!readSavedExam());
 
   const questionStartTime = useRef(Date.now());
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -90,6 +118,55 @@ export function useExamEngine() {
     };
   }, [state, currentSectionIndex, currentQuestionIndex]);
 
+  // Persist progress so an interrupted exam (reload, crash, closed tab) can be
+  // resumed instead of restarted from scratch.
+  useEffect(() => {
+    if (state === 'IN_PROGRESS' || state === 'SECTION_BREAK') {
+      try {
+        localStorage.setItem(
+          STORAGE_KEY,
+          JSON.stringify({
+            v: 1,
+            savedAt: Date.now(),
+            state,
+            sessionId,
+            sections,
+            currentSectionIndex,
+            currentQuestionIndex,
+            sectionAnswers,
+            isTrial,
+            sectionTimeRemaining,
+          }),
+        );
+        setHasSavedExam(true);
+      } catch {
+        /* storage full / unavailable — non-fatal */
+      }
+    }
+  }, [state, sessionId, sections, currentSectionIndex, currentQuestionIndex, sectionAnswers, isTrial, sectionTimeRemaining]);
+
+  const resume = useCallback(() => {
+    const s = readSavedExam();
+    if (!s) {
+      setHasSavedExam(false);
+      return;
+    }
+    setSessionId(s.sessionId);
+    setSections(s.sections);
+    setCurrentSectionIndex(s.currentSectionIndex || 0);
+    setCurrentQuestionIndex(s.currentQuestionIndex || 0);
+    setSectionAnswers(s.sectionAnswers || []);
+    setIsTrial(!!s.isTrial);
+    setSectionTimeRemaining(s.sectionTimeRemaining || 0);
+    questionStartTime.current = Date.now();
+    setState(s.state === 'SECTION_BREAK' ? 'SECTION_BREAK' : 'IN_PROGRESS');
+  }, []);
+
+  const discardSavedExam = useCallback(() => {
+    clearSavedExam();
+    setHasSavedExam(false);
+  }, []);
+
   const handleSectionTimeExpired = useCallback(() => {
     // Auto-submit remaining questions in section as null
     if (!currentSection) return;
@@ -109,6 +186,8 @@ export function useExamEngine() {
   }, [currentSection, currentQuestionIndex, sectionAnswers]);
 
   const start = useCallback(async (trial: boolean = false) => {
+    clearSavedExam();
+    setHasSavedExam(false);
     setIsTrial(trial);
     const data = await startExam(trial);
     setSessionId(data.session_id);
@@ -175,6 +254,8 @@ export function useExamEngine() {
       // Last section - complete exam
       const examResults = await completeExam(sessionId);
       setResults(examResults);
+      clearSavedExam();
+      setHasSavedExam(false);
       setState('COMPLETED');
     }
   }, [sessionId, currentSection, currentSectionIndex, sections]);
@@ -216,5 +297,8 @@ export function useExamEngine() {
     start,
     results,
     isTrial,
+    hasSavedExam,
+    resume,
+    discardSavedExam,
   };
 }

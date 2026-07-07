@@ -6,6 +6,8 @@ interface Props {
   resetKey: unknown;
   /** Called when the user chooses to skip a question that failed to render. */
   onSkip: () => void;
+  /** Optional identifier (e.g. question type) shown for diagnostics. */
+  detail?: string;
   children: ReactNode;
 }
 
@@ -37,7 +39,10 @@ export default class ExamErrorBoundary extends Component<Props, State> {
         <div className="text-center py-10">
           <div className="text-4xl mb-3">&#9888;&#65039;</div>
           <p className="text-gray-700 font-medium mb-1">This question couldn't be displayed.</p>
-          <p className="text-sm text-gray-400 mb-6">You can skip it and continue the exam.</p>
+          <p className="text-sm text-gray-400 mb-2">You can skip it and continue the exam.</p>
+          {this.props.detail && (
+            <p className="text-xs text-gray-300 mb-6">Question type: {this.props.detail}</p>
+          )}
           <button
             onClick={() => {
               this.setState({ hasError: false });

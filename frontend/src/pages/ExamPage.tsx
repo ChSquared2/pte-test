@@ -41,6 +41,24 @@ export default function ExamPage() {
             <p><strong>Section 4:</strong> Listening (25 min) - per-question timers</p>
           </div>
 
+          {exam.hasSavedExam && (
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+              <p className="text-sm text-[#003057] font-medium mb-3">
+                You have an exam in progress. Resume where you left off?
+              </p>
+              <div className="flex gap-3 justify-center">
+                <button onClick={exam.resume}
+                  className="tap-target bg-[#0072CE] text-white font-semibold py-2.5 px-6 rounded-lg hover:bg-[#005fa3] transition-colors">
+                  Resume Exam
+                </button>
+                <button onClick={exam.discardSavedExam}
+                  className="tap-target border border-gray-300 text-gray-600 py-2.5 px-5 rounded-lg hover:bg-gray-50 transition-colors text-sm">
+                  Discard
+                </button>
+              </div>
+            </div>
+          )}
+
           <label className="flex items-center justify-center gap-3 mb-6 cursor-pointer group">
             <input type="checkbox" checked={isTrial} onChange={(e) => setIsTrial(e.target.checked)}
               className="w-5 h-5 rounded border-gray-300 text-[#F2A900] focus:ring-[#F2A900]" />
@@ -51,7 +69,7 @@ export default function ExamPage() {
 
           <button onClick={() => exam.start(isTrial)}
             className="bg-[#F2A900] text-[#003057] font-bold py-3 px-8 rounded-lg hover:bg-[#e09d00] transition-colors text-lg">
-            Start Exam
+            {exam.hasSavedExam ? 'Start New Exam' : 'Start Exam'}
           </button>
         </div>
       </div>
@@ -189,7 +207,7 @@ export default function ExamPage() {
 
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="bg-white rounded-xl shadow-md p-6">
-          <ExamErrorBoundary resetKey={exam.overallQuestionIndex} onSkip={exam.skipQuestion}>
+          <ExamErrorBoundary resetKey={exam.overallQuestionIndex} onSkip={exam.skipQuestion} detail={exam.currentQuestion?.type}>
             {AI_SCORED_TYPES.has(exam.currentQuestion!.type) ? (
               <AIScoredQuestionRenderer
                 question={exam.currentQuestion!}
