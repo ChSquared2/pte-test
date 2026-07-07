@@ -461,7 +461,16 @@ function ExamDropdown({ question, onAnswer }: { question: any; onAnswer: (a: unk
 
 function ExamDrag({ question, onAnswer }: { question: any; onAnswer: (a: unknown) => void }) {
   const isDialogue = question.type === 'grammar_drag_dialogue';
-  const blankCount = isDialogue ? question.correct_answers.length : question.blank_positions.length;
+  // `correct_answers` is stripped by the backend before sending, so derive the
+  // blank count from the dialogue structure instead (avoids a crash/blank page).
+  const dialogueBlankCount = isDialogue
+    ? question.lines.reduce(
+        (sum: number, line: any) =>
+          sum + (line.parts?.filter((p: any) => p.blank).length || 0),
+        0,
+      )
+    : 0;
+  const blankCount = isDialogue ? dialogueBlankCount : question.blank_positions.length;
   const [placed, setPlaced] = useState<(string | null)[]>(new Array(blankCount).fill(null));
   const [dragWord, setDragWord] = useState<string | null>(null);
   const used = new Set(placed.filter(Boolean));
