@@ -146,6 +146,39 @@ def _audio_part(audio_path: str):
     return types.Part.from_bytes(data=data, mime_type=mime)
 
 
+_IMAGE_MIME_TYPES = {
+    ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
+    ".png": "image/png", ".webp": "image/webp",
+}
+
+
+def _image_part(image_path: str):
+    """Read a describe_image source photo as inline bytes for the request."""
+    ext = os.path.splitext(image_path)[1].lower()
+    mime = _IMAGE_MIME_TYPES.get(ext, "image/jpeg")
+    with open(image_path, "rb") as f:
+        data = f.read()
+    return types.Part.from_bytes(data=data, mime_type=mime)
+
+
+def resolve_media_path(url: str) -> str | None:
+    """Resolve a "/api/audio/<filename>" URL to a local file path.
+
+    Mirrors the lookup order in backend/routes/audio.py (data/audio/ first,
+    then uploads/) so callers can locate the actual file behind a stored URL.
+    """
+    if not url:
+        return None
+    filename = url.rsplit("/", 1)[-1]
+    data_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "audio")
+    uploads_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "uploads")
+    for base in (data_dir, uploads_dir):
+        candidate = os.path.join(base, filename)
+        if os.path.exists(candidate):
+            return candidate
+    return None
+
+
 def _score_speaking_strict(audio_path: str, question_type: str, reference_text: str) -> dict:
     """Strict word-level scoring for Read Aloud and Repeat Sentence."""
     ref_words = reference_text.split()
@@ -231,16 +264,33 @@ Respond ONLY with valid JSON (no other text):
         return {"score_details": {"error": str(e)}, "total_score": 0, "max_score": 100, "feedback": f"Scoring unavailable: {str(e)}"}
 
 
-def score_speaking(audio_path: str, question_type: str, reference_text: str = "") -> dict:
-    """Score a speaking response using Gemini multimodal (audio input)."""
+def score_speaking(audio_path: str, question_type: str, reference_text: str = "", image_path: str | None = None) -> dict:
+    """Score a speaking response using Gemini multimodal (audio input, +image for describe_image)."""
 
     # For question types with exact reference text, use strict word-level analysis
     if question_type in ("read_aloud", "repeat_sentence") and reference_text:
         return _score_speaking_strict(audio_path, question_type, reference_text)
 
-    # For open-ended speaking types, use general scoring
+    # For open-ended speaking types, use general scoring.
+    # Only treat it as a scorable image if it's a supported raster format —
+    # older describe_image questions use generated .svg illustrations, which
+    # aren't valid image bytes for the multimodal API, so they keep the
+    # generic (no-image) instruction below instead of being sent as garbage.
+    has_image = (
+        question_type == "describe_image"
+        and bool(image_path)
+        and os.path.splitext(image_path)[1].lower() in _IMAGE_MIME_TYPES
+    )
     type_instructions = {
-        "describe_image": "The student described an image. Score the quality, detail, and organization of the description.",
+        "describe_image": (
+            "You are shown the image the student was asked to describe, and their spoken "
+            "description as audio. Score content based on how ACCURATELY and COMPLETELY the "
+            "description matches what is actually shown in the image — deduct heavily for "
+            "inaccurate, invented, or missing details the student did not actually see."
+            if has_image else
+            "The student described an image (not available for scoring). Score the quality, "
+            "detail, and organization of the description."
+        ),
         "retell_lecture": f"The lecture content was: '{reference_text}'. Score how completely and accurately the student retold the key points. If they only mentioned a few points, content should be low (1-2). If they covered most points, content should be higher (3-5).",
         "answer_short_question": f"The expected answer is: '{reference_text}'. Give content=5 ONLY if they said this exact word or a clear synonym. Give content=0 if they said something wrong or nothing.",
         "summarize_group_discussion": f"The discussion content was: '{reference_text}'. Score how well the student summarized all key points. Missing major points should result in low content scores.",
@@ -260,10 +310,15 @@ Score on these criteria (each 0-5, where 0=no response, 5=native-like):
 Respond ONLY with valid JSON:
 {{"content": X, "pronunciation": X, "oral_fluency": X, "feedback": "2-3 sentences of specific feedback listing what was missing or wrong"}}"""
 
+    contents = [scoring_prompt]
+    if has_image:
+        contents.append(_image_part(image_path))
+    contents.append(_audio_part(audio_path))
+
     try:
         response = client.models.generate_content(
             model=MODEL,
-            contents=[scoring_prompt, _audio_part(audio_path)],
+            contents=contents,
             config=GEN_CONFIG,
         )
         scores = _parse_json_response(response.text)

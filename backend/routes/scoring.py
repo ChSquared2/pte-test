@@ -4,7 +4,7 @@ import uuid
 from fastapi import APIRouter, UploadFile, File, Form
 from ..models import SubmitAnswerRequest, SubmitAnswerResponse
 from ..services.deterministic_scoring import score_question, _load_question
-from ..services.gemini_scoring import score_essay, score_summarize_written_text, score_summarize_spoken_text, score_speaking
+from ..services.gemini_scoring import score_essay, score_summarize_written_text, score_summarize_spoken_text, score_speaking, resolve_media_path
 from ..database import get_connection
 
 router = APIRouter()
@@ -74,11 +74,14 @@ async def submit_speaking(
     # would give Gemini the wrong scoring target.
     question = _load_question(question_type, question_id)
     reference = ""
+    image_path = None
     if question:
         reference = question.get("expected_answer", "") or question.get("transcript", "") or question.get("text", "") or question.get("scenario", "")
+        if question_type == "describe_image":
+            image_path = resolve_media_path(question.get("image_url", ""))
 
     # Score with Gemini
-    result = score_speaking(filepath, question_type, reference)
+    result = score_speaking(filepath, question_type, reference, image_path)
 
     # Determine section
     section = "speaking"

@@ -19,6 +19,11 @@ venv/
 backend/uploads/
 backend/*.db
 
+# Drop zone for describe_image source photos (processed copies live in
+# backend/data/audio/ instead, which IS tracked — see tools/add_image_questions.py)
+backend/data/images_incoming/*
+!backend/data/images_incoming/.gitkeep
+
 # Frontend
 frontend/node_modules/
 frontend/dist/

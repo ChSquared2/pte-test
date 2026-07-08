@@ -12,7 +12,11 @@ UPLOADS_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "uploads"
 def get_audio(filename: str):
     """Serve audio files from data/audio/ or uploads/."""
     # Determine media type
-    media_types = {".svg": "image/svg+xml", ".png": "image/png", ".mp3": "audio/mpeg", ".wav": "audio/wav", ".webm": "audio/webm"}
+    media_types = {
+        ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg",
+        ".jpeg": "image/jpeg", ".webp": "image/webp",
+        ".mp3": "audio/mpeg", ".wav": "audio/wav", ".webm": "audio/webm",
+    }
     ext = os.path.splitext(filename)[1].lower()
     media_type = media_types.get(ext)
 
