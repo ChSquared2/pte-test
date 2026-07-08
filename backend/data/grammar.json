@@ -69,6 +69,118 @@
       ],
       "correct_answer": 0,
       "time_limit_seconds": 60
+    },
+    {
+      "id": "gen_grammar_error_correction_001",
+      "sentence": "Each of the students have submitted their assignment.",
+      "underlined_word": "have",
+      "options": [
+        "has",
+        "having",
+        "had"
+      ],
+      "correct_answer": 0,
+      "type": "grammar_error_correction",
+      "section": "grammar",
+      "time_limit_seconds": 60
+    },
+    {
+      "id": "gen_grammar_error_correction_002",
+      "sentence": "The company have announced record profits this quarter.",
+      "underlined_word": "have",
+      "options": [
+        "has",
+        "having",
+        "were"
+      ],
+      "correct_answer": 0,
+      "type": "grammar_error_correction",
+      "section": "grammar",
+      "time_limit_seconds": 60
+    },
+    {
+      "id": "gen_grammar_error_correction_003",
+      "sentence": "Neither of the applicants were qualified for the position.",
+      "underlined_word": "were",
+      "options": [
+        "was",
+        "are",
+        "being"
+      ],
+      "correct_answer": 0,
+      "type": "grammar_error_correction",
+      "section": "grammar",
+      "time_limit_seconds": 60
+    },
+    {
+      "id": "gen_grammar_error_correction_004",
+      "sentence": "She is one of the most talented musician in the orchestra.",
+      "underlined_word": "musician",
+      "options": [
+        "musicians",
+        "music",
+        "musically"
+      ],
+      "correct_answer": 0,
+      "type": "grammar_error_correction",
+      "section": "grammar",
+      "time_limit_seconds": 60
+    },
+    {
+      "id": "gen_grammar_error_correction_005",
+      "sentence": "By the time we arrived, the concert already started.",
+      "underlined_word": "started",
+      "options": [
+        "had already started",
+        "starts",
+        "was starting"
+      ],
+      "correct_answer": 0,
+      "type": "grammar_error_correction",
+      "section": "grammar",
+      "time_limit_seconds": 60
+    },
+    {
+      "id": "gen_grammar_error_correction_006",
+      "sentence": "The information which he provided were completely inaccurate.",
+      "underlined_word": "were",
+      "options": [
+        "was",
+        "are",
+        "being"
+      ],
+      "correct_answer": 0,
+      "type": "grammar_error_correction",
+      "section": "grammar",
+      "time_limit_seconds": 60
+    },
+    {
+      "id": "gen_grammar_error_correction_007",
+      "sentence": "There is several reasons why the project was delayed.",
+      "underlined_word": "is",
+      "options": [
+        "are",
+        "was",
+        "being"
+      ],
+      "correct_answer": 0,
+      "type": "grammar_error_correction",
+      "section": "grammar",
+      "time_limit_seconds": 60
+    },
+    {
+      "id": "gen_grammar_error_correction_008",
+      "sentence": "He suggested me to reconsider my decision before signing.",
+      "underlined_word": "me",
+      "options": [
+        "that I",
+        "to me",
+        "myself"
+      ],
+      "correct_answer": 0,
+      "type": "grammar_error_correction",
+      "section": "grammar",
+      "time_limit_seconds": 60
     }
   ],
   "grammar_select_blanks": [
@@ -264,6 +376,334 @@
           "answer": "will have worked"
         }
       ],
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_grammar_select_blanks_001",
+      "items": [
+        {
+          "text_before": "By next year, she ",
+          "text_after": " her degree.",
+          "options": [
+            "will have completed",
+            "completes",
+            "is completing",
+            "completed"
+          ],
+          "answer": "will have completed"
+        },
+        {
+          "text_before": "The report ",
+          "text_after": " by the committee before it was published.",
+          "options": [
+            "was reviewed",
+            "reviewed",
+            "reviews",
+            "is reviewing"
+          ],
+          "answer": "was reviewed"
+        },
+        {
+          "text_before": "I wish I ",
+          "text_after": " more time to prepare for the exam.",
+          "options": [
+            "had had",
+            "have had",
+            "having",
+            "has"
+          ],
+          "answer": "had had"
+        }
+      ],
+      "type": "grammar_select_blanks",
+      "section": "grammar",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_grammar_select_blanks_002",
+      "items": [
+        {
+          "text_before": "The museum, ",
+          "text_after": " was built in 1890, attracts thousands of visitors annually.",
+          "options": [
+            "which",
+            "who",
+            "what",
+            "where"
+          ],
+          "answer": "which"
+        },
+        {
+          "text_before": "Despite ",
+          "text_after": " tired, she finished the marathon.",
+          "options": [
+            "being",
+            "be",
+            "been",
+            "to be"
+          ],
+          "answer": "being"
+        },
+        {
+          "text_before": "He would have called you ",
+          "text_after": " he had your number.",
+          "options": [
+            "if",
+            "unless",
+            "although",
+            "since"
+          ],
+          "answer": "if"
+        }
+      ],
+      "type": "grammar_select_blanks",
+      "section": "grammar",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_grammar_select_blanks_003",
+      "items": [
+        {
+          "text_before": "This is the restaurant ",
+          "text_after": " we celebrated our anniversary.",
+          "options": [
+            "where",
+            "which",
+            "who",
+            "when"
+          ],
+          "answer": "where"
+        },
+        {
+          "text_before": "The children ",
+          "text_after": " playing in the park when it started to rain.",
+          "options": [
+            "were",
+            "was",
+            "are",
+            "have been"
+          ],
+          "answer": "were"
+        },
+        {
+          "text_before": "Not only ",
+          "text_after": " late, but he also forgot the documents.",
+          "options": [
+            "was he",
+            "he was",
+            "he is",
+            "is he"
+          ],
+          "answer": "was he"
+        }
+      ],
+      "type": "grammar_select_blanks",
+      "section": "grammar",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_grammar_select_blanks_004",
+      "items": [
+        {
+          "text_before": "The novel ",
+          "text_after": " by a first-time author became an instant bestseller.",
+          "options": [
+            "written",
+            "wrote",
+            "writing",
+            "writes"
+          ],
+          "answer": "written"
+        },
+        {
+          "text_before": "If the weather improves, we ",
+          "text_after": " a picnic this weekend.",
+          "options": [
+            "will have",
+            "would have",
+            "had",
+            "having"
+          ],
+          "answer": "will have"
+        },
+        {
+          "text_before": "She is used to ",
+          "text_after": " early every morning.",
+          "options": [
+            "waking up",
+            "wake up",
+            "woke up",
+            "wakes up"
+          ],
+          "answer": "waking up"
+        }
+      ],
+      "type": "grammar_select_blanks",
+      "section": "grammar",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_grammar_select_blanks_005",
+      "items": [
+        {
+          "text_before": "The bridge, ",
+          "text_after": " construction began in 2019, finally opened last month.",
+          "options": [
+            "whose",
+            "which",
+            "who",
+            "that"
+          ],
+          "answer": "whose"
+        },
+        {
+          "text_before": "Hardly ",
+          "text_after": " the meeting started when the fire alarm went off.",
+          "options": [
+            "had",
+            "did",
+            "has",
+            "was"
+          ],
+          "answer": "had"
+        },
+        {
+          "text_before": "I would rather you ",
+          "text_after": " me before making that decision.",
+          "options": [
+            "told",
+            "tell",
+            "telling",
+            "tells"
+          ],
+          "answer": "told"
+        }
+      ],
+      "type": "grammar_select_blanks",
+      "section": "grammar",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_grammar_select_blanks_006",
+      "items": [
+        {
+          "text_before": "The data ",
+          "text_after": " collected over five years, reveal a clear trend.",
+          "options": [
+            "which were",
+            "which was",
+            "that is",
+            "who were"
+          ],
+          "answer": "which were"
+        },
+        {
+          "text_before": "It is essential that every employee ",
+          "text_after": " the new policy.",
+          "options": [
+            "follow",
+            "follows",
+            "followed",
+            "following"
+          ],
+          "answer": "follow"
+        },
+        {
+          "text_before": "Scarcely had they left ",
+          "text_after": " it began to snow heavily.",
+          "options": [
+            "when",
+            "than",
+            "then",
+            "while"
+          ],
+          "answer": "when"
+        }
+      ],
+      "type": "grammar_select_blanks",
+      "section": "grammar",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_grammar_select_blanks_007",
+      "items": [
+        {
+          "text_before": "The professor insisted that the essay ",
+          "text_after": " by Friday.",
+          "options": [
+            "be submitted",
+            "is submitted",
+            "submitted",
+            "will submit"
+          ],
+          "answer": "be submitted"
+        },
+        {
+          "text_before": "Rarely ",
+          "text_after": " such dedication among new employees.",
+          "options": [
+            "do we see",
+            "we see",
+            "we do see",
+            "see we"
+          ],
+          "answer": "do we see"
+        },
+        {
+          "text_before": "The proposal, ",
+          "text_after": " details were still unclear, was rejected.",
+          "options": [
+            "whose",
+            "which",
+            "that",
+            "who"
+          ],
+          "answer": "whose"
+        }
+      ],
+      "type": "grammar_select_blanks",
+      "section": "grammar",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_grammar_select_blanks_008",
+      "items": [
+        {
+          "text_before": "Had she known about the traffic, she ",
+          "text_after": " earlier.",
+          "options": [
+            "would have left",
+            "will leave",
+            "left",
+            "leaves"
+          ],
+          "answer": "would have left"
+        },
+        {
+          "text_before": "The committee recommended that the policy ",
+          "text_after": " immediately.",
+          "options": [
+            "be revised",
+            "is revised",
+            "revised",
+            "revises"
+          ],
+          "answer": "be revised"
+        },
+        {
+          "text_before": "So exhausted ",
+          "text_after": " the workers that production slowed significantly.",
+          "options": [
+            "were",
+            "was",
+            "are",
+            "have been"
+          ],
+          "answer": "were"
+        }
+      ],
+      "type": "grammar_select_blanks",
+      "section": "grammar",
       "time_limit_seconds": 120
     }
   ],
@@ -866,6 +1306,491 @@
         "checkout"
       ],
       "time_limit_seconds": 180
+    },
+    {
+      "id": "gen_grammar_drag_dialogue_001",
+      "word_bank": [
+        "appointment",
+        "available",
+        "reschedule",
+        "Tuesday",
+        "confirm"
+      ],
+      "lines": [
+        {
+          "speaker": "Receptionist",
+          "parts": [
+            {
+              "text": "Good morning, do you have an "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": " with Dr. Lee today?"
+            }
+          ],
+          "answer": "appointment"
+        },
+        {
+          "speaker": "Patient",
+          "parts": [
+            {
+              "text": "Yes, but I need to "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": " it if possible."
+            }
+          ],
+          "answer": "reschedule"
+        },
+        {
+          "speaker": "Receptionist",
+          "parts": [
+            {
+              "text": "Let me check what's "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": " next week."
+            }
+          ],
+          "answer": "available"
+        },
+        {
+          "speaker": "Receptionist",
+          "parts": [
+            {
+              "text": "I can offer you "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": " at 10 a.m."
+            }
+          ],
+          "answer": "Tuesday"
+        },
+        {
+          "speaker": "Patient",
+          "parts": [
+            {
+              "text": "That works, could you "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": " it by email?"
+            }
+          ],
+          "answer": "confirm"
+        }
+      ],
+      "correct_answers": [
+        "appointment",
+        "reschedule",
+        "available",
+        "Tuesday",
+        "confirm"
+      ],
+      "type": "grammar_drag_dialogue",
+      "section": "grammar",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_grammar_drag_dialogue_002",
+      "word_bank": [
+        "luggage",
+        "gate",
+        "boarding",
+        "delayed",
+        "passport"
+      ],
+      "lines": [
+        {
+          "speaker": "Traveler",
+          "parts": [
+            {
+              "text": "Excuse me, which "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": " is the flight to Madrid?"
+            }
+          ],
+          "answer": "gate"
+        },
+        {
+          "speaker": "Agent",
+          "parts": [
+            {
+              "text": "It's gate 14, but "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": " hasn't started yet."
+            }
+          ],
+          "answer": "boarding"
+        },
+        {
+          "speaker": "Traveler",
+          "parts": [
+            {
+              "text": "Is the flight "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": "?"
+            }
+          ],
+          "answer": "delayed"
+        },
+        {
+          "speaker": "Agent",
+          "parts": [
+            {
+              "text": "No, on time. Please have your "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": " ready."
+            }
+          ],
+          "answer": "passport"
+        },
+        {
+          "speaker": "Traveler",
+          "parts": [
+            {
+              "text": "Where do I check my "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": "?"
+            }
+          ],
+          "answer": "luggage"
+        }
+      ],
+      "correct_answers": [
+        "gate",
+        "boarding",
+        "delayed",
+        "passport",
+        "luggage"
+      ],
+      "type": "grammar_drag_dialogue",
+      "section": "grammar",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_grammar_drag_dialogue_003",
+      "word_bank": [
+        "deadline",
+        "draft",
+        "feedback",
+        "revise",
+        "submit"
+      ],
+      "lines": [
+        {
+          "speaker": "Manager",
+          "parts": [
+            {
+              "text": "How's the first "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": " of the report coming along?"
+            }
+          ],
+          "answer": "draft"
+        },
+        {
+          "speaker": "Employee",
+          "parts": [
+            {
+              "text": "Almost done, the "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": " is tomorrow, right?"
+            }
+          ],
+          "answer": "deadline"
+        },
+        {
+          "speaker": "Manager",
+          "parts": [
+            {
+              "text": "Yes. Send it early so I can give "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": "."
+            }
+          ],
+          "answer": "feedback"
+        },
+        {
+          "speaker": "Employee",
+          "parts": [
+            {
+              "text": "Sure, I'll "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": " it based on your comments."
+            }
+          ],
+          "answer": "revise"
+        },
+        {
+          "speaker": "Manager",
+          "parts": [
+            {
+              "text": "Great, then you can "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": " it by Friday."
+            }
+          ],
+          "answer": "submit"
+        }
+      ],
+      "correct_answers": [
+        "draft",
+        "deadline",
+        "feedback",
+        "revise",
+        "submit"
+      ],
+      "type": "grammar_drag_dialogue",
+      "section": "grammar",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_grammar_drag_dialogue_004",
+      "word_bank": [
+        "lease",
+        "deposit",
+        "utilities",
+        "landlord",
+        "sign"
+      ],
+      "lines": [
+        {
+          "speaker": "Tenant",
+          "parts": [
+            {
+              "text": "Before I "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": " the contract, can I ask a few questions?"
+            }
+          ],
+          "answer": "sign"
+        },
+        {
+          "speaker": "Agent",
+          "parts": [
+            {
+              "text": "Of course. What would you like to know about the "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": "?"
+            }
+          ],
+          "answer": "lease"
+        },
+        {
+          "speaker": "Tenant",
+          "parts": [
+            {
+              "text": "Are "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": " included in the monthly rent?"
+            }
+          ],
+          "answer": "utilities"
+        },
+        {
+          "speaker": "Agent",
+          "parts": [
+            {
+              "text": "No, those are separate. You'll also need to pay a security "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": "."
+            }
+          ],
+          "answer": "deposit"
+        },
+        {
+          "speaker": "Tenant",
+          "parts": [
+            {
+              "text": "Understood. Can I speak with the "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": " directly?"
+            }
+          ],
+          "answer": "landlord"
+        }
+      ],
+      "correct_answers": [
+        "sign",
+        "lease",
+        "utilities",
+        "deposit",
+        "landlord"
+      ],
+      "type": "grammar_drag_dialogue",
+      "section": "grammar",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_grammar_drag_dialogue_005",
+      "word_bank": [
+        "symptoms",
+        "prescription",
+        "allergic",
+        "dosage",
+        "pharmacy"
+      ],
+      "lines": [
+        {
+          "speaker": "Doctor",
+          "parts": [
+            {
+              "text": "Can you describe your "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": " in more detail?"
+            }
+          ],
+          "answer": "symptoms"
+        },
+        {
+          "speaker": "Patient",
+          "parts": [
+            {
+              "text": "Mostly a headache. I'm also "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": " to certain medications."
+            }
+          ],
+          "answer": "allergic"
+        },
+        {
+          "speaker": "Doctor",
+          "parts": [
+            {
+              "text": "Noted. I'll write you a "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": " for something milder."
+            }
+          ],
+          "answer": "prescription"
+        },
+        {
+          "speaker": "Doctor",
+          "parts": [
+            {
+              "text": "Follow the "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": " printed on the label carefully."
+            }
+          ],
+          "answer": "dosage"
+        },
+        {
+          "speaker": "Patient",
+          "parts": [
+            {
+              "text": "Is there a "
+            },
+            {
+              "blank": true
+            },
+            {
+              "text": " nearby where I can fill this?"
+            }
+          ],
+          "answer": "pharmacy"
+        }
+      ],
+      "correct_answers": [
+        "symptoms",
+        "allergic",
+        "prescription",
+        "dosage",
+        "pharmacy"
+      ],
+      "type": "grammar_drag_dialogue",
+      "section": "grammar",
+      "time_limit_seconds": 120
     }
   ]
 }

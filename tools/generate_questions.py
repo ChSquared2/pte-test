@@ -1,21 +1,32 @@
 #!/usr/bin/env python3
-"""Generate new PTE practice questions with Gemini and add them to the bank.
+"""Validate, dedupe, and add new PTE practice questions to the bank.
+
+Two ways to supply question content:
+  1. --from-file: content already authored (e.g. by Claude in this session) as
+     plain JSON — no API calls, no cost. This is the default/preferred path.
+  2. --count (Gemini): optional fallback that generates content via the Gemini
+     API. Kept for cases where authoring by hand isn't convenient. Gemini's
+     main job in this project is answer scoring, not content generation.
 
 Only text-based question types are supported — types that need pre-recorded
 audio/image (most listening + several speaking types) are intentionally out of
 scope because there is no media to attach.
 
 Usage:
-  # Dry-run: write to .tmp/ for review, don't touch the bank
-  python tools/generate_questions.py --type grammar_select_blanks --count 3 --out .tmp
+  # Preferred: validate + merge hand-authored content (no API calls)
+  python tools/generate_questions.py --type grammar_select_blanks --from-file .tmp/gsb.json
 
-  # Real run: validate, dedupe, and append to backend/data/<section>.json
+  # Dry-run: write to .tmp/ for review, don't touch the bank
+  python tools/generate_questions.py --type grammar_select_blanks --from-file .tmp/gsb_raw.json --out .tmp
+
+  # Optional fallback: generate via Gemini, validate, dedupe, append
   python tools/generate_questions.py --type grammar_select_blanks --count 10
 
   # List supported types
   python tools/generate_questions.py --list
 
-Requires GOOGLE_API_KEY in the project .env (same key used for scoring).
+--count mode requires GOOGLE_API_KEY in the project .env (same key used for scoring).
+--from-file mode needs no API key at all.
 """
 import argparse
 import json
@@ -23,18 +34,20 @@ import os
 import re
 import sys
 
-from dotenv import load_dotenv
-
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-load_dotenv(os.path.join(ROOT, ".env"))
-
-from google import genai  # noqa: E402
 
 DATA_DIR = os.path.join(ROOT, "backend", "data")
 EXAM_DATA_DIR = os.path.join(DATA_DIR, "exam")
 
 MODEL_DEFAULT = "gemini-2.5-flash"
-client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
+
+
+def _gemini_client():
+    """Lazily create the Gemini client — only needed for --count generation."""
+    from dotenv import load_dotenv
+    load_dotenv(os.path.join(ROOT, ".env"))
+    from google import genai
+    return genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # type -> (section file, human task description for the prompt)
 TYPES = {
@@ -326,19 +339,15 @@ def next_ids(qtype, n, taken):
     return ids
 
 
-def generate(qtype, count, model):
-    section, desc = TYPES[qtype]
-    examples = load_examples(qtype, section)
-    if not examples:
-        print(f"  ! no seed examples for {qtype}; cannot few-shot", file=sys.stderr)
-        return section, []
-    prompt = build_prompt(qtype, section, desc, examples, count)
-    resp = client.models.generate_content(model=model, contents=prompt)
-    raw = parse_array(resp.text)
+def process_candidates(qtype, raw):
+    """Validate, dedupe, default-fill, and id-assign a list of raw question dicts.
 
+    Shared by both the Gemini path and the hand-authored (--from-file) path so
+    every question — regardless of source — passes the same invariants.
+    """
+    section, _ = TYPES[qtype]
     existing_ids = all_existing_ids()
-    seen_sigs = {signature(qtype, q) for q in
-                 load_examples(qtype, section, n=10_000)}
+    seen_sigs = {signature(qtype, q) for q in load_examples(qtype, section, n=10_000)}
     accepted = []
     for q in raw:
         q["type"] = qtype
@@ -356,10 +365,37 @@ def generate(qtype, count, model):
         seen_sigs.add(sig)
         accepted.append(q)
 
-    for q, qid in zip(accepted, next_ids(qtype, len(accepted), existing_ids)):
-        # put id first for readability
-        accepted[accepted.index(q)] = {"id": qid, **q}
+    ids = next_ids(qtype, len(accepted), existing_ids)
+    accepted = [{"id": qid, **q} for q, qid in zip(accepted, ids)]
     return section, accepted
+
+
+def generate(qtype, count, model):
+    """Generate candidate questions via Gemini (optional fallback path)."""
+    section, desc = TYPES[qtype]
+    examples = load_examples(qtype, section)
+    if not examples:
+        print(f"  ! no seed examples for {qtype}; cannot few-shot", file=sys.stderr)
+        return section, []
+    prompt = build_prompt(qtype, section, desc, examples, count)
+    resp = _gemini_client().models.generate_content(model=model, contents=prompt)
+    raw = parse_array(resp.text)
+    return process_candidates(qtype, raw)
+
+
+def load_from_file(qtype, path):
+    """Load hand-authored candidate questions from a JSON file.
+
+    Accepts either a plain JSON array of question objects, or the bank's
+    {"<type>": [...]} shape.
+    """
+    with open(path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    if isinstance(data, dict):
+        raw = data.get(qtype) or next((v for v in data.values() if isinstance(v, list)), [])
+    else:
+        raw = data
+    return process_candidates(qtype, raw)
 
 
 def append_to_bank(section, qtype, questions):
@@ -372,9 +408,10 @@ def append_to_bank(section, qtype, questions):
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Generate PTE questions with Gemini.")
+    ap = argparse.ArgumentParser(description="Validate/merge PTE questions into the bank.")
     ap.add_argument("--type", help="question type (see --list)")
-    ap.add_argument("--count", type=int, default=5)
+    ap.add_argument("--from-file", help="JSON file of hand-authored candidates (no API calls)")
+    ap.add_argument("--count", type=int, help="generate this many via Gemini instead of --from-file")
     ap.add_argument("--model", default=MODEL_DEFAULT)
     ap.add_argument("--out", help="dry-run: write to this dir instead of the bank")
     ap.add_argument("--list", action="store_true", help="list supported types")
@@ -388,9 +425,17 @@ def main():
     if args.type not in TYPES:
         print(f"Unsupported type '{args.type}'. Use --list.", file=sys.stderr)
         sys.exit(1)
+    if not args.from_file and not args.count:
+        print("Provide --from-file <path> (preferred, no API calls) or --count (Gemini).", file=sys.stderr)
+        sys.exit(1)
 
-    print(f"Generating {args.count} x {args.type} with {args.model}...")
-    section, questions = generate(args.type, args.count, args.model)
+    if args.from_file:
+        print(f"Validating candidates for {args.type} from {args.from_file}...")
+        section, questions = load_from_file(args.type, args.from_file)
+    else:
+        print(f"Generating {args.count} x {args.type} with {args.model}...")
+        section, questions = generate(args.type, args.count, args.model)
+
     print(f"Accepted {len(questions)} valid, non-duplicate questions.")
     if not questions:
         return

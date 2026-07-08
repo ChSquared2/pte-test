@@ -89,6 +89,126 @@
       ],
       "correct_answer": 0,
       "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_mcq_single_reading_001",
+      "passage": "Urban beekeeping has surged in popularity over the past decade, with hives now common on rooftops in cities from New York to Tokyo. Proponents argue that city-kept bees benefit from a wider diversity of flowering plants than their rural counterparts, who often forage in monoculture farmland. Critics, however, warn that high urban hive density can strain local nectar resources and outcompete wild pollinator species. Municipal governments are increasingly stepping in with permit systems to balance these competing interests.",
+      "prompt": "According to the passage, what is a concern raised by critics of urban beekeeping?",
+      "options": [
+        "Cities lack sufficient flowering plants",
+        "Dense hives may outcompete wild pollinators",
+        "Rooftop hives are illegal in most cities",
+        "Urban honey is lower quality than rural honey"
+      ],
+      "correct_answer": 1,
+      "type": "mcq_single_reading",
+      "section": "reading",
+      "time_limit_seconds": 90
+    },
+    {
+      "id": "gen_mcq_single_reading_002",
+      "passage": "The concept of a four-day work week has moved from fringe proposal to mainstream policy debate. Trials conducted across several countries report that employees maintain or even increase productivity when given an extra day off, provided workloads and expectations are adjusted accordingly. Skeptics counter that results vary significantly by industry, with client-facing and shift-based sectors struggling to implement the model without hiring additional staff.",
+      "prompt": "What do the trial results suggest about productivity under a four-day work week?",
+      "options": [
+        "Productivity declines sharply",
+        "Productivity is unaffected by workload adjustments",
+        "Productivity can be maintained or improved with adjusted workloads",
+        "Productivity gains are limited to office jobs"
+      ],
+      "correct_answer": 2,
+      "type": "mcq_single_reading",
+      "section": "reading",
+      "time_limit_seconds": 90
+    },
+    {
+      "id": "gen_mcq_single_reading_003",
+      "passage": "Coral bleaching occurs when unusually warm ocean temperatures cause corals to expel the symbiotic algae living in their tissues, draining them of color and a critical energy source. While corals can recover if temperatures normalize quickly, prolonged stress often leads to mass die-offs. Recent research suggests that some coral species are adapting by hosting more heat-tolerant algae strains, offering cautious hope for reef resilience.",
+      "prompt": "What does recent research suggest about certain coral species?",
+      "options": [
+        "They are becoming extinct faster than predicted",
+        "They may be adapting via heat-tolerant algae",
+        "They no longer rely on symbiotic algae",
+        "They bleach only in freshwater conditions"
+      ],
+      "correct_answer": 1,
+      "type": "mcq_single_reading",
+      "section": "reading",
+      "time_limit_seconds": 90
+    },
+    {
+      "id": "gen_mcq_single_reading_004",
+      "passage": "Microcredentials, short online courses that certify a specific skill, have gained traction among employers seeking to fill technical roles quickly. Unlike traditional degrees, they can be completed in weeks rather than years, and many are stackable, allowing learners to build a broader qualification over time. Universities have begun partnering with technology companies to offer these credentials alongside conventional degree programs.",
+      "prompt": "What is one advantage of microcredentials mentioned in the passage?",
+      "options": [
+        "They replace the need for universities entirely",
+        "They can be completed quickly and stacked over time",
+        "They are only available through technology companies",
+        "They guarantee higher salaries than degrees"
+      ],
+      "correct_answer": 1,
+      "type": "mcq_single_reading",
+      "section": "reading",
+      "time_limit_seconds": 90
+    },
+    {
+      "id": "gen_mcq_single_reading_005",
+      "passage": "Desalination technology, once prohibitively expensive, has become more viable as energy costs for reverse osmosis have fallen. Coastal cities facing chronic water shortages are increasingly investing in desalination plants, though environmental groups raise concerns about the brine byproduct, which can harm marine ecosystems if discharged improperly.",
+      "prompt": "What concern do environmental groups raise about desalination?",
+      "options": [
+        "It consumes too much fresh water",
+        "The brine byproduct can damage marine ecosystems",
+        "It is no longer cost-effective",
+        "It cannot be used in coastal areas"
+      ],
+      "correct_answer": 1,
+      "type": "mcq_single_reading",
+      "section": "reading",
+      "time_limit_seconds": 90
+    },
+    {
+      "id": "gen_mcq_single_reading_006",
+      "passage": "Behavioral economists have long studied the 'default effect,' the tendency for people to stick with pre-set options rather than actively choosing an alternative. This principle has been applied to retirement savings programs, where automatically enrolling employees—while still allowing them to opt out—dramatically increases participation rates compared to systems requiring active enrollment.",
+      "prompt": "What does the passage say about automatic enrollment in retirement programs?",
+      "options": [
+        "It eliminates the option to opt out",
+        "It significantly increases participation compared to opt-in systems",
+        "It is less effective than active enrollment",
+        "It only works for high-income employees"
+      ],
+      "correct_answer": 1,
+      "type": "mcq_single_reading",
+      "section": "reading",
+      "time_limit_seconds": 90
+    },
+    {
+      "id": "gen_mcq_single_reading_007",
+      "passage": "Vertical farming, which grows crops in stacked layers within controlled indoor environments, promises significant water savings and year-round production regardless of climate. However, the high energy demands of artificial lighting have led some analysts to question whether the approach is truly more sustainable than conventional agriculture for all crop types.",
+      "prompt": "What question do some analysts raise about vertical farming?",
+      "options": [
+        "Whether it can grow crops year-round",
+        "Whether it is truly more sustainable given its energy demands",
+        "Whether it can be located outside cities",
+        "Whether it uses more water than field farming"
+      ],
+      "correct_answer": 1,
+      "type": "mcq_single_reading",
+      "section": "reading",
+      "time_limit_seconds": 90
+    },
+    {
+      "id": "gen_mcq_single_reading_008",
+      "passage": "The gig economy has reshaped labor markets by allowing workers to piece together income from multiple short-term engagements rather than a single employer. While this offers flexibility, it has also prompted debate over whether gig workers should receive benefits typically reserved for full-time employees, such as health insurance and paid leave.",
+      "prompt": "What debate does the gig economy raise, according to the passage?",
+      "options": [
+        "Whether gig work should be banned",
+        "Whether gig workers deserve traditional employee benefits",
+        "Whether flexibility is more important than income",
+        "Whether full-time employment will disappear"
+      ],
+      "correct_answer": 1,
+      "type": "mcq_single_reading",
+      "section": "reading",
+      "time_limit_seconds": 90
     }
   ],
   "mcq_multiple_reading": [
@@ -194,6 +314,150 @@
         3,
         4
       ],
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_mcq_multiple_reading_001",
+      "passage": "Remote work has produced measurable changes in urban commercial districts. Foot traffic near office buildings has dropped, hurting nearby cafes and retailers, while suburban and residential-area businesses have seen gains as workers spend more time near home. City planners are now reconsidering zoning rules that historically separated commercial cores from residential neighborhoods.",
+      "prompt": "Which TWO effects of remote work are mentioned in the passage?",
+      "options": [
+        "Decline in foot traffic near office buildings",
+        "Growth of businesses in residential areas",
+        "Increase in office building construction",
+        "Rise in city planning budgets"
+      ],
+      "correct_answers": [
+        0,
+        1
+      ],
+      "type": "mcq_multiple_reading",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_mcq_multiple_reading_002",
+      "passage": "Plastic-eating enzymes discovered in certain bacteria have generated excitement as a potential solution to plastic waste. Researchers have engineered enhanced versions of these enzymes that break down PET plastic bottles in days rather than centuries. Scaling the process for industrial use, however, remains costly, and the resulting byproducts must be carefully managed to avoid new forms of pollution.",
+      "prompt": "Which TWO challenges are associated with plastic-eating enzymes, according to the passage?",
+      "options": [
+        "High cost of industrial-scale use",
+        "Managing byproducts to avoid pollution",
+        "Enzymes only work on glass",
+        "Bacteria cannot be engineered further"
+      ],
+      "correct_answers": [
+        0,
+        1
+      ],
+      "type": "mcq_multiple_reading",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_mcq_multiple_reading_003",
+      "passage": "Electric vehicle adoption depends heavily on charging infrastructure. Studies show that range anxiety, the fear of running out of charge, remains a top barrier for potential buyers, alongside the upfront cost of vehicles. Government subsidies and rapidly expanding fast-charging networks have begun to ease both concerns in several countries.",
+      "prompt": "Which TWO barriers to EV adoption are identified in the passage?",
+      "options": [
+        "Range anxiety",
+        "Upfront vehicle cost",
+        "Lack of interest in electric vehicles",
+        "Absence of government involvement"
+      ],
+      "correct_answers": [
+        0,
+        1
+      ],
+      "type": "mcq_multiple_reading",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_mcq_multiple_reading_004",
+      "passage": "Sleep researchers have identified two distinct benefits of consistent sleep schedules: improved memory consolidation during deep sleep stages and better emotional regulation the following day. Irregular sleep patterns, by contrast, have been linked to increased risk of cardiovascular issues over time.",
+      "prompt": "Which TWO benefits of consistent sleep schedules are mentioned?",
+      "options": [
+        "Improved memory consolidation",
+        "Better emotional regulation",
+        "Reduced need for sleep overall",
+        "Elimination of cardiovascular risk"
+      ],
+      "correct_answers": [
+        0,
+        1
+      ],
+      "type": "mcq_multiple_reading",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_mcq_multiple_reading_005",
+      "passage": "The rise of citizen science platforms has allowed amateur enthusiasts to contribute meaningfully to research, from cataloging bird migrations to classifying distant galaxies. This crowdsourced data collection dramatically increases the scale of observation possible, though scientists must implement rigorous quality-control measures to filter out inconsistent or mistaken submissions.",
+      "prompt": "Which TWO points does the passage make about citizen science?",
+      "options": [
+        "It increases the scale of possible observation",
+        "It requires quality-control measures for accuracy",
+        "It has replaced professional scientists entirely",
+        "It is limited to astronomy research"
+      ],
+      "correct_answers": [
+        0,
+        1
+      ],
+      "type": "mcq_multiple_reading",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_mcq_multiple_reading_006",
+      "passage": "Mangrove forests provide critical coastal protection by buffering storm surges and reducing erosion, while also serving as nurseries for numerous fish species that support local fisheries. Despite these benefits, mangroves continue to be cleared for aquaculture and coastal development at alarming rates in many tropical regions.",
+      "prompt": "Which TWO benefits of mangrove forests are described in the passage?",
+      "options": [
+        "Buffering storm surges and reducing erosion",
+        "Serving as nurseries for fish species",
+        "Producing timber for construction",
+        "Absorbing more carbon than rainforests"
+      ],
+      "correct_answers": [
+        0,
+        1
+      ],
+      "type": "mcq_multiple_reading",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_mcq_multiple_reading_007",
+      "passage": "Personalized medicine, which tailors treatment based on a patient's genetic profile, has shown particular promise in oncology, where certain cancer drugs are now prescribed only to patients with specific genetic markers. This targeted approach can improve treatment efficacy and reduce unnecessary side effects compared to one-size-fits-all regimens.",
+      "prompt": "Which TWO advantages of personalized medicine are mentioned?",
+      "options": [
+        "Improved treatment efficacy",
+        "Reduced unnecessary side effects",
+        "Lower cost than standard treatment",
+        "Elimination of the need for diagnosis"
+      ],
+      "correct_answers": [
+        0,
+        1
+      ],
+      "type": "mcq_multiple_reading",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_mcq_multiple_reading_008",
+      "passage": "Noise pollution in oceans, generated largely by shipping traffic and sonar, has been shown to disrupt whale communication over long distances and interfere with the navigation abilities of some marine species. Several ports have begun experimenting with quieter propeller designs and speed restrictions to mitigate these effects.",
+      "prompt": "Which TWO impacts of ocean noise pollution are noted in the passage?",
+      "options": [
+        "Disruption of whale communication",
+        "Interference with marine navigation abilities",
+        "Increased fish populations near ports",
+        "Reduced shipping traffic worldwide"
+      ],
+      "correct_answers": [
+        0,
+        1
+      ],
+      "type": "mcq_multiple_reading",
+      "section": "reading",
       "time_limit_seconds": 120
     }
   ],
@@ -316,6 +580,150 @@
         2,
         4
       ],
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_reorder_paragraphs_001",
+      "paragraphs": [
+        "As a result, many countries have introduced stricter emissions standards for fishing fleets and incentives for electric-powered coastal vessels.",
+        "Shipping is responsible for nearly three percent of global greenhouse gas emissions, a share expected to grow as international trade expands.",
+        "Some analysts argue these measures are too slow, pointing out that a single large cargo ship can emit as much pollution as tens of thousands of cars.",
+        "Recognizing this, the International Maritime Organization set a target to halve shipping emissions by 2050 compared to 2008 levels."
+      ],
+      "correct_order": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "type": "reorder_paragraphs",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_reorder_paragraphs_002",
+      "paragraphs": [
+        "Consequently, several school districts have begun phasing in later start times, particularly for older students.",
+        "Researchers have long studied the relationship between adolescent sleep patterns and school performance.",
+        "Early results from these districts show modest improvements in attendance and standardized test scores.",
+        "Their findings consistently show that teenagers' natural circadian rhythms shift later, making early morning classes particularly difficult for them to absorb."
+      ],
+      "correct_order": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "type": "reorder_paragraphs",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_reorder_paragraphs_003",
+      "paragraphs": [
+        "This has prompted museums to invest heavily in digital preservation projects, scanning artifacts before they degrade further.",
+        "Climate change poses an underappreciated threat to cultural heritage sites around the world.",
+        "Critics note that digital copies, however detailed, cannot replace the experience of encountering an original artifact in person.",
+        "Rising humidity and temperature fluctuations accelerate the decay of ancient manuscripts, textiles, and wooden structures."
+      ],
+      "correct_order": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "type": "reorder_paragraphs",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_reorder_paragraphs_004",
+      "paragraphs": [
+        "Nevertheless, most economists agree that some exposure to online transactions is now unavoidable in daily life.",
+        "As commerce increasingly moves online, concerns about data privacy have intensified among consumers.",
+        "Surveys indicate that a majority of shoppers now read a company's privacy policy before making a purchase.",
+        "This growing awareness has pushed retailers to adopt clearer, more transparent data-handling practices."
+      ],
+      "correct_order": [
+        1,
+        2,
+        3,
+        0
+      ],
+      "type": "reorder_paragraphs",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_reorder_paragraphs_005",
+      "paragraphs": [
+        "This decline has been linked to changes in agricultural practices, particularly the widespread use of certain pesticides.",
+        "Wild bee populations have declined sharply in many agricultural regions over the past two decades.",
+        "In response, some farmers have adopted pesticide-free buffer zones to protect nearby bee colonies.",
+        "Early monitoring suggests these buffer zones can meaningfully slow local population declines."
+      ],
+      "correct_order": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "type": "reorder_paragraphs",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_reorder_paragraphs_006",
+      "paragraphs": [
+        "To address this, several airlines have begun trialing sustainable aviation fuel made from used cooking oil and agricultural waste.",
+        "Aviation accounts for a small but rapidly growing share of global carbon emissions.",
+        "Early trials show these fuels can cut lifecycle emissions substantially, though production remains limited.",
+        "Unlike cars, airplanes cannot yet be practically electrified for long-haul routes, making fuel alternatives essential."
+      ],
+      "correct_order": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "type": "reorder_paragraphs",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_reorder_paragraphs_007",
+      "paragraphs": [
+        "Consequently, public health officials have launched campaigns encouraging regular hearing checks, particularly among younger listeners.",
+        "Hearing loss linked to prolonged headphone use at high volumes has become increasingly common among young adults.",
+        "These campaigns emphasize simple precautions, such as following the 60/60 rule: sixty percent volume for no more than sixty minutes at a time.",
+        "Audiologists warn that this type of hearing damage is often irreversible once it occurs."
+      ],
+      "correct_order": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "type": "reorder_paragraphs",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_reorder_paragraphs_008",
+      "paragraphs": [
+        "As a result, several countries have introduced right-to-repair legislation requiring manufacturers to supply spare parts and repair manuals.",
+        "The average lifespan of consumer electronics has shortened considerably over the past twenty years.",
+        "Industry groups have pushed back, arguing that such rules could compromise product safety and intellectual property.",
+        "Advocacy groups attribute this trend partly to deliberate design choices that make devices difficult or costly to repair."
+      ],
+      "correct_order": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "type": "reorder_paragraphs",
+      "section": "reading",
       "time_limit_seconds": 120
     }
   ],
@@ -554,6 +962,318 @@
         }
       ],
       "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_fill_blanks_dropdown_001",
+      "text": "Renewable energy sources, ___BLANK0___ solar and wind, have become increasingly cost-competitive with fossil fuels. Over the past decade, the price of solar panels has ___BLANK1___ by more than eighty percent, driven largely by improvements in manufacturing efficiency. Many governments now ___BLANK2___ renewable projects through tax incentives and direct subsidies.",
+      "blanks": [
+        {
+          "index": 0,
+          "options": [
+            "such as",
+            "similar",
+            "compared",
+            "instead of"
+          ],
+          "answer": "such as"
+        },
+        {
+          "index": 1,
+          "options": [
+            "risen",
+            "fallen",
+            "remained",
+            "doubled"
+          ],
+          "answer": "fallen"
+        },
+        {
+          "index": 2,
+          "options": [
+            "discourage",
+            "ignore",
+            "support",
+            "restrict"
+          ],
+          "answer": "support"
+        }
+      ],
+      "type": "fill_blanks_dropdown",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_fill_blanks_dropdown_002",
+      "text": "The human gut contains trillions of microorganisms that ___BLANK0___ collectively as the microbiome. Recent studies suggest that a diverse microbiome is ___BLANK1___ to overall health, influencing everything from digestion to immune function. Diet appears to be one of the most significant ___BLANK2___ of microbiome composition.",
+      "blanks": [
+        {
+          "index": 0,
+          "options": [
+            "are known",
+            "known",
+            "knowing",
+            "to know"
+          ],
+          "answer": "are known"
+        },
+        {
+          "index": 1,
+          "options": [
+            "irrelevant",
+            "linked",
+            "opposed",
+            "unrelated"
+          ],
+          "answer": "linked"
+        },
+        {
+          "index": 2,
+          "options": [
+            "consequences",
+            "determinants",
+            "opinions",
+            "symptoms"
+          ],
+          "answer": "determinants"
+        }
+      ],
+      "type": "fill_blanks_dropdown",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_fill_blanks_dropdown_003",
+      "text": "Archaeologists recently ___BLANK0___ a settlement dating back over four thousand years. The site, ___BLANK1___ preserved beneath layers of volcanic ash, offers a rare glimpse into daily life of the period. Researchers hope further excavation will ___BLANK2___ light on trade routes used at the time.",
+      "blanks": [
+        {
+          "index": 0,
+          "options": [
+            "uncovered",
+            "hidden",
+            "destroyed",
+            "ignored"
+          ],
+          "answer": "uncovered"
+        },
+        {
+          "index": 1,
+          "options": [
+            "poorly",
+            "remarkably",
+            "barely",
+            "never"
+          ],
+          "answer": "remarkably"
+        },
+        {
+          "index": 2,
+          "options": [
+            "shed",
+            "block",
+            "remove",
+            "cast away"
+          ],
+          "answer": "shed"
+        }
+      ],
+      "type": "fill_blanks_dropdown",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_fill_blanks_dropdown_004",
+      "text": "Telemedicine usage ___BLANK0___ dramatically during recent years, allowing patients in remote areas to consult specialists without traveling long distances. While convenient, some conditions still ___BLANK1___ in-person examination for accurate diagnosis. Experts predict a ___BLANK2___ model combining both approaches will become standard.",
+      "blanks": [
+        {
+          "index": 0,
+          "options": [
+            "declined",
+            "surged",
+            "stalled",
+            "vanished"
+          ],
+          "answer": "surged"
+        },
+        {
+          "index": 1,
+          "options": [
+            "avoid",
+            "require",
+            "prevent",
+            "dismiss"
+          ],
+          "answer": "require"
+        },
+        {
+          "index": 2,
+          "options": [
+            "hybrid",
+            "singular",
+            "outdated",
+            "isolated"
+          ],
+          "answer": "hybrid"
+        }
+      ],
+      "type": "fill_blanks_dropdown",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_fill_blanks_dropdown_005",
+      "text": "The library's new digital archive ___BLANK0___ access to thousands of historical documents previously available only to researchers on-site. Members of the public can now ___BLANK1___ these records from anywhere with an internet connection. Librarians note that digitization also helps ___BLANK2___ fragile original materials from further handling.",
+      "blanks": [
+        {
+          "index": 0,
+          "options": [
+            "restricts",
+            "expands",
+            "deletes",
+            "hides"
+          ],
+          "answer": "expands"
+        },
+        {
+          "index": 1,
+          "options": [
+            "browse",
+            "destroy",
+            "purchase",
+            "reject"
+          ],
+          "answer": "browse"
+        },
+        {
+          "index": 2,
+          "options": [
+            "expose",
+            "protect",
+            "sell",
+            "duplicate"
+          ],
+          "answer": "protect"
+        }
+      ],
+      "type": "fill_blanks_dropdown",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_fill_blanks_dropdown_006",
+      "text": "Urban planners increasingly ___BLANK0___ green corridors into city design, linking parks and reducing the urban heat island effect. These corridors ___BLANK1___ wildlife movement through otherwise fragmented habitats. Critics argue that without adequate funding, such projects risk ___BLANK2___ half-finished.",
+      "blanks": [
+        {
+          "index": 0,
+          "options": [
+            "incorporate",
+            "eliminate",
+            "ignore",
+            "forbid"
+          ],
+          "answer": "incorporate"
+        },
+        {
+          "index": 1,
+          "options": [
+            "prevent",
+            "facilitate",
+            "confuse",
+            "restrict"
+          ],
+          "answer": "facilitate"
+        },
+        {
+          "index": 2,
+          "options": [
+            "remaining",
+            "becoming",
+            "appearing",
+            "starting"
+          ],
+          "answer": "remaining"
+        }
+      ],
+      "type": "fill_blanks_dropdown",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_fill_blanks_dropdown_007",
+      "text": "Consumer trust in online reviews has ___BLANK0___ as platforms struggle to detect fake submissions. Some companies now ___BLANK1___ artificial intelligence to flag suspicious review patterns before they are published. Even so, experts caution that no system can ___BLANK2___ eliminate the problem entirely.",
+      "blanks": [
+        {
+          "index": 0,
+          "options": [
+            "increased",
+            "eroded",
+            "multiplied",
+            "stabilized"
+          ],
+          "answer": "eroded"
+        },
+        {
+          "index": 1,
+          "options": [
+            "avoid",
+            "employ",
+            "reject",
+            "forget"
+          ],
+          "answer": "employ"
+        },
+        {
+          "index": 2,
+          "options": [
+            "completely",
+            "rarely",
+            "accidentally",
+            "hardly"
+          ],
+          "answer": "completely"
+        }
+      ],
+      "type": "fill_blanks_dropdown",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_fill_blanks_dropdown_008",
+      "text": "Researchers studying ancient climate patterns ___BLANK0___ ice cores extracted from deep within polar glaciers. Each layer of ice ___BLANK1___ a record of atmospheric conditions from a specific period. By analyzing trapped air bubbles, scientists can ___BLANK2___ historical carbon dioxide levels with remarkable precision.",
+      "blanks": [
+        {
+          "index": 0,
+          "options": [
+            "ignore",
+            "analyze",
+            "discard",
+            "misplace"
+          ],
+          "answer": "analyze"
+        },
+        {
+          "index": 1,
+          "options": [
+            "hides",
+            "preserves",
+            "erases",
+            "forgets"
+          ],
+          "answer": "preserves"
+        },
+        {
+          "index": 2,
+          "options": [
+            "reconstruct",
+            "invent",
+            "dismiss",
+            "overlook"
+          ],
+          "answer": "reconstruct"
+        }
+      ],
+      "type": "fill_blanks_dropdown",
+      "section": "reading",
+      "time_limit_seconds": 120
     }
   ],
   "fill_blanks_drag": [
@@ -717,6 +1437,198 @@
         "feedback",
         "emissions"
       ],
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_fill_blanks_drag_001",
+      "text": "The invention of the printing press ___BLANK0___ the spread of knowledge across Europe. Books that once took months to copy by hand could now be ___BLANK1___ in a matter of days. This democratization of information helped ___BLANK2___ literacy rates among the general population.",
+      "blank_positions": [
+        0,
+        1,
+        2
+      ],
+      "options": [
+        "accelerated",
+        "produced",
+        "increase",
+        "hindered",
+        "destroyed"
+      ],
+      "correct_answers": [
+        "accelerated",
+        "produced",
+        "increase"
+      ],
+      "type": "fill_blanks_drag",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_fill_blanks_drag_002",
+      "text": "Deep-sea exploration remains one of the most ___BLANK0___ frontiers in science, with less of the ocean floor mapped than the surface of Mars. Specialized submersibles allow researchers to ___BLANK1___ depths exceeding ten kilometers. Each expedition often ___BLANK2___ previously unknown species.",
+      "blank_positions": [
+        0,
+        1,
+        2
+      ],
+      "options": [
+        "unexplored",
+        "reach",
+        "reveals",
+        "familiar",
+        "avoids"
+      ],
+      "correct_answers": [
+        "unexplored",
+        "reach",
+        "reveals"
+      ],
+      "type": "fill_blanks_drag",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_fill_blanks_drag_003",
+      "text": "Antibiotic resistance ___BLANK0___ when bacteria evolve mechanisms to survive drugs designed to kill them. Overuse of antibiotics in both medicine and agriculture has ___BLANK1___ this process considerably. Scientists now ___BLANK2___ new treatment strategies to stay ahead of resistant strains.",
+      "blank_positions": [
+        0,
+        1,
+        2
+      ],
+      "options": [
+        "develops",
+        "accelerated",
+        "pursue",
+        "reverses",
+        "ignore"
+      ],
+      "correct_answers": [
+        "develops",
+        "accelerated",
+        "pursue"
+      ],
+      "type": "fill_blanks_drag",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_fill_blanks_drag_004",
+      "text": "Micro-mobility options such as e-scooters have ___BLANK0___ how people navigate short distances within cities. Supporters argue they ___BLANK1___ congestion by replacing short car trips. Critics counter that inconsistent regulations have ___BLANK2___ confusion over where they can legally be ridden.",
+      "blank_positions": [
+        0,
+        1,
+        2
+      ],
+      "options": [
+        "transformed",
+        "reduce",
+        "created",
+        "eliminated",
+        "prevented"
+      ],
+      "correct_answers": [
+        "transformed",
+        "reduce",
+        "created"
+      ],
+      "type": "fill_blanks_drag",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_fill_blanks_drag_005",
+      "text": "Wildfires have grown more ___BLANK0___ in recent years, driven partly by prolonged droughts and rising temperatures. Firefighting agencies have ___BLANK1___ new technologies, including drones, to detect outbreaks earlier. Communities in high-risk zones are increasingly ___BLANK2___ to create defensible space around homes.",
+      "blank_positions": [
+        0,
+        1,
+        2
+      ],
+      "options": [
+        "frequent",
+        "adopted",
+        "encouraged",
+        "rare",
+        "forbidden"
+      ],
+      "correct_answers": [
+        "frequent",
+        "adopted",
+        "encouraged"
+      ],
+      "type": "fill_blanks_drag",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_fill_blanks_drag_006",
+      "text": "The rise of podcasting has ___BLANK0___ new opportunities for independent journalists to reach niche audiences directly. Unlike traditional broadcast media, podcasts require ___BLANK1___ startup costs, lowering barriers to entry. Many listeners ___BLANK2___ the format for its conversational, in-depth style.",
+      "blank_positions": [
+        0,
+        1,
+        2
+      ],
+      "options": [
+        "created",
+        "minimal",
+        "value",
+        "eliminated",
+        "excessive"
+      ],
+      "correct_answers": [
+        "created",
+        "minimal",
+        "value"
+      ],
+      "type": "fill_blanks_drag",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_fill_blanks_drag_007",
+      "text": "Glacier retreat in mountainous regions has ___BLANK0___ concerns about long-term water supply for downstream communities. Many rivers ___BLANK1___ heavily on glacial meltwater during dry summer months. Hydrologists ___BLANK2___ that some glaciers could disappear entirely within decades.",
+      "blank_positions": [
+        0,
+        1,
+        2
+      ],
+      "options": [
+        "raised",
+        "rely",
+        "warn",
+        "resolved",
+        "ignore"
+      ],
+      "correct_answers": [
+        "raised",
+        "rely",
+        "warn"
+      ],
+      "type": "fill_blanks_drag",
+      "section": "reading",
+      "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_fill_blanks_drag_008",
+      "text": "Online language-learning platforms have ___BLANK0___ how millions of people acquire new languages. Gamified lessons ___BLANK1___ learners to practice daily through short, rewarding exercises. Even so, linguists note that such apps rarely ___BLANK2___ full conversational fluency on their own.",
+      "blank_positions": [
+        0,
+        1,
+        2
+      ],
+      "options": [
+        "changed",
+        "encourage",
+        "produce",
+        "reversed",
+        "discourage"
+      ],
+      "correct_answers": [
+        "changed",
+        "encourage",
+        "produce"
+      ],
+      "type": "fill_blanks_drag",
+      "section": "reading",
       "time_limit_seconds": 120
     }
   ]

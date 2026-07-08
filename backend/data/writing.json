@@ -41,6 +41,62 @@
       "section": "writing",
       "passage": "The rapid expansion of digital technology has fundamentally transformed the relationship between individuals and their personal data. Technology companies collect vast quantities of information through social media activity, search histories, location tracking, and smart devices, often using this data to build detailed consumer profiles for targeted advertising—a practice that scholar Shoshana Zuboff has termed 'surveillance capitalism.' In response, the European Union introduced the General Data Protection Regulation in 2018, granting citizens greater control over their personal information and imposing significant fines on companies that violate data protection standards. Meanwhile, the proliferation of facial recognition technology has raised additional concerns, as governments and private entities deploy these systems for security purposes with limited transparency or oversight. Privacy advocates argue that without stronger legal frameworks and greater public awareness, the erosion of privacy will have lasting consequences for individual autonomy and democratic freedoms, while technology companies contend that data collection enables the free services and personalized experiences that consumers have come to expect.",
       "time_limit_seconds": 600
+    },
+    {
+      "id": "gen_summarize_written_text_001",
+      "passage": "Light pollution, the excessive or misdirected use of artificial light, has grown steadily as cities expand and outdoor lighting becomes cheaper to install. Beyond obscuring the night sky for astronomers and casual stargazers alike, researchers have found that light pollution disrupts the circadian rhythms of both humans and wildlife. Migratory birds, for instance, can become disoriented by bright urban skylines, sometimes colliding with illuminated buildings. In response, a growing number of cities have adopted 'dark sky' ordinances that limit upward-facing light fixtures and mandate motion-activated street lighting during late-night hours, aiming to reduce energy waste while restoring some visibility of the stars.",
+      "type": "summarize_written_text",
+      "section": "writing",
+      "time_limit_seconds": 600
+    },
+    {
+      "id": "gen_summarize_written_text_002",
+      "passage": "The practice of crop rotation, alternating different types of plants in the same field across growing seasons, has been used for centuries to maintain soil fertility. By varying which nutrients are drawn from the soil and which are replenished, farmers can reduce their reliance on synthetic fertilizers while also disrupting the life cycles of pests and diseases that target specific crops. Modern agronomists have refined the practice further, using cover crops such as legumes to fix nitrogen naturally. Despite these benefits, large-scale monoculture farming remains common in many regions, driven largely by short-term economic incentives and the logistics of mechanized harvesting equipment.",
+      "type": "summarize_written_text",
+      "section": "writing",
+      "time_limit_seconds": 600
+    },
+    {
+      "id": "gen_summarize_written_text_003",
+      "passage": "Voice assistants powered by natural language processing have become a standard feature in households worldwide, handling tasks from setting reminders to controlling smart home devices. Their growing sophistication relies on machine learning models trained on vast datasets of human speech, allowing them to interpret accents, slang, and context with increasing accuracy. However, privacy advocates have raised concerns about the always-listening nature of these devices, questioning how much conversational data is stored and who has access to it. Manufacturers have responded with local processing options and clearer data deletion policies, though skepticism among consumers persists.",
+      "type": "summarize_written_text",
+      "section": "writing",
+      "time_limit_seconds": 600
+    },
+    {
+      "id": "gen_summarize_written_text_004",
+      "passage": "Historians studying the fall of ancient civilizations have increasingly turned to climate data, extracted from tree rings and ice cores, to understand the environmental pressures that may have contributed to societal collapse. In several documented cases, prolonged droughts coincided with periods of political instability, crop failure, and mass migration. While climate alone rarely explains a civilization's decline, researchers argue it often acted as a stress multiplier, exacerbating existing weaknesses in governance, trade networks, or military capacity. This interdisciplinary approach, combining archaeology with paleoclimatology, has reshaped how scholars interpret historical turning points.",
+      "type": "summarize_written_text",
+      "section": "writing",
+      "time_limit_seconds": 600
+    },
+    {
+      "id": "gen_summarize_written_text_005",
+      "passage": "Fast fashion, characterized by the rapid production of inexpensive clothing to match fleeting trends, has drawn criticism for its environmental and labor impacts. Textile production is a significant contributor to global water consumption and carbon emissions, while garment workers in many supplying countries face low wages and unsafe conditions. In response, a small but growing segment of consumers has turned toward secondhand clothing, clothing rental services, and brands that emphasize durability over disposability. Industry analysts remain divided on whether this shift represents a lasting change in consumer behavior or a niche trend confined to environmentally conscious shoppers.",
+      "type": "summarize_written_text",
+      "section": "writing",
+      "time_limit_seconds": 600
+    },
+    {
+      "id": "gen_summarize_written_text_006",
+      "passage": "Noise-canceling headphones use microphones to detect ambient sound and generate an inverse sound wave that cancels it out before it reaches the listener's ear. This technology, once a costly novelty, has become widely accessible, particularly benefiting frequent travelers and office workers in open-plan spaces. Audiologists note a secondary benefit: by reducing the need to raise volume to overcome background noise, users may lower their risk of long-term hearing damage. Some researchers caution, however, that overreliance on noise cancellation in everyday settings could reduce awareness of important ambient sounds, such as traffic or alarms.",
+      "type": "summarize_written_text",
+      "section": "writing",
+      "time_limit_seconds": 600
+    },
+    {
+      "id": "gen_summarize_written_text_007",
+      "passage": "Vertical urban farms integrated directly into residential buildings have emerged as a response to shrinking arable land near major cities. These systems typically use hydroponic or aeroponic techniques, delivering nutrients directly to plant roots without soil, which allows for precise control over growth conditions and significantly higher yields per square meter than traditional farming. Proponents highlight reduced transportation emissions, since produce is grown close to where it will be consumed. Critics, however, point to the substantial electricity required for artificial lighting and climate control, questioning whether the approach is genuinely more sustainable once total energy use is accounted for.",
+      "type": "summarize_written_text",
+      "section": "writing",
+      "time_limit_seconds": 600
+    },
+    {
+      "id": "gen_summarize_written_text_008",
+      "passage": "The phenomenon of 'brain drain,' in which highly skilled professionals emigrate from developing nations to wealthier countries in search of better opportunities, has long concerned policymakers in the countries of origin. While remittances sent home by emigrants can provide significant economic benefits, the loss of doctors, engineers, and researchers can strain public services and slow innovation domestically. Some governments have introduced incentive programs, including tax breaks and research funding, to encourage skilled workers to remain or eventually return, though such measures have shown mixed results depending on regional economic conditions.",
+      "type": "summarize_written_text",
+      "section": "writing",
+      "time_limit_seconds": 600
     }
   ],
   "essay": [
@@ -84,6 +140,62 @@
       "type": "essay",
       "section": "writing",
       "prompt": "Many of the world's languages are at risk of disappearing within the next few decades. Some argue that governments should invest significantly in preserving endangered languages, while others believe that linguistic consolidation around a few major languages is a natural and even beneficial process. Discuss both perspectives and give your own opinion.",
+      "time_limit_seconds": 1200
+    },
+    {
+      "id": "gen_essay_001",
+      "prompt": "Some people believe that governments should invest more in public transportation rather than building new roads. To what extent do you agree or disagree? Support your answer with reasons and examples.",
+      "type": "essay",
+      "section": "writing",
+      "time_limit_seconds": 1200
+    },
+    {
+      "id": "gen_essay_002",
+      "prompt": "In many countries, university education is becoming increasingly expensive. Should higher education be free for all students, or should individuals bear the cost themselves? Discuss both views and give your opinion.",
+      "type": "essay",
+      "section": "writing",
+      "time_limit_seconds": 1200
+    },
+    {
+      "id": "gen_essay_003",
+      "prompt": "Some argue that social media has made people more connected, while others believe it has made genuine relationships weaker. Discuss both perspectives and give your own opinion.",
+      "type": "essay",
+      "section": "writing",
+      "time_limit_seconds": 1200
+    },
+    {
+      "id": "gen_essay_004",
+      "prompt": "Many companies now allow employees to work remotely on a permanent basis. Do the advantages of remote work outweigh the disadvantages? Give reasons for your answer.",
+      "type": "essay",
+      "section": "writing",
+      "time_limit_seconds": 1200
+    },
+    {
+      "id": "gen_essay_005",
+      "prompt": "Some people think that zoos are cruel and should be abolished, while others believe they play an important role in conservation and education. Discuss both views and give your opinion.",
+      "type": "essay",
+      "section": "writing",
+      "time_limit_seconds": 1200
+    },
+    {
+      "id": "gen_essay_006",
+      "prompt": "As artificial intelligence becomes more capable, some believe it will eliminate more jobs than it creates. To what extent do you agree with this statement?",
+      "type": "essay",
+      "section": "writing",
+      "time_limit_seconds": 1200
+    },
+    {
+      "id": "gen_essay_007",
+      "prompt": "Some argue that standardized testing is the fairest way to evaluate students, while others believe it fails to measure true ability. Discuss both sides and give your opinion.",
+      "type": "essay",
+      "section": "writing",
+      "time_limit_seconds": 1200
+    },
+    {
+      "id": "gen_essay_008",
+      "prompt": "Many cities are banning single-use plastics to address environmental concerns. Do you think such bans are an effective solution, or are other measures needed? Support your view with examples.",
+      "type": "essay",
+      "section": "writing",
       "time_limit_seconds": 1200
     }
   ]

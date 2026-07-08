@@ -53,6 +53,78 @@
       "time_limit_seconds": 60,
       "prep_time": 30,
       "record_time": 40
+    },
+    {
+      "id": "gen_read_aloud_001",
+      "text": "The migration patterns of Arctic terns remain one of the most remarkable feats in the animal kingdom, with individual birds traveling nearly seventy thousand kilometers each year between breeding and wintering grounds.",
+      "type": "read_aloud",
+      "section": "speaking",
+      "time_limit_seconds": 40,
+      "prep_time": 30,
+      "record_time": 40
+    },
+    {
+      "id": "gen_read_aloud_002",
+      "text": "Economists often disagree on the precise causes of inflation, but most acknowledge that a combination of supply constraints and increased consumer demand can drive prices upward over a sustained period.",
+      "type": "read_aloud",
+      "section": "speaking",
+      "time_limit_seconds": 40,
+      "prep_time": 30,
+      "record_time": 40
+    },
+    {
+      "id": "gen_read_aloud_003",
+      "text": "Volcanic ash, though hazardous to aircraft and respiratory health in the short term, gradually enriches surrounding soil with minerals that support unusually fertile agricultural land for generations afterward.",
+      "type": "read_aloud",
+      "section": "speaking",
+      "time_limit_seconds": 40,
+      "prep_time": 30,
+      "record_time": 40
+    },
+    {
+      "id": "gen_read_aloud_004",
+      "text": "Modern encryption methods rely on complex mathematical problems that are computationally difficult to solve, ensuring that sensitive information remains protected even from powerful, well-resourced adversaries.",
+      "type": "read_aloud",
+      "section": "speaking",
+      "time_limit_seconds": 40,
+      "prep_time": 30,
+      "record_time": 40
+    },
+    {
+      "id": "gen_read_aloud_005",
+      "text": "Coral reefs, despite covering less than one percent of the ocean floor, provide habitat for roughly a quarter of all known marine species, making their preservation a global conservation priority.",
+      "type": "read_aloud",
+      "section": "speaking",
+      "time_limit_seconds": 40,
+      "prep_time": 30,
+      "record_time": 40
+    },
+    {
+      "id": "gen_read_aloud_006",
+      "text": "The invention of refrigeration transformed global food distribution, allowing perishable goods to travel vast distances without spoiling and fundamentally reshaping agricultural trade throughout the twentieth century.",
+      "type": "read_aloud",
+      "section": "speaking",
+      "time_limit_seconds": 40,
+      "prep_time": 30,
+      "record_time": 40
+    },
+    {
+      "id": "gen_read_aloud_007",
+      "text": "Behavioral scientists have found that small, incremental changes to daily habits are often more sustainable over the long term than dramatic lifestyle overhauls attempted all at once.",
+      "type": "read_aloud",
+      "section": "speaking",
+      "time_limit_seconds": 40,
+      "prep_time": 30,
+      "record_time": 40
+    },
+    {
+      "id": "gen_read_aloud_008",
+      "text": "Renewable energy grids require sophisticated storage solutions to remain stable, since solar and wind power generation can fluctuate significantly depending on weather conditions and time of day.",
+      "type": "read_aloud",
+      "section": "speaking",
+      "time_limit_seconds": 40,
+      "prep_time": 30,
+      "record_time": 40
     }
   ],
   "repeat_sentence": [
@@ -358,6 +430,78 @@
       "section": "speaking",
       "scenario": "You are a teacher at a high school. The school board is considering replacing traditional science laboratory sessions with virtual reality simulations to reduce costs. Present the advantages and disadvantages of this proposal to the school board.",
       "time_limit_seconds": 50,
+      "prep_time": 10,
+      "record_time": 40
+    },
+    {
+      "id": "gen_respond_to_situation_001",
+      "scenario": "You borrowed a book from a colleague and accidentally spilled coffee on it. Call your colleague and explain what happened, apologize, and offer a solution.",
+      "type": "respond_to_situation",
+      "section": "speaking",
+      "time_limit_seconds": 40,
+      "prep_time": 10,
+      "record_time": 40
+    },
+    {
+      "id": "gen_respond_to_situation_002",
+      "scenario": "You are a new student who missed the orientation session due to a flight delay. Speak to the student advisor, explain your situation, and ask what you need to do next.",
+      "type": "respond_to_situation",
+      "section": "speaking",
+      "time_limit_seconds": 40,
+      "prep_time": 10,
+      "record_time": 40
+    },
+    {
+      "id": "gen_respond_to_situation_003",
+      "scenario": "Your neighbor's loud music has been keeping you up at night for the past week. Speak to your neighbor politely about the issue and suggest a compromise.",
+      "type": "respond_to_situation",
+      "section": "speaking",
+      "time_limit_seconds": 40,
+      "prep_time": 10,
+      "record_time": 40
+    },
+    {
+      "id": "gen_respond_to_situation_004",
+      "scenario": "You ordered a product online, but it arrived damaged. Call customer service, describe the problem, and explain what resolution you would like.",
+      "type": "respond_to_situation",
+      "section": "speaking",
+      "time_limit_seconds": 40,
+      "prep_time": 10,
+      "record_time": 40
+    },
+    {
+      "id": "gen_respond_to_situation_005",
+      "scenario": "A close friend is considering dropping out of university to pursue a business idea. Share your honest opinion and advice with them.",
+      "type": "respond_to_situation",
+      "section": "speaking",
+      "time_limit_seconds": 40,
+      "prep_time": 10,
+      "record_time": 40
+    },
+    {
+      "id": "gen_respond_to_situation_006",
+      "scenario": "You are running late for an important meeting because of unexpected traffic. Call your manager to explain the situation and suggest how to proceed.",
+      "type": "respond_to_situation",
+      "section": "speaking",
+      "time_limit_seconds": 40,
+      "prep_time": 10,
+      "record_time": 40
+    },
+    {
+      "id": "gen_respond_to_situation_007",
+      "scenario": "Your landlord has not fixed a broken heater despite multiple requests, and winter is approaching. Call your landlord to firmly but politely address the issue.",
+      "type": "respond_to_situation",
+      "section": "speaking",
+      "time_limit_seconds": 40,
+      "prep_time": 10,
+      "record_time": 40
+    },
+    {
+      "id": "gen_respond_to_situation_008",
+      "scenario": "A classmate asks to copy your assignment the night before it is due. Respond to their request, explaining your position clearly.",
+      "type": "respond_to_situation",
+      "section": "speaking",
+      "time_limit_seconds": 40,
       "prep_time": 10,
       "record_time": 40
     }
