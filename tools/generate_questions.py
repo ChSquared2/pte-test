@@ -65,6 +65,29 @@ TYPES = {
     "summarize_written_text": ("writing", "a 'summarize written text' task: one academic passage to be summarized in a single sentence"),
     "read_aloud": ("speaking", "a 'read aloud' task: one clear academic sentence/short paragraph (35-60 words)"),
     "respond_to_situation": ("speaking", "a 'respond to a situation' task: a short everyday scenario to respond to"),
+
+    # Audio-based types — synthesized locally via edge-tts (see AUDIO_TYPES/spoken_text_for).
+    "summarize_spoken_text": ("listening", "a 'summarize spoken text' task: an academic monologue transcript (150-200 words) to be summarized in 50-70 words after listening"),
+    "mcq_single_listening": ("listening", "a listening multiple-choice question with ONE correct answer, based on a short spoken monologue"),
+    "mcq_multiple_listening": ("listening", "a listening multiple-choice question with TWO OR MORE correct answers, based on a short spoken monologue"),
+    "highlight_correct_summary": ("listening", "a listening task where the student picks the best summary of a spoken monologue from several options"),
+    "select_missing_word": ("listening", "a listening task: a monologue transcript that trails off mid-sentence (ending in '...'), with options for the word that completes it"),
+    "fill_blanks_type_in": ("listening", "a listening fill-in-the-blanks task: a monologue with several words replaced by ___BLANKn___ markers, which the student types after listening"),
+    "highlight_incorrect_words": ("listening", "a listening task: an original correct passage (spoken_text) plus a displayed transcript where a few words were deliberately changed, which the student must click by ear"),
+    "write_from_dictation": ("listening", "a 'write from dictation' task: one short, clear sentence (8-15 words) the student must type exactly after hearing it once"),
+    "repeat_sentence": ("speaking", "a 'repeat sentence' task: one short, clear spoken sentence (8-15 words) for the student to repeat exactly"),
+    "retell_lecture": ("speaking", "a short academic lecture transcript (120-180 words) for the student to listen to and retell in their own words"),
+    "summarize_group_discussion": ("speaking", "a short group discussion transcript (150-220 words, 2-3 speakers) for the student to listen to and summarize"),
+    "answer_short_question": ("speaking", "a very short general-knowledge spoken question (the transcript) with a one-or-two-word expected_answer"),
+}
+
+# Types whose content must be spoken aloud — synthesized to backend/data/audio/<id>.mp3
+# via edge-tts (see spoken_text_for) instead of requiring a pre-supplied audio_url.
+AUDIO_TYPES = {
+    "summarize_spoken_text", "mcq_single_listening", "mcq_multiple_listening",
+    "highlight_correct_summary", "select_missing_word", "fill_blanks_type_in",
+    "highlight_incorrect_words", "write_from_dictation", "repeat_sentence",
+    "retell_lecture", "summarize_group_discussion", "answer_short_question",
 }
 
 # Defaults injected if the model omits timing fields.
@@ -83,6 +106,18 @@ DEFAULTS = {
     "summarize_written_text": {"time_limit_seconds": 600},
     "read_aloud": {"time_limit_seconds": 40, "prep_time": 30, "record_time": 40},
     "respond_to_situation": {"time_limit_seconds": 40, "prep_time": 10, "record_time": 40},
+    "summarize_spoken_text": {"time_limit_seconds": 600},
+    "mcq_single_listening": {"time_limit_seconds": 120},
+    "mcq_multiple_listening": {"time_limit_seconds": 120},
+    "highlight_correct_summary": {"time_limit_seconds": 120},
+    "select_missing_word": {"time_limit_seconds": 60},
+    "fill_blanks_type_in": {"time_limit_seconds": 120},
+    "highlight_incorrect_words": {"time_limit_seconds": 120},
+    "write_from_dictation": {"time_limit_seconds": 60},
+    "repeat_sentence": {"time_limit_seconds": 30, "prep_time": 0, "record_time": 15},
+    "retell_lecture": {"time_limit_seconds": 60, "prep_time": 10, "record_time": 40},
+    "summarize_group_discussion": {"time_limit_seconds": 130, "prep_time": 10, "record_time": 120},
+    "answer_short_question": {"time_limit_seconds": 20, "prep_time": 0, "record_time": 10},
 }
 
 
@@ -287,7 +322,81 @@ def validate(qtype, q):
         return has("text")
     if qtype == "respond_to_situation":
         return has("scenario")
+
+    if qtype == "summarize_spoken_text":
+        return has("transcript")
+
+    if qtype == "fill_blanks_type_in":
+        e = has("transcript_with_blanks", "correct_answers")
+        if e:
+            return e
+        idxs = _blanks_in_text(q["transcript_with_blanks"])
+        if idxs != list(range(len(q["correct_answers"]))):
+            return "___BLANKn___ markers must be 0..N-1 matching correct_answers length"
+        return None
+
+    if qtype == "highlight_incorrect_words":
+        e = has("transcript", "incorrect_indices", "spoken_text")
+        if e:
+            return e
+        n_words = len(q["transcript"].split())
+        if not q["incorrect_indices"]:
+            return "need at least one incorrect index"
+        if any((not isinstance(i, int)) or i < 0 or i >= n_words for i in q["incorrect_indices"]):
+            return "incorrect_indices out of range for transcript word count"
+        return None
+
+    if qtype == "write_from_dictation":
+        e = has("correct_text")
+        if e:
+            return e
+        if len(q["correct_text"].split()) < 4:
+            return "correct_text too short for dictation"
+        return None
+
+    if qtype in ("repeat_sentence", "retell_lecture", "summarize_group_discussion"):
+        return has("transcript")
+
+    if qtype == "answer_short_question":
+        return has("transcript", "expected_answer")
+
     return f"no validator for type {qtype}"
+
+
+def spoken_text_for(qtype, q):
+    """Return the exact text that should be synthesized to audio for this question."""
+    if qtype == "fill_blanks_type_in":
+        text = q["transcript_with_blanks"]
+        for i, ans in enumerate(q["correct_answers"]):
+            text = text.replace(f"___BLANK{i}___", ans)
+        return text
+    if qtype == "write_from_dictation":
+        return q["correct_text"]
+    if qtype == "highlight_incorrect_words":
+        return q["spoken_text"]
+    # summarize_spoken_text, mcq_*_listening, highlight_correct_summary,
+    # select_missing_word, repeat_sentence, retell_lecture,
+    # summarize_group_discussion, answer_short_question
+    return q.get("transcript", "")
+
+
+AUDIO_DIR = os.path.join(DATA_DIR, "audio")
+TTS_VOICE = "en-US-AriaNeural"
+
+
+def synthesize_audio(text, out_path):
+    """Synthesize `text` to an mp3 at `out_path` using edge-tts (free, no API key).
+
+    Tool-only dependency — not used at Render runtime, only when authoring content.
+    """
+    import asyncio
+    import edge_tts
+
+    async def _run():
+        communicate = edge_tts.Communicate(text, TTS_VOICE)
+        await communicate.save(out_path)
+
+    asyncio.run(_run())
 
 
 # ── generation ───────────────────────────────────────────────────────────────
@@ -370,6 +479,28 @@ def process_candidates(qtype, raw):
     return section, accepted
 
 
+def synthesize_missing_audio(qtype, questions):
+    """For AUDIO_TYPES questions lacking audio_url, synthesize an mp3 and set it.
+
+    Called only right before a real merge (not on --out dry-runs) so review
+    happens on cheap validated JSON before spending synthesis time.
+    """
+    if qtype not in AUDIO_TYPES:
+        return questions
+    os.makedirs(AUDIO_DIR, exist_ok=True)
+    for q in questions:
+        if q.get("audio_url"):
+            continue
+        text = spoken_text_for(qtype, q)
+        filename = f"{q['id']}.mp3"
+        out_path = os.path.join(AUDIO_DIR, filename)
+        print(f"  synthesizing audio for {q['id']}...")
+        synthesize_audio(text, out_path)
+        q["audio_url"] = f"/api/audio/{filename}"
+        q.pop("spoken_text", None)  # authoring-only field, not part of the schema
+    return questions
+
+
 def generate(qtype, count, model):
     """Generate candidate questions via Gemini (optional fallback path)."""
     section, desc = TYPES[qtype]
@@ -446,7 +577,10 @@ def main():
         with open(outpath, "w", encoding="utf-8") as f:
             json.dump({args.type: questions}, f, ensure_ascii=False, indent=2)
         print(f"[dry-run] wrote {outpath} — review, then run without --out to merge.")
+        if args.type in AUDIO_TYPES:
+            print("(audio not synthesized on dry-run — happens on the real merge)")
     else:
+        questions = synthesize_missing_audio(args.type, questions)
         append_to_bank(section, args.type, questions)
         print(f"Appended to backend/data/{section}.json. Commit + push to deploy.")
 

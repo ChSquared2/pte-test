@@ -31,6 +31,54 @@
       "audio_url": "/api/audio/sst_004.mp3",
       "transcript": "This lecture covers the revolutionary advances in genome sequencing technology. The Human Genome Project, completed in 2003, took thirteen years and cost approximately three billion dollars to sequence a single human genome. Today, the same task can be accomplished in a matter of hours for under a thousand dollars, thanks to next-generation sequencing technologies. This dramatic reduction in cost has opened the door to personalized medicine, where treatments can be tailored to an individual's genetic profile. However, the widespread availability of genetic data raises important ethical questions about privacy, discrimination by employers or insurers, and the psychological impact of knowing one's predisposition to certain diseases.",
       "time_limit_seconds": 600
+    },
+    {
+      "id": "gen_summarize_spoken_text_001",
+      "transcript": "Urban heat islands occur when cities replace natural land cover with pavement, buildings, and other surfaces that absorb and retain heat. As a result, urban areas can be several degrees warmer than surrounding rural regions, particularly at night when concrete and asphalt slowly release the heat they absorbed during the day. This effect worsens energy consumption, as residents rely more heavily on air conditioning, and can also pose serious health risks during heat waves, especially for elderly populations. City planners have begun addressing the problem through green roofs, reflective pavement coatings, and expanded tree canopy, all of which help lower surface temperatures. Some cities have also mandated minimum vegetation coverage for new developments, recognizing that even modest increases in greenery can meaningfully reduce local temperatures.",
+      "type": "summarize_spoken_text",
+      "section": "listening",
+      "time_limit_seconds": 600,
+      "audio_url": "/api/audio/gen_summarize_spoken_text_001.mp3"
+    },
+    {
+      "id": "gen_summarize_spoken_text_002",
+      "transcript": "Public libraries have evolved considerably from their traditional role as book repositories. Many now function as community hubs, offering free internet access, job-search assistance, and meeting spaces for local organizations. This shift has been particularly important for individuals without reliable home internet access, who increasingly rely on libraries to complete job applications, access government services, and pursue online education. Critics argue that expanding these services stretches already limited library budgets, while supporters counter that libraries remain one of the few truly free public institutions and are uniquely positioned to serve vulnerable populations. Several library systems have responded by seeking partnerships with technology companies and local governments to fund new digital literacy programs.",
+      "type": "summarize_spoken_text",
+      "section": "listening",
+      "time_limit_seconds": 600,
+      "audio_url": "/api/audio/gen_summarize_spoken_text_002.mp3"
+    },
+    {
+      "id": "gen_summarize_spoken_text_003",
+      "transcript": "The domestication of the dog is believed to have occurred at least fifteen thousand years ago, making it the oldest known domesticated animal. Genetic evidence suggests that dogs descended from a now-extinct population of wolves, though researchers continue to debate exactly where and when this first occurred, with competing theories pointing to both Europe and Asia. What is clearer is that early dogs likely provided humans with hunting assistance, protection, and companionship, while benefiting from a more reliable food source near human settlements. Over subsequent millennia, selective breeding produced the remarkable diversity of shapes, sizes, and temperaments seen in modern dog breeds, a level of variation unmatched by any other domesticated species.",
+      "type": "summarize_spoken_text",
+      "section": "listening",
+      "time_limit_seconds": 600,
+      "audio_url": "/api/audio/gen_summarize_spoken_text_003.mp3"
+    },
+    {
+      "id": "gen_summarize_spoken_text_004",
+      "transcript": "Freshwater scarcity is projected to affect an increasing share of the global population as climate change alters precipitation patterns and population growth raises demand. Agriculture currently accounts for roughly seventy percent of global freshwater use, making it a natural target for efficiency improvements. Drip irrigation, which delivers water directly to plant roots rather than spraying it across a field, can reduce water use by up to sixty percent compared to traditional methods, though the upfront infrastructure cost remains a barrier for smallholder farmers in developing regions. International development agencies have begun subsidizing drip irrigation adoption in water-stressed areas, arguing that the long-term savings justify the initial investment.",
+      "type": "summarize_spoken_text",
+      "section": "listening",
+      "time_limit_seconds": 600,
+      "audio_url": "/api/audio/gen_summarize_spoken_text_004.mp3"
+    },
+    {
+      "id": "gen_summarize_spoken_text_005",
+      "transcript": "The concept of muscle memory, while not literally stored in muscle tissue, refers to the brain's ability to encode repeated motor patterns so they can be performed with minimal conscious effort. This process relies heavily on the basal ganglia and cerebellum, regions of the brain responsible for coordinating movement. Athletes and musicians spend years developing these neural pathways through deliberate, repetitive practice, which is why highly trained individuals can execute complex sequences, such as a tennis serve or a piano passage, almost automatically. Interestingly, research shows that mentally rehearsing a movement, without physically performing it, can also strengthen these same neural pathways, though not as effectively as physical practice.",
+      "type": "summarize_spoken_text",
+      "section": "listening",
+      "time_limit_seconds": 600,
+      "audio_url": "/api/audio/gen_summarize_spoken_text_005.mp3"
+    },
+    {
+      "id": "gen_summarize_spoken_text_006",
+      "transcript": "Food deserts, areas where residents have limited access to affordable and nutritious food, remain a persistent challenge in both urban and rural communities. Contributing factors include the closure of full-service grocery stores in low-income neighborhoods, inadequate public transportation to reach stores located farther away, and the proliferation of convenience stores that stock mostly processed foods. Public health researchers have linked food deserts to higher rates of diet-related illness, including obesity and diabetes, prompting some cities to experiment with mobile grocery services and incentives for supermarkets to open in underserved areas. Early results from these interventions have been mixed, suggesting that access alone may not be sufficient without complementary efforts to address affordability and consumer education.",
+      "type": "summarize_spoken_text",
+      "section": "listening",
+      "time_limit_seconds": 600,
+      "audio_url": "/api/audio/gen_summarize_spoken_text_006.mp3"
     }
   ],
   "mcq_multiple_listening": [
@@ -121,6 +169,120 @@
         4
       ],
       "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_mcq_multiple_listening_001",
+      "transcript": "Researchers studying honeybee colonies have identified two major stressors contributing to colony collapse: exposure to certain pesticides and the spread of the Varroa mite, a parasite that weakens bees and transmits viruses. In response, several countries have restricted the use of the most harmful pesticide classes near flowering crops, while beekeepers have adopted more aggressive mite-monitoring protocols.",
+      "prompt": "Which TWO factors are identified as major stressors for honeybee colonies?",
+      "options": [
+        "Certain pesticides",
+        "Varroa mites",
+        "Cold winter temperatures",
+        "Lack of flowering crops"
+      ],
+      "correct_answers": [
+        0,
+        1
+      ],
+      "type": "mcq_multiple_listening",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_mcq_multiple_listening_001.mp3"
+    },
+    {
+      "id": "gen_mcq_multiple_listening_002",
+      "transcript": "The rise of e-commerce has transformed retail logistics in two significant ways: warehouses have shifted toward smaller, more numerous distribution centers located closer to urban populations, and delivery companies have invested heavily in route optimization software to reduce fuel costs and delivery times.",
+      "prompt": "Which TWO changes in retail logistics does the speaker describe?",
+      "options": [
+        "Smaller, more numerous distribution centers near cities",
+        "Investment in route optimization software",
+        "Elimination of all physical warehouses",
+        "A shift away from online shopping"
+      ],
+      "correct_answers": [
+        0,
+        1
+      ],
+      "type": "mcq_multiple_listening",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_mcq_multiple_listening_002.mp3"
+    },
+    {
+      "id": "gen_mcq_multiple_listening_003",
+      "transcript": "Two key factors explain why coral reefs are considered biodiversity hotspots: their complex three-dimensional structure provides countless microhabitats for marine species, and the symbiotic relationship between coral polyps and algae supplies a continuous, efficient energy source that supports dense populations of fish and invertebrates.",
+      "prompt": "Which TWO factors make coral reefs biodiversity hotspots, according to the lecture?",
+      "options": [
+        "Their complex three-dimensional structure",
+        "The symbiotic relationship with algae",
+        "Their location near the equator only",
+        "Their resistance to temperature change"
+      ],
+      "correct_answers": [
+        0,
+        1
+      ],
+      "type": "mcq_multiple_listening",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_mcq_multiple_listening_003.mp3"
+    },
+    {
+      "id": "gen_mcq_multiple_listening_004",
+      "transcript": "Historians point to two major consequences of the introduction of the potato to Europe in the sixteenth century: it provided a high-calorie crop that could be grown in soil unsuitable for grain, contributing to population growth, and it eventually became so central to certain economies that crop failures, such as the mid-nineteenth century blight, caused severe famines.",
+      "prompt": "Which TWO consequences of the potato's introduction to Europe are mentioned?",
+      "options": [
+        "It contributed to population growth",
+        "Crop failures later caused severe famines",
+        "It replaced the need for all grain crops",
+        "It was immediately rejected by farmers"
+      ],
+      "correct_answers": [
+        0,
+        1
+      ],
+      "type": "mcq_multiple_listening",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_mcq_multiple_listening_004.mp3"
+    },
+    {
+      "id": "gen_mcq_multiple_listening_005",
+      "transcript": "Two design features distinguish passive solar buildings from conventional ones: they are oriented to maximize natural sunlight exposure during winter months for heating, and they incorporate thermal mass materials, such as concrete or stone, that absorb heat during the day and slowly release it at night.",
+      "prompt": "Which TWO design features characterize passive solar buildings, according to the lecture?",
+      "options": [
+        "Orientation to maximize winter sunlight",
+        "Use of thermal mass materials",
+        "Reliance on artificial heating systems",
+        "Avoidance of any windows"
+      ],
+      "correct_answers": [
+        0,
+        1
+      ],
+      "type": "mcq_multiple_listening",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_mcq_multiple_listening_005.mp3"
+    },
+    {
+      "id": "gen_mcq_multiple_listening_006",
+      "transcript": "Marine biologists cite two reasons why deep-sea fish often have bioluminescent organs: the ability to produce light helps them attract prey in the near-total darkness of the deep ocean, and it also allows some species to communicate with potential mates across otherwise featureless, dark terrain.",
+      "prompt": "Which TWO functions of bioluminescence in deep-sea fish are mentioned?",
+      "options": [
+        "Attracting prey",
+        "Communicating with potential mates",
+        "Regulating body temperature",
+        "Absorbing oxygen from water"
+      ],
+      "correct_answers": [
+        0,
+        1
+      ],
+      "type": "mcq_multiple_listening",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_mcq_multiple_listening_006.mp3"
     }
   ],
   "fill_blanks_type_in": [
@@ -179,6 +341,84 @@
         "bonds"
       ],
       "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_fill_blanks_type_in_001",
+      "transcript_with_blanks": "The study followed over a thousand ___BLANK0___ across five different countries to measure how sleep quality affects long-term ___BLANK1___ health. Researchers found that participants who slept fewer than six hours per night showed significantly higher ___BLANK2___ of cardiovascular disease.",
+      "correct_answers": [
+        "participants",
+        "cardiovascular",
+        "rates"
+      ],
+      "type": "fill_blanks_type_in",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_fill_blanks_type_in_001.mp3"
+    },
+    {
+      "id": "gen_fill_blanks_type_in_002",
+      "transcript_with_blanks": "Volunteers spent three months restoring the coastal ___BLANK0___, removing invasive plants and replanting native ___BLANK1___. Early surveys suggest the local bird ___BLANK2___ has already begun to recover.",
+      "correct_answers": [
+        "wetland",
+        "species",
+        "population"
+      ],
+      "type": "fill_blanks_type_in",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_fill_blanks_type_in_002.mp3"
+    },
+    {
+      "id": "gen_fill_blanks_type_in_003",
+      "transcript_with_blanks": "The satellite was launched to monitor changes in polar ice ___BLANK0___ over the coming decade. Scientists hope the data will improve their ___BLANK1___ of how quickly sea levels are likely to ___BLANK2___.",
+      "correct_answers": [
+        "coverage",
+        "understanding",
+        "rise"
+      ],
+      "type": "fill_blanks_type_in",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_fill_blanks_type_in_003.mp3"
+    },
+    {
+      "id": "gen_fill_blanks_type_in_004",
+      "transcript_with_blanks": "The museum's new exhibit uses interactive ___BLANK0___ to explain how ancient civilizations developed early forms of ___BLANK1___. Visitors can handle replica ___BLANK2___ discovered at excavation sites.",
+      "correct_answers": [
+        "displays",
+        "writing",
+        "tools"
+      ],
+      "type": "fill_blanks_type_in",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_fill_blanks_type_in_004.mp3"
+    },
+    {
+      "id": "gen_fill_blanks_type_in_005",
+      "transcript_with_blanks": "The company reported that its latest product line reduced manufacturing ___BLANK0___ by nearly thirty percent while also lowering overall ___BLANK1___ consumption. Analysts attribute this to a redesigned ___BLANK2___ chain.",
+      "correct_answers": [
+        "waste",
+        "energy",
+        "supply"
+      ],
+      "type": "fill_blanks_type_in",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_fill_blanks_type_in_005.mp3"
+    },
+    {
+      "id": "gen_fill_blanks_type_in_006",
+      "transcript_with_blanks": "The city council approved funding for a new public ___BLANK0___ system intended to reduce traffic ___BLANK1___ in the downtown area. Officials expect the project to lower commute ___BLANK2___ by roughly fifteen minutes.",
+      "correct_answers": [
+        "transit",
+        "congestion",
+        "times"
+      ],
+      "type": "fill_blanks_type_in",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_fill_blanks_type_in_006.mp3"
     }
   ],
   "highlight_correct_summary": [
@@ -241,6 +481,96 @@
       ],
       "correct_answer": 1,
       "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_highlight_correct_summary_001",
+      "transcript": "Antibiotic overuse in livestock farming has become a growing concern among public health officials. Many farms administer low doses of antibiotics to healthy animals to promote faster growth, a practice that accelerates the development of antibiotic-resistant bacteria. These resistant strains can spread to humans through the food supply or direct contact with animals, undermining the effectiveness of antibiotics that are critical for treating human infections. Several countries have begun restricting non-therapeutic antibiotic use in livestock, though enforcement remains inconsistent, particularly in regions with large industrial farming operations.",
+      "options": [
+        "Antibiotic use in livestock farming promotes bacterial resistance that can spread to humans, prompting some restrictions, though enforcement is inconsistent.",
+        "Livestock farming has been completely banned from using antibiotics in all countries.",
+        "Antibiotic resistance only affects animals and poses no risk to human health.",
+        "Farmers primarily use antibiotics to treat sick animals rather than to promote growth."
+      ],
+      "correct_answer": 0,
+      "type": "highlight_correct_summary",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_highlight_correct_summary_001.mp3"
+    },
+    {
+      "id": "gen_highlight_correct_summary_002",
+      "transcript": "The gig economy platform model, which connects freelance workers with short-term jobs, has generated debate over worker classification. Companies typically classify these workers as independent contractors rather than employees, which exempts the companies from providing benefits such as health insurance or minimum wage guarantees. Worker advocacy groups argue this classification denies gig workers basic protections, while companies contend that reclassifying workers as employees would eliminate the flexibility that many workers value. Several jurisdictions have introduced legislation attempting to create a middle-ground classification with limited benefits.",
+      "options": [
+        "Gig economy worker classification is contested, with some jurisdictions exploring middle-ground legislation between contractor and employee status.",
+        "All gig economy workers are now classified as full employees with complete benefits worldwide.",
+        "Worker advocacy groups have stopped pursuing any changes to gig worker classification.",
+        "Gig economy companies universally support reclassifying all workers as employees."
+      ],
+      "correct_answer": 0,
+      "type": "highlight_correct_summary",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_highlight_correct_summary_002.mp3"
+    },
+    {
+      "id": "gen_highlight_correct_summary_003",
+      "transcript": "Permafrost, ground that remains frozen for at least two consecutive years, covers roughly a quarter of the Northern Hemisphere's land area. As global temperatures rise, permafrost is thawing at an accelerating rate, releasing long-trapped methane and carbon dioxide into the atmosphere. This creates a feedback loop, since these greenhouse gases contribute to further warming, which in turn accelerates further thawing. Scientists are particularly concerned about regions of Siberia and northern Canada, where thawing has already begun destabilizing infrastructure built on what was once permanently frozen ground.",
+      "options": [
+        "Thawing permafrost releases greenhouse gases that accelerate further warming, creating a feedback loop and destabilizing infrastructure in some regions.",
+        "Permafrost thawing has no measurable effect on global greenhouse gas levels.",
+        "Permafrost only exists in Antarctica and does not affect the Northern Hemisphere.",
+        "Infrastructure built on permafrost has become more stable as temperatures rise."
+      ],
+      "correct_answer": 0,
+      "type": "highlight_correct_summary",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_highlight_correct_summary_003.mp3"
+    },
+    {
+      "id": "gen_highlight_correct_summary_004",
+      "transcript": "Behavioral economists have studied why people often fail to save adequately for retirement despite understanding its importance. One explanation is present bias, the tendency to overvalue immediate rewards relative to future benefits, making it psychologically difficult to forgo current spending for a distant payoff. Policy interventions such as automatic enrollment in retirement plans, which shift the default choice from opting in to opting out, have proven effective at increasing savings rates precisely because they work with, rather than against, this psychological tendency.",
+      "options": [
+        "Present bias explains why people undersave for retirement, and automatic enrollment policies work by leveraging this psychological tendency.",
+        "People undersave for retirement because they lack access to any retirement plans.",
+        "Automatic enrollment policies have been shown to decrease overall retirement savings rates.",
+        "Present bias only affects decisions about immediate purchases, not long-term savings."
+      ],
+      "correct_answer": 0,
+      "type": "highlight_correct_summary",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_highlight_correct_summary_004.mp3"
+    },
+    {
+      "id": "gen_highlight_correct_summary_005",
+      "transcript": "The practice of intermittent fasting, which involves cycling between periods of eating and fasting, has attracted significant scientific interest in recent years. Some studies suggest potential benefits for metabolic health and weight management, though researchers caution that most trials have been short-term and involve relatively small sample sizes. Long-term effects, particularly regarding cardiovascular health and nutrient deficiencies, remain poorly understood, and experts generally recommend consulting a healthcare provider before adopting extended fasting regimens.",
+      "options": [
+        "Intermittent fasting shows some potential health benefits, but long-term effects remain unclear and medical guidance is recommended before adopting it.",
+        "Intermittent fasting has been proven completely safe for all individuals over long periods.",
+        "Scientists unanimously agree that intermittent fasting provides no health benefits whatsoever.",
+        "Long-term studies have conclusively confirmed intermittent fasting's cardiovascular benefits."
+      ],
+      "correct_answer": 0,
+      "type": "highlight_correct_summary",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_highlight_correct_summary_005.mp3"
+    },
+    {
+      "id": "gen_highlight_correct_summary_006",
+      "transcript": "Invasive plant species pose a significant threat to native ecosystems by outcompeting local flora for resources such as sunlight, water, and soil nutrients. Many invasive species lack natural predators in their new environment, allowing them to spread unchecked and reduce biodiversity. Land management agencies employ various control methods, including targeted herbicide application, mechanical removal, and in some cases the introduction of natural predators from the plant's original habitat, though this last approach carries its own ecological risks if not carefully managed.",
+      "options": [
+        "Invasive plants threaten ecosystems by outcompeting native species, and management agencies use several control methods, each with tradeoffs.",
+        "Invasive plant species are beneficial to biodiversity in every ecosystem they enter.",
+        "Land management agencies have found no effective methods to control invasive plants.",
+        "Introducing natural predators is always completely safe with no ecological risk."
+      ],
+      "correct_answer": 0,
+      "type": "highlight_correct_summary",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_highlight_correct_summary_006.mp3"
     }
   ],
   "mcq_single_listening": [
@@ -307,6 +637,102 @@
       ],
       "correct_answer": 3,
       "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_mcq_single_listening_001",
+      "transcript": "Sleep researchers have identified several distinct stages of sleep, each serving a different physiological purpose. Deep sleep, also known as slow-wave sleep, is thought to be most important for physical recovery, while REM sleep plays a critical role in memory consolidation and emotional processing. Disruption to either stage, even without a reduction in total sleep time, has been linked to impaired cognitive performance the following day.",
+      "prompt": "According to the lecture, what is REM sleep primarily associated with?",
+      "options": [
+        "Physical recovery",
+        "Memory consolidation and emotional processing",
+        "Reducing total sleep time",
+        "Slow-wave brain activity"
+      ],
+      "correct_answer": 1,
+      "type": "mcq_single_listening",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_mcq_single_listening_001.mp3"
+    },
+    {
+      "id": "gen_mcq_single_listening_002",
+      "transcript": "The construction of the Panama Canal, completed in 1914, was one of the most ambitious engineering projects of its era. Beyond the technical challenges of cutting through mountainous terrain, workers faced deadly outbreaks of malaria and yellow fever until researchers identified mosquitoes as the disease vectors, allowing sanitation measures to dramatically reduce worker deaths.",
+      "prompt": "What allowed sanitation measures to reduce worker deaths during construction?",
+      "options": [
+        "Improved canal engineering techniques",
+        "Identifying mosquitoes as disease vectors",
+        "Reducing the number of workers",
+        "Moving construction to a different location"
+      ],
+      "correct_answer": 1,
+      "type": "mcq_single_listening",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_mcq_single_listening_002.mp3"
+    },
+    {
+      "id": "gen_mcq_single_listening_003",
+      "transcript": "Economists distinguish between nominal and real interest rates. The nominal rate is the stated rate before adjusting for inflation, while the real rate reflects the actual purchasing power gained by a lender. During periods of high inflation, a seemingly attractive nominal rate can translate into a real rate that is negative, meaning the lender effectively loses purchasing power over time.",
+      "prompt": "What can happen to the real interest rate during periods of high inflation?",
+      "options": [
+        "It always exceeds the nominal rate",
+        "It can become negative even with an attractive nominal rate",
+        "It becomes irrelevant to lenders",
+        "It automatically adjusts to remain positive"
+      ],
+      "correct_answer": 1,
+      "type": "mcq_single_listening",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_mcq_single_listening_003.mp3"
+    },
+    {
+      "id": "gen_mcq_single_listening_004",
+      "transcript": "Octopuses possess a distributed nervous system, with roughly two-thirds of their neurons located not in the central brain but in their eight arms. This allows each arm to process sensory information and execute certain movements semi-independently, even when severed from the body in laboratory conditions, a level of decentralized control unusual among complex animals.",
+      "prompt": "What is notable about how an octopus's nervous system is organized?",
+      "options": [
+        "All neurons are located in the central brain",
+        "Most neurons are distributed across its arms",
+        "It lacks a central brain entirely",
+        "Its arms cannot process any sensory information"
+      ],
+      "correct_answer": 1,
+      "type": "mcq_single_listening",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_mcq_single_listening_004.mp3"
+    },
+    {
+      "id": "gen_mcq_single_listening_005",
+      "transcript": "The Gutenberg printing press, introduced in the fifteenth century, is often credited with dramatically lowering the cost of book production. Prior to its invention, books were copied by hand, a slow and expensive process that limited literacy to a small elite. Movable type allowed identical pages to be reproduced quickly, making books affordable to a much broader segment of society within a few generations.",
+      "prompt": "What was a major effect of the printing press according to the lecture?",
+      "options": [
+        "It made books more expensive to produce",
+        "It made books affordable to a broader segment of society",
+        "It eliminated the need for literacy",
+        "It slowed the spread of information"
+      ],
+      "correct_answer": 1,
+      "type": "mcq_single_listening",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_mcq_single_listening_005.mp3"
+    },
+    {
+      "id": "gen_mcq_single_listening_006",
+      "transcript": "Tidal energy, generated by harnessing the movement of ocean tides, offers a predictable alternative to solar and wind power, which fluctuate with weather conditions. Because tidal patterns can be forecast years in advance with high accuracy, grid operators can plan around tidal generation more reliably than around other renewable sources, though the technology remains costly to deploy at scale.",
+      "prompt": "What advantage does tidal energy have over solar and wind power, according to the lecture?",
+      "options": [
+        "It is currently cheaper to deploy",
+        "Its output is highly predictable",
+        "It requires no infrastructure",
+        "It works better in cloudy weather"
+      ],
+      "correct_answer": 1,
+      "type": "mcq_single_listening",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_mcq_single_listening_006.mp3"
     }
   ],
   "select_missing_word": [
@@ -369,6 +795,96 @@
       ],
       "correct_answer": 2,
       "time_limit_seconds": 60
+    },
+    {
+      "id": "gen_select_missing_word_001",
+      "transcript": "The professor explained that most coastal erosion is caused not by a single storm but by the gradual, cumulative effect of...",
+      "options": [
+        "repeated wave action",
+        "occasional flooding",
+        "sudden earthquakes",
+        "seasonal migration"
+      ],
+      "correct_answer": 0,
+      "type": "select_missing_word",
+      "section": "listening",
+      "time_limit_seconds": 60,
+      "audio_url": "/api/audio/gen_select_missing_word_001.mp3"
+    },
+    {
+      "id": "gen_select_missing_word_002",
+      "transcript": "Researchers found that the most reliable predictor of long-term academic success was not raw intelligence but a student's...",
+      "options": [
+        "persistence",
+        "height",
+        "handwriting",
+        "eyesight"
+      ],
+      "correct_answer": 0,
+      "type": "select_missing_word",
+      "section": "listening",
+      "time_limit_seconds": 60,
+      "audio_url": "/api/audio/gen_select_missing_word_002.mp3"
+    },
+    {
+      "id": "gen_select_missing_word_003",
+      "transcript": "The engineer noted that the bridge's design had to account for extreme temperature changes, since metal expands and contracts with...",
+      "options": [
+        "heat",
+        "sound",
+        "pressure alone",
+        "color"
+      ],
+      "correct_answer": 0,
+      "type": "select_missing_word",
+      "section": "listening",
+      "time_limit_seconds": 60,
+      "audio_url": "/api/audio/gen_select_missing_word_003.mp3"
+    },
+    {
+      "id": "gen_select_missing_word_004",
+      "transcript": "Archaeologists concluded that the ancient trade route was abandoned primarily because of a prolonged drought that made travel across the region...",
+      "options": [
+        "impossible",
+        "cheaper",
+        "faster",
+        "unnecessary"
+      ],
+      "correct_answer": 0,
+      "type": "select_missing_word",
+      "section": "listening",
+      "time_limit_seconds": 60,
+      "audio_url": "/api/audio/gen_select_missing_word_004.mp3"
+    },
+    {
+      "id": "gen_select_missing_word_005",
+      "transcript": "The nutritionist emphasized that the body absorbs certain vitamins more effectively when they are consumed alongside a source of...",
+      "options": [
+        "dietary fat",
+        "caffeine",
+        "sugar",
+        "salt"
+      ],
+      "correct_answer": 0,
+      "type": "select_missing_word",
+      "section": "listening",
+      "time_limit_seconds": 60,
+      "audio_url": "/api/audio/gen_select_missing_word_005.mp3"
+    },
+    {
+      "id": "gen_select_missing_word_006",
+      "transcript": "The historian argued that the revolution succeeded largely because the ruling government had lost the support of the...",
+      "options": [
+        "military",
+        "weather",
+        "currency",
+        "language"
+      ],
+      "correct_answer": 0,
+      "type": "select_missing_word",
+      "section": "listening",
+      "time_limit_seconds": 60,
+      "audio_url": "/api/audio/gen_select_missing_word_006.mp3"
     }
   ],
   "highlight_incorrect_words": [
@@ -423,6 +939,84 @@
         13
       ],
       "time_limit_seconds": 120
+    },
+    {
+      "id": "gen_highlight_incorrect_words_001",
+      "transcript": "Doctors recommend that adults get at least five hours of sleep each night to maintain healthy heart function. Poor sleep has been linked to memory problems and a stronger immune system over time.",
+      "incorrect_indices": [
+        7,
+        16,
+        28
+      ],
+      "type": "highlight_incorrect_words",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_highlight_incorrect_words_001.mp3"
+    },
+    {
+      "id": "gen_highlight_incorrect_words_002",
+      "transcript": "The company launched its new product last year after two months of careful research and testing. Early reviews have praised its battery life, though some customers report the price is too low.",
+      "incorrect_indices": [
+        7,
+        10,
+        31
+      ],
+      "type": "highlight_incorrect_words",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_highlight_incorrect_words_002.mp3"
+    },
+    {
+      "id": "gen_highlight_incorrect_words_003",
+      "transcript": "Scientists discovered a new species of frog living deep within a popular rainforest region. The frog is notable for its bright red skin, which likely serves as a warning to potential tourists.",
+      "incorrect_indices": [
+        11,
+        21,
+        31
+      ],
+      "type": "highlight_incorrect_words",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_highlight_incorrect_words_003.mp3"
+    },
+    {
+      "id": "gen_highlight_incorrect_words_004",
+      "transcript": "The airline announced that it would remove three new direct routes connecting smaller regional airports to major international hubs. Officials expect the change to increase travel times for millions of passengers.",
+      "incorrect_indices": [
+        6,
+        24,
+        28
+      ],
+      "type": "highlight_incorrect_words",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_highlight_incorrect_words_004.mp3"
+    },
+    {
+      "id": "gen_highlight_incorrect_words_005",
+      "transcript": "The new policy requires all restaurants to clearly hide calorie counts next to each menu item. Regulators argue this helps customers make informed choices, while critics say it will decrease preparation costs.",
+      "incorrect_indices": [
+        8,
+        16,
+        29
+      ],
+      "type": "highlight_incorrect_words",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_highlight_incorrect_words_005.mp3"
+    },
+    {
+      "id": "gen_highlight_incorrect_words_006",
+      "transcript": "The marathon route was redesigned this year to pass through five historic neighborhoods instead of the usual seven. Organizers hope the change will attract fewer spectators and boost regional business revenue.",
+      "incorrect_indices": [
+        17,
+        24,
+        28
+      ],
+      "type": "highlight_incorrect_words",
+      "section": "listening",
+      "time_limit_seconds": 120,
+      "audio_url": "/api/audio/gen_highlight_incorrect_words_006.mp3"
     }
   ],
   "write_from_dictation": [
@@ -473,6 +1067,62 @@
       "audio_url": "/api/audio/wfd_006.mp3",
       "correct_text": "Scientists are developing new methods to capture and store carbon dioxide from industrial emissions.",
       "time_limit_seconds": 60
+    },
+    {
+      "id": "gen_write_from_dictation_001",
+      "correct_text": "The committee will announce its final decision next Friday afternoon.",
+      "type": "write_from_dictation",
+      "section": "listening",
+      "time_limit_seconds": 60,
+      "audio_url": "/api/audio/gen_write_from_dictation_001.mp3"
+    },
+    {
+      "id": "gen_write_from_dictation_002",
+      "correct_text": "Scientists are still studying the long-term effects of ocean acidification.",
+      "type": "write_from_dictation",
+      "section": "listening",
+      "time_limit_seconds": 60,
+      "audio_url": "/api/audio/gen_write_from_dictation_002.mp3"
+    },
+    {
+      "id": "gen_write_from_dictation_003",
+      "correct_text": "Please remember to submit your application before the deadline expires.",
+      "type": "write_from_dictation",
+      "section": "listening",
+      "time_limit_seconds": 60,
+      "audio_url": "/api/audio/gen_write_from_dictation_003.mp3"
+    },
+    {
+      "id": "gen_write_from_dictation_004",
+      "correct_text": "The new bridge significantly reduced travel time between the two cities.",
+      "type": "write_from_dictation",
+      "section": "listening",
+      "time_limit_seconds": 60,
+      "audio_url": "/api/audio/gen_write_from_dictation_004.mp3"
+    },
+    {
+      "id": "gen_write_from_dictation_005",
+      "correct_text": "Her research focuses on the impact of sleep on memory retention.",
+      "type": "write_from_dictation",
+      "section": "listening",
+      "time_limit_seconds": 60,
+      "audio_url": "/api/audio/gen_write_from_dictation_005.mp3"
+    },
+    {
+      "id": "gen_write_from_dictation_006",
+      "correct_text": "The factory switched entirely to renewable energy sources last year.",
+      "type": "write_from_dictation",
+      "section": "listening",
+      "time_limit_seconds": 60,
+      "audio_url": "/api/audio/gen_write_from_dictation_006.mp3"
+    },
+    {
+      "id": "gen_write_from_dictation_007",
+      "correct_text": "Local farmers reported a significant increase in crop yields this season.",
+      "type": "write_from_dictation",
+      "section": "listening",
+      "time_limit_seconds": 60,
+      "audio_url": "/api/audio/gen_write_from_dictation_007.mp3"
     }
   ]
 }

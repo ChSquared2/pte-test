@@ -68,11 +68,14 @@ async def submit_speaking(
     with open(filepath, "wb") as f:
         f.write(content)
 
-    # Get reference text from question data
+    # Get reference text from question data.
+    # expected_answer takes priority: for answer_short_question, "transcript" is
+    # the spoken question itself, not the answer — using it as the reference
+    # would give Gemini the wrong scoring target.
     question = _load_question(question_type, question_id)
     reference = ""
     if question:
-        reference = question.get("transcript", "") or question.get("text", "") or question.get("scenario", "") or question.get("expected_answer", "")
+        reference = question.get("expected_answer", "") or question.get("transcript", "") or question.get("text", "") or question.get("scenario", "")
 
     # Score with Gemini
     result = score_speaking(filepath, question_type, reference)

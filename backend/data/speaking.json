@@ -177,6 +177,76 @@
       "time_limit_seconds": 30,
       "prep_time": 0,
       "record_time": 15
+    },
+    {
+      "id": "gen_repeat_sentence_001",
+      "transcript": "The library closes early on public holidays and weekends.",
+      "type": "repeat_sentence",
+      "section": "speaking",
+      "time_limit_seconds": 30,
+      "prep_time": 0,
+      "record_time": 15,
+      "audio_url": "/api/audio/gen_repeat_sentence_001.mp3"
+    },
+    {
+      "id": "gen_repeat_sentence_002",
+      "transcript": "Please make sure to save your work before closing the program.",
+      "type": "repeat_sentence",
+      "section": "speaking",
+      "time_limit_seconds": 30,
+      "prep_time": 0,
+      "record_time": 15,
+      "audio_url": "/api/audio/gen_repeat_sentence_002.mp3"
+    },
+    {
+      "id": "gen_repeat_sentence_003",
+      "transcript": "The conference has been rescheduled to the following Tuesday.",
+      "type": "repeat_sentence",
+      "section": "speaking",
+      "time_limit_seconds": 30,
+      "prep_time": 0,
+      "record_time": 15,
+      "audio_url": "/api/audio/gen_repeat_sentence_003.mp3"
+    },
+    {
+      "id": "gen_repeat_sentence_004",
+      "transcript": "Most students prefer studying in the morning rather than at night.",
+      "type": "repeat_sentence",
+      "section": "speaking",
+      "time_limit_seconds": 30,
+      "prep_time": 0,
+      "record_time": 15,
+      "audio_url": "/api/audio/gen_repeat_sentence_004.mp3"
+    },
+    {
+      "id": "gen_repeat_sentence_005",
+      "transcript": "The company plans to open three new offices next year.",
+      "type": "repeat_sentence",
+      "section": "speaking",
+      "time_limit_seconds": 30,
+      "prep_time": 0,
+      "record_time": 15,
+      "audio_url": "/api/audio/gen_repeat_sentence_005.mp3"
+    },
+    {
+      "id": "gen_repeat_sentence_006",
+      "transcript": "Heavy rainfall caused significant delays across the transportation network.",
+      "type": "repeat_sentence",
+      "section": "speaking",
+      "time_limit_seconds": 30,
+      "prep_time": 0,
+      "record_time": 15,
+      "audio_url": "/api/audio/gen_repeat_sentence_006.mp3"
+    },
+    {
+      "id": "gen_repeat_sentence_007",
+      "transcript": "Researchers collected samples from over twenty different locations.",
+      "type": "repeat_sentence",
+      "section": "speaking",
+      "time_limit_seconds": 30,
+      "prep_time": 0,
+      "record_time": 15,
+      "audio_url": "/api/audio/gen_repeat_sentence_007.mp3"
     }
   ],
   "describe_image": [
@@ -275,6 +345,56 @@
       "time_limit_seconds": 60,
       "prep_time": 10,
       "record_time": 40
+    },
+    {
+      "id": "gen_retell_lecture_001",
+      "transcript": "Today I want to talk about the phenomenon of jet lag. When we travel quickly across multiple time zones, our internal biological clock, which is regulated primarily by exposure to light, becomes misaligned with the local time at our destination. This mismatch causes symptoms such as fatigue, difficulty concentrating, and disrupted sleep patterns. Interestingly, the body adjusts more easily when traveling westward than eastward, because it is generally easier for humans to extend their day than to shorten it. Frequent travelers, such as airline crew members, often develop strategies to minimize jet lag, including adjusting their sleep schedule several days before departure and seeking bright light exposure at strategic times to help reset their internal clock more quickly.",
+      "type": "retell_lecture",
+      "section": "speaking",
+      "time_limit_seconds": 60,
+      "prep_time": 10,
+      "record_time": 40,
+      "audio_url": "/api/audio/gen_retell_lecture_001.mp3"
+    },
+    {
+      "id": "gen_retell_lecture_002",
+      "transcript": "This lecture will cover the basics of supply chain resilience. In recent years, companies have recognized that relying on a single supplier or manufacturing location, while cost-efficient under normal conditions, creates significant vulnerability during disruptions such as natural disasters or geopolitical conflict. As a result, many firms have shifted toward diversifying their supplier base across multiple regions, even if this increases costs slightly. Some companies have also begun maintaining larger safety stock inventories as a buffer against unexpected shortages. This represents a notable departure from the just-in-time inventory philosophy that dominated manufacturing strategy for decades, prioritizing efficiency above all else. The pandemic in particular accelerated this shift, exposing weaknesses in highly optimized global supply networks.",
+      "type": "retell_lecture",
+      "section": "speaking",
+      "time_limit_seconds": 60,
+      "prep_time": 10,
+      "record_time": 40,
+      "audio_url": "/api/audio/gen_retell_lecture_002.mp3"
+    },
+    {
+      "id": "gen_retell_lecture_003",
+      "transcript": "Let's examine how coral bleaching actually occurs. Corals maintain a symbiotic relationship with microscopic algae living within their tissues, which provide the coral with food through photosynthesis and give it its vibrant color. When ocean temperatures rise even slightly above normal for a sustained period, corals become stressed and expel these algae, leaving behind a pale, bleached skeleton. Without the algae, the coral loses its primary food source and becomes significantly more vulnerable to disease. If temperatures return to normal quickly, corals can sometimes recover by reabsorbing algae, but prolonged heat stress often results in coral death across entire reef systems, with consequences for the thousands of marine species that depend on reefs for habitat.",
+      "type": "retell_lecture",
+      "section": "speaking",
+      "time_limit_seconds": 60,
+      "prep_time": 10,
+      "record_time": 40,
+      "audio_url": "/api/audio/gen_retell_lecture_003.mp3"
+    },
+    {
+      "id": "gen_retell_lecture_004",
+      "transcript": "Today's topic is the economics of planned obsolescence. This term refers to the practice of designing products with an artificially limited useful lifespan, encouraging consumers to make repeat purchases. While manufacturers often justify shorter product lifespans as a natural consequence of technological progress, critics argue that some companies deliberately limit repairability or use lower-quality components to accelerate the need for replacement. This practice has drawn increasing regulatory scrutiny in recent years, with several governments introducing right-to-repair legislation requiring manufacturers to make spare parts and repair information available to consumers. Proponents of such laws argue they reduce electronic waste and give consumers more control over their purchases, while manufacturers warn of increased costs and safety concerns.",
+      "type": "retell_lecture",
+      "section": "speaking",
+      "time_limit_seconds": 60,
+      "prep_time": 10,
+      "record_time": 40,
+      "audio_url": "/api/audio/gen_retell_lecture_004.mp3"
+    },
+    {
+      "id": "gen_retell_lecture_005",
+      "transcript": "This lecture focuses on the history of the printing press and its societal impact. Before Johannes Gutenberg's invention of movable type in the fifteenth century, books were painstakingly copied by hand, a process that could take months for a single volume. This scarcity meant that literacy and access to written knowledge were largely confined to religious institutions and the wealthy elite. The printing press dramatically reduced the cost and time required to produce books, enabling much wider distribution of ideas. Historians often credit this technological shift with accelerating the spread of the Reformation, the Scientific Revolution, and eventually the Enlightenment, as previously inaccessible texts became available to a rapidly growing literate population across Europe.",
+      "type": "retell_lecture",
+      "section": "speaking",
+      "time_limit_seconds": 60,
+      "prep_time": 10,
+      "record_time": 40,
+      "audio_url": "/api/audio/gen_retell_lecture_005.mp3"
     }
   ],
   "answer_short_question": [
@@ -343,6 +463,94 @@
       "time_limit_seconds": 20,
       "prep_time": 0,
       "record_time": 10
+    },
+    {
+      "id": "gen_answer_short_question_001",
+      "transcript": "What do we call a doctor who specializes in treating children?",
+      "expected_answer": "pediatrician",
+      "type": "answer_short_question",
+      "section": "speaking",
+      "time_limit_seconds": 20,
+      "prep_time": 0,
+      "record_time": 10,
+      "audio_url": "/api/audio/gen_answer_short_question_001.mp3"
+    },
+    {
+      "id": "gen_answer_short_question_002",
+      "transcript": "What is the term for a word that means the same as another word?",
+      "expected_answer": "synonym",
+      "type": "answer_short_question",
+      "section": "speaking",
+      "time_limit_seconds": 20,
+      "prep_time": 0,
+      "record_time": 10,
+      "audio_url": "/api/audio/gen_answer_short_question_002.mp3"
+    },
+    {
+      "id": "gen_answer_short_question_003",
+      "transcript": "What do we call the study of the past through physical remains and artifacts?",
+      "expected_answer": "archaeology",
+      "type": "answer_short_question",
+      "section": "speaking",
+      "time_limit_seconds": 20,
+      "prep_time": 0,
+      "record_time": 10,
+      "audio_url": "/api/audio/gen_answer_short_question_003.mp3"
+    },
+    {
+      "id": "gen_answer_short_question_004",
+      "transcript": "What instrument is commonly used to measure atmospheric pressure?",
+      "expected_answer": "barometer",
+      "type": "answer_short_question",
+      "section": "speaking",
+      "time_limit_seconds": 20,
+      "prep_time": 0,
+      "record_time": 10,
+      "audio_url": "/api/audio/gen_answer_short_question_004.mp3"
+    },
+    {
+      "id": "gen_answer_short_question_005",
+      "transcript": "What do we call an animal that only eats meat?",
+      "expected_answer": "carnivore",
+      "type": "answer_short_question",
+      "section": "speaking",
+      "time_limit_seconds": 20,
+      "prep_time": 0,
+      "record_time": 10,
+      "audio_url": "/api/audio/gen_answer_short_question_005.mp3"
+    },
+    {
+      "id": "gen_answer_short_question_006",
+      "transcript": "What is the name for the point at which a river meets the sea?",
+      "expected_answer": "estuary",
+      "type": "answer_short_question",
+      "section": "speaking",
+      "time_limit_seconds": 20,
+      "prep_time": 0,
+      "record_time": 10,
+      "audio_url": "/api/audio/gen_answer_short_question_006.mp3"
+    },
+    {
+      "id": "gen_answer_short_question_007",
+      "transcript": "What do we call a person who studies the behavior of the mind?",
+      "expected_answer": "psychologist",
+      "type": "answer_short_question",
+      "section": "speaking",
+      "time_limit_seconds": 20,
+      "prep_time": 0,
+      "record_time": 10,
+      "audio_url": "/api/audio/gen_answer_short_question_007.mp3"
+    },
+    {
+      "id": "gen_answer_short_question_008",
+      "transcript": "What is the term for money paid regularly to someone after they retire?",
+      "expected_answer": "pension",
+      "type": "answer_short_question",
+      "section": "speaking",
+      "time_limit_seconds": 20,
+      "prep_time": 0,
+      "record_time": 10,
+      "audio_url": "/api/audio/gen_answer_short_question_008.mp3"
     }
   ],
   "summarize_group_discussion": [
@@ -385,6 +593,56 @@
       "time_limit_seconds": 130,
       "prep_time": 10,
       "record_time": 120
+    },
+    {
+      "id": "gen_summarize_group_discussion_001",
+      "transcript": "Moderator: Today we're discussing whether remote work should become the permanent standard for office jobs. Sarah, what's your view? Sarah: I think remote work has proven itself over the past few years. Productivity hasn't dropped, and employees report better work-life balance. Companies save on office space too. James: I agree it has benefits, but I worry about collaboration and mentorship. Junior employees especially seem to learn faster when they're physically around experienced colleagues. Sarah: That's fair, but a hybrid model could address that concern while still preserving flexibility. Moderator: So it sounds like both of you see value in flexibility, but disagree on how much in-person time is necessary. James: Exactly. I'd support a hybrid approach rather than either extreme.",
+      "type": "summarize_group_discussion",
+      "section": "speaking",
+      "time_limit_seconds": 130,
+      "prep_time": 10,
+      "record_time": 120,
+      "audio_url": "/api/audio/gen_summarize_group_discussion_001.mp3"
+    },
+    {
+      "id": "gen_summarize_group_discussion_002",
+      "transcript": "Moderator: Let's talk about whether universities should make attendance mandatory. Maria, you go first. Maria: I don't think mandatory attendance makes sense for university students. They're adults and should be responsible for their own learning outcomes. David: I disagree somewhat. Attendance policies exist because engagement in class discussions genuinely improves understanding, especially in smaller seminar-style courses. Maria: But large lecture halls are a different situation entirely. Sitting passively in a lecture isn't necessarily better than studying independently. David: That's a good distinction. Maybe attendance requirements should depend on class format rather than applying universally across all courses. Moderator: So the format of the class seems to be the key factor here.",
+      "type": "summarize_group_discussion",
+      "section": "speaking",
+      "time_limit_seconds": 130,
+      "prep_time": 10,
+      "record_time": 120,
+      "audio_url": "/api/audio/gen_summarize_group_discussion_002.mp3"
+    },
+    {
+      "id": "gen_summarize_group_discussion_003",
+      "transcript": "Moderator: Today's question is whether social media platforms should verify the identity of all users. Priya, your thoughts? Priya: I think verification would reduce harassment and misinformation significantly, since anonymous accounts are often the source of the worst behavior online. Tom: I understand that concern, but mandatory verification could put vulnerable users at risk, such as activists or journalists in authoritarian countries who rely on anonymity for safety. Priya: That's a valid point I hadn't fully considered. Maybe verification could be optional but incentivized, rather than mandatory for everyone. Tom: That seems like a reasonable compromise. It would let platforms reward verified accounts with more visibility while still protecting those who need anonymity.",
+      "type": "summarize_group_discussion",
+      "section": "speaking",
+      "time_limit_seconds": 130,
+      "prep_time": 10,
+      "record_time": 120,
+      "audio_url": "/api/audio/gen_summarize_group_discussion_003.mp3"
+    },
+    {
+      "id": "gen_summarize_group_discussion_004",
+      "transcript": "Moderator: We're discussing whether cities should ban private cars from downtown areas. Ahmed, what's your take? Ahmed: I strongly support it. Reducing car traffic downtown would cut pollution, noise, and make streets safer for pedestrians and cyclists. Linda: I see the appeal, but many people rely on cars because public transit doesn't reach their neighborhoods. A ban could unfairly burden those without alternatives. Ahmed: That's true, which is why I think it should be paired with major investment in public transit before implementation, not after. Linda: Agreed, sequencing matters a lot here. Without reliable alternatives first, a ban would just create resentment and possibly get reversed.",
+      "type": "summarize_group_discussion",
+      "section": "speaking",
+      "time_limit_seconds": 130,
+      "prep_time": 10,
+      "record_time": 120,
+      "audio_url": "/api/audio/gen_summarize_group_discussion_004.mp3"
+    },
+    {
+      "id": "gen_summarize_group_discussion_005",
+      "transcript": "Moderator: Should companies be required to disclose when content is generated by artificial intelligence? Elena, please start. Elena: Absolutely, transparency is essential. Consumers deserve to know whether they're interacting with a human or a machine, especially in customer service or news contexts. Ravi: I mostly agree, though I wonder how practical enforcement would be. AI is increasingly used to assist human-created content too, not replace it entirely, which blurs the line. Elena: That's a fair challenge. Maybe disclosure requirements should apply only when AI generates content with minimal human involvement, rather than any AI assistance at all. Ravi: That distinction seems more workable and less burdensome to implement.",
+      "type": "summarize_group_discussion",
+      "section": "speaking",
+      "time_limit_seconds": 130,
+      "prep_time": 10,
+      "record_time": 120,
+      "audio_url": "/api/audio/gen_summarize_group_discussion_005.mp3"
     }
   ],
   "respond_to_situation": [
