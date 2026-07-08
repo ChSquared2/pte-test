@@ -1,14 +1,13 @@
 import json
-import os
+import random
 import uuid
 from fastapi import APIRouter
 from ..models import StartExamRequest, SubmitSectionRequest, CompleteExamRequest
 from ..database import get_connection
 from ..services.deterministic_scoring import score_question
+from ..services.question_bank import load_section_pool, strip_answers
 
 router = APIRouter()
-
-EXAM_DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "exam")
 
 # Exam structure: sections, question types, counts, and timing
 EXAM_STRUCTURE = [
@@ -74,61 +73,21 @@ EXAM_STRUCTURE = [
     },
 ]
 
-# Keys to strip from questions before sending to frontend
-HIDDEN_KEYS = {
-    "correct_answer", "correct_answers", "correct_order",
-    "expected_answer", "correct_text", "incorrect_indices",
-}
+def _select_questions(pool: list[dict], qtype: str, count: int, seen_ids: set) -> list[dict]:
+    """Pick `count` questions of `qtype`, preferring ones the user hasn't seen.
 
-# Types that need transcript shown to user
-TYPES_NEEDING_TRANSCRIPT = {"highlight_incorrect_words"}
-
-
-def load_exam_questions(section: str) -> list[dict]:
-    """Load questions from the exam-specific data directory."""
-    filepath = os.path.join(EXAM_DATA_DIR, f"{section}.json")
-    if not os.path.exists(filepath):
-        return []
-    with open(filepath, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    questions = []
-    for qtype_list in data.values():
-        if isinstance(qtype_list, list):
-            questions.extend(qtype_list)
-    return questions
-
-
-def strip_answers(q: dict) -> dict:
-    """Remove answer fields from a question before sending to frontend."""
-    hidden = set(HIDDEN_KEYS)
-    if q.get("type") not in TYPES_NEEDING_TRANSCRIPT:
-        hidden.add("transcript")
-    q_copy = {k: v for k, v in q.items() if k not in hidden}
-    # Strip answers from blanks
-    if "blanks" in q_copy:
-        q_copy["blanks"] = [
-            {k: v for k, v in b.items() if k != "answer"}
-            for b in q_copy["blanks"]
-        ]
-    # Strip answers from grammar_select_blanks items
-    if "items" in q_copy and q_copy.get("type") in ("grammar_select_blanks", "vocabulary_word_order"):
-        q_copy["items"] = [
-            {k: v for k, v in item.items() if k != "answer"}
-            for item in q_copy["items"]
-        ]
-    # Strip answers from grammar_drag_dialogue lines
-    if "lines" in q_copy and q_copy.get("type") == "grammar_drag_dialogue":
-        q_copy["lines"] = [
-            {k: v for k, v in line.items() if k != "answer"}
-            for line in q_copy["lines"]
-        ]
-    # Strip answers from vocabulary_fill_table rows
-    if "rows" in q_copy and q_copy.get("type") == "vocabulary_fill_table":
-        q_copy["rows"] = [
-            {"cells": [{k: v for k, v in cell.items() if k != "answer"} for cell in row["cells"]]}
-            for row in q_copy["rows"]
-        ]
-    return q_copy
+    Falls back to already-seen questions (at random) only if there aren't enough
+    unseen ones, so each attempt is as fresh as the bank allows.
+    """
+    type_qs = [q for q in pool if q.get("type") == qtype]
+    unseen = [q for q in type_qs if q.get("id") not in seen_ids]
+    seen = [q for q in type_qs if q.get("id") in seen_ids]
+    random.shuffle(unseen)
+    random.shuffle(seen)
+    chosen = unseen[:count]
+    if len(chosen) < count:
+        chosen += seen[: count - len(chosen)]
+    return chosen
 
 
 @router.post("/exam/start")
@@ -140,21 +99,30 @@ def start_exam(req: StartExamRequest = StartExamRequest()):
         (session_id, 1 if req.is_trial else 0, req.user_id),
     )
     conn.commit()
+
+    # Questions this user has already answered — used to avoid repeats.
+    seen_ids = {
+        row["question_id"]
+        for row in conn.execute(
+            "SELECT DISTINCT question_id FROM attempts WHERE user_id = ?", (req.user_id,)
+        ).fetchall()
+    }
     conn.close()
 
-    # Build sections with questions
+    # Build sections with fresh, randomized, non-repeating questions
     sections = []
     for section_def in EXAM_STRUCTURE:
-        # Load all questions from the exam data files for this section
+        # Full bank for this section (both data folders merged)
         all_qs = []
         for data_section in section_def["data_sections"]:
-            all_qs.extend(load_exam_questions(data_section))
+            all_qs.extend(load_section_pool(data_section))
 
-        # Pick questions by type and count
         section_questions = []
         for qtype, count in section_def["questions"]:
-            type_qs = [q for q in all_qs if q.get("type") == qtype]
-            section_questions.extend(type_qs[:count])
+            section_questions.extend(_select_questions(all_qs, qtype, count, seen_ids))
+
+        # Shuffle the order of questions within the section
+        random.shuffle(section_questions)
 
         sections.append({
             "key": section_def["key"],
