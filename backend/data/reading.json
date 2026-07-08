@@ -826,9 +826,9 @@
           "index": 0,
           "options": [
             "essential",
-            "important",
-            "necessary",
-            "vital"
+            "optional",
+            "coincidental",
+            "temporary"
           ],
           "answer": "essential"
         },
@@ -845,10 +845,10 @@
         {
           "index": 2,
           "options": [
-            "chain",
             "cascade",
-            "series",
-            "sequence"
+            "isolated",
+            "singular",
+            "static"
           ],
           "answer": "cascade"
         },
@@ -856,9 +856,9 @@
           "index": 3,
           "options": [
             "provision",
-            "delivery",
-            "supply",
-            "availability"
+            "cost",
+            "packaging",
+            "ownership"
           ],
           "answer": "provision"
         }

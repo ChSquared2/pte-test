@@ -79,7 +79,13 @@ export default function SpeakingQuestion({
       {audioUrl && !audioPlayed && !isReview && (
         <div className="mb-4">
           <p className="text-sm text-gray-600 mb-2">Listen to the audio, then your recording will begin:</p>
-          <AudioPlayer src={audioUrl} playbackRate={0.75} maxPlays={1} onEnded={() => setAudioPlayed(true)} autoPlay />
+          <AudioPlayer
+            src={audioUrl}
+            playbackRate={type === 'summarize_group_discussion' ? 1 : 0.75}
+            maxPlays={1}
+            onEnded={() => setAudioPlayed(true)}
+            autoPlay
+          />
         </div>
       )}
 

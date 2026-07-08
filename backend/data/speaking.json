@@ -303,6 +303,87 @@
       "time_limit_seconds": 65,
       "prep_time": 25,
       "record_time": 40
+    },
+    {
+      "id": "di_gen_001",
+      "type": "describe_image",
+      "section": "speaking",
+      "image_url": "/api/audio/di_gen_001.png",
+      "time_limit_seconds": 40,
+      "prep_time": 25,
+      "record_time": 40
+    },
+    {
+      "id": "di_gen_002",
+      "type": "describe_image",
+      "section": "speaking",
+      "image_url": "/api/audio/di_gen_002.jpg",
+      "time_limit_seconds": 40,
+      "prep_time": 25,
+      "record_time": 40
+    },
+    {
+      "id": "di_gen_003",
+      "type": "describe_image",
+      "section": "speaking",
+      "image_url": "/api/audio/di_gen_003.jpg",
+      "time_limit_seconds": 40,
+      "prep_time": 25,
+      "record_time": 40
+    },
+    {
+      "id": "di_gen_004",
+      "type": "describe_image",
+      "section": "speaking",
+      "image_url": "/api/audio/di_gen_004.jpg",
+      "time_limit_seconds": 40,
+      "prep_time": 25,
+      "record_time": 40
+    },
+    {
+      "id": "di_gen_005",
+      "type": "describe_image",
+      "section": "speaking",
+      "image_url": "/api/audio/di_gen_005.jpg",
+      "time_limit_seconds": 40,
+      "prep_time": 25,
+      "record_time": 40
+    },
+    {
+      "id": "di_gen_006",
+      "type": "describe_image",
+      "section": "speaking",
+      "image_url": "/api/audio/di_gen_006.jpeg",
+      "time_limit_seconds": 40,
+      "prep_time": 25,
+      "record_time": 40
+    },
+    {
+      "id": "di_gen_007",
+      "type": "describe_image",
+      "section": "speaking",
+      "image_url": "/api/audio/di_gen_007.jpg",
+      "time_limit_seconds": 40,
+      "prep_time": 25,
+      "record_time": 40
+    },
+    {
+      "id": "di_gen_008",
+      "type": "describe_image",
+      "section": "speaking",
+      "image_url": "/api/audio/di_gen_008.jpg",
+      "time_limit_seconds": 40,
+      "prep_time": 25,
+      "record_time": 40
+    },
+    {
+      "id": "di_gen_009",
+      "type": "describe_image",
+      "section": "speaking",
+      "image_url": "/api/audio/di_gen_009.jpeg",
+      "time_limit_seconds": 40,
+      "prep_time": 25,
+      "record_time": 40
     }
   ],
   "retell_lecture": [
