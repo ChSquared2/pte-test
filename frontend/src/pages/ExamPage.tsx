@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import { useExamEngine } from '../hooks/useExamEngine';
 import { useState } from 'react';
-import type { Question } from '../types';
+import type { Question, Section, QuestionType } from '../types';
+import { submitAnswer } from '../services/api';
 
 import ExamErrorBoundary from '../components/common/ExamErrorBoundary';
+import ScoreDisplay from '../components/common/ScoreDisplay';
 
 // Practice components reused in exam mode for AI-scored types
 import SpeakingQuestion from '../components/speaking/SpeakingQuestion';
@@ -21,6 +23,7 @@ export default function ExamPage() {
   const navigate = useNavigate();
   const exam = useExamEngine();
   const [isTrial, setIsTrial] = useState(false);
+  const [feedbackMode, setFeedbackMode] = useState(false);
 
   // ─── NOT STARTED ───
   if (exam.state === 'NOT_STARTED') {
@@ -59,15 +62,26 @@ export default function ExamPage() {
             </div>
           )}
 
-          <label className="flex items-center justify-center gap-3 mb-6 cursor-pointer group">
-            <input type="checkbox" checked={isTrial} onChange={(e) => setIsTrial(e.target.checked)}
-              className="w-5 h-5 rounded border-gray-300 text-[#F2A900] focus:ring-[#F2A900]" />
-            <span className="text-sm text-gray-600 group-hover:text-gray-800">
-              Test session <span className="text-xs text-gray-400">(results not saved)</span>
-            </span>
-          </label>
+          <div className="space-y-3 mb-6">
+            <label className="flex items-center justify-center gap-3 cursor-pointer group">
+              <input type="checkbox" checked={feedbackMode} onChange={(e) => setFeedbackMode(e.target.checked)}
+                className="w-5 h-5 rounded border-gray-300 text-[#0072CE] focus:ring-[#0072CE]" />
+              <span className="text-sm text-gray-600 group-hover:text-gray-800">
+                Show feedback after each question{' '}
+                <span className="text-xs text-gray-400">(practice mode — not like the real PTE)</span>
+              </span>
+            </label>
 
-          <button onClick={() => exam.start(isTrial)}
+            <label className="flex items-center justify-center gap-3 cursor-pointer group">
+              <input type="checkbox" checked={isTrial} onChange={(e) => setIsTrial(e.target.checked)}
+                className="w-5 h-5 rounded border-gray-300 text-[#F2A900] focus:ring-[#F2A900]" />
+              <span className="text-sm text-gray-600 group-hover:text-gray-800">
+                Test session <span className="text-xs text-gray-400">(results not saved)</span>
+              </span>
+            </label>
+          </div>
+
+          <button onClick={() => exam.start(isTrial, feedbackMode)}
             className="bg-[#F2A900] text-[#003057] font-bold py-3 px-8 rounded-lg hover:bg-[#e09d00] transition-colors text-lg">
             {exam.hasSavedExam ? 'Start New Exam' : 'Start Exam'}
           </button>
@@ -213,12 +227,17 @@ export default function ExamPage() {
                 question={exam.currentQuestion!}
                 onNext={() => exam.submitCurrentAnswer('__prescored__')}
                 sessionId={exam.sessionId}
+                showFeedback={exam.feedbackMode}
               />
             ) : (
               <ExamQuestionRenderer
+                key={exam.overallQuestionIndex}
                 question={exam.currentQuestion!}
                 onAnswer={exam.submitCurrentAnswer}
                 onSkip={exam.skipQuestion}
+                feedbackMode={exam.feedbackMode}
+                sessionId={exam.sessionId}
+                onPrescored={() => exam.submitCurrentAnswer('__prescored__')}
               />
             )}
           </ExamErrorBoundary>
@@ -229,8 +248,8 @@ export default function ExamPage() {
 }
 
 // ─── AI-SCORED QUESTION RENDERER (uses practice components with their own submit flow) ───
-function AIScoredQuestionRenderer({ question, onNext, sessionId }: {
-  question: Question; onNext: () => void; sessionId: string;
+function AIScoredQuestionRenderer({ question, onNext, sessionId, showFeedback }: {
+  question: Question; onNext: () => void; sessionId: string; showFeedback: boolean;
 }) {
   const speakingTitles: Record<string, { title: string; instruction: string }> = {
     read_aloud: { title: 'Read Aloud', instruction: 'Read the text below aloud. You have time to prepare before recording begins.' },
@@ -263,33 +282,79 @@ function AIScoredQuestionRenderer({ question, onNext, sessionId }: {
         onNext={onNext}
         mode="exam"
         examSessionId={sessionId}
+        showFeedback={showFeedback}
       />
     );
   }
 
   // Essay
   if (question.type === 'essay') {
-    return <Essay key={q.id} question={q} onNext={onNext} mode="exam" examSessionId={sessionId} />;
+    return <Essay key={q.id} question={q} onNext={onNext} mode="exam" examSessionId={sessionId} showFeedback={showFeedback} />;
   }
 
   // Summarize Written Text
   if (question.type === 'summarize_written_text') {
-    return <SummarizeWrittenText key={q.id} question={q} onNext={onNext} mode="exam" examSessionId={sessionId} />;
+    return <SummarizeWrittenText key={q.id} question={q} onNext={onNext} mode="exam" examSessionId={sessionId} showFeedback={showFeedback} />;
   }
 
   // Summarize Spoken Text
   if (question.type === 'summarize_spoken_text') {
-    return <SummarizeSpokenText key={q.id} question={q} onNext={onNext} mode="exam" examSessionId={sessionId} />;
+    return <SummarizeSpokenText key={q.id} question={q} onNext={onNext} mode="exam" examSessionId={sessionId} showFeedback={showFeedback} />;
   }
 
   return <p className="text-gray-500">Unsupported AI-scored type: {question.type}</p>;
 }
 
-// ─── DETERMINISTIC QUESTION RENDERER (collects answers, batch-scored at section end) ───
-function ExamQuestionRenderer({ question, onAnswer, onSkip }: {
-  question: Question; onAnswer: (answer: unknown) => void; onSkip: () => void;
+// ─── DETERMINISTIC QUESTION RENDERER ───
+// feedbackMode OFF: collects answers, batch-scored at section end (real PTE flow).
+// feedbackMode ON: scores each question immediately and shows the result.
+function ExamQuestionRenderer({ question, onAnswer, onSkip, feedbackMode, sessionId, onPrescored }: {
+  question: Question;
+  onAnswer: (answer: unknown) => void;
+  onSkip: () => void;
+  feedbackMode: boolean;
+  sessionId: string;
+  onPrescored: () => void;
 }) {
   const [answer, setAnswer] = useState<unknown>(null);
+  const [scoring, setScoring] = useState(false);
+  const [result, setResult] = useState<import('../types').SubmitAnswerResponse | null>(null);
+
+  const handleSubmit = async () => {
+    if (!feedbackMode) {
+      onAnswer(answer);
+      return;
+    }
+    setScoring(true);
+    try {
+      const res = await submitAnswer({
+        mode: 'exam',
+        exam_session_id: sessionId,
+        section: (question as any).section as Section,
+        question_type: question.type as QuestionType,
+        question_id: question.id,
+        user_answer: answer,
+        time_spent_seconds: 0,
+      });
+      setResult(res);
+    } finally {
+      setScoring(false);
+    }
+  };
+
+  if (result) {
+    // Question already scored & saved with the exam session; advance as prescored.
+    return <ScoreDisplay result={result} onNext={onPrescored} />;
+  }
+
+  if (scoring) {
+    return (
+      <div className="text-center py-12">
+        <div className="animate-spin h-10 w-10 border-4 border-[#0072CE] border-t-transparent rounded-full mx-auto mb-3" />
+        <p className="text-gray-500">Checking your answer...</p>
+      </div>
+    );
+  }
 
   const renderQuestion = () => {
     switch (question.type) {
@@ -347,9 +412,9 @@ function ExamQuestionRenderer({ question, onAnswer, onSkip }: {
     <div>
       {renderQuestion()}
       <div className="flex gap-3 mt-6">
-        <button onClick={() => onAnswer(answer)} disabled={answer === null}
+        <button onClick={handleSubmit} disabled={answer === null}
           className="flex-1 bg-[#0072CE] text-white py-2.5 rounded-lg hover:bg-[#005fa3] disabled:opacity-50 transition-colors">
-          Next
+          {feedbackMode ? 'Submit Answer' : 'Next'}
         </button>
         <button onClick={onSkip} className="px-4 text-sm text-gray-500 hover:text-gray-700">Skip</button>
       </div>

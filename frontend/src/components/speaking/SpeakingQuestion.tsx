@@ -21,13 +21,14 @@ interface SpeakingQuestionProps {
   onNext: () => void;
   mode?: 'practice' | 'exam';
   examSessionId?: string;
+  showFeedback?: boolean;
 }
 
 export default function SpeakingQuestion({
   id, type, title, instruction,
   text, imageUrl, audioUrl, scenario,
   prepTime, recordTime, timeLimit,
-  onNext, mode = 'practice', examSessionId,
+  onNext, mode = 'practice', examSessionId, showFeedback = true,
 }: SpeakingQuestionProps) {
   const [result, setResult] = useState<SubmitAnswerResponse | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -46,6 +47,10 @@ export default function SpeakingQuestion({
     setSubmitting(true);
     try {
       const res = await submitSpeakingAnswer(id, type, recordedBlob, mode, 0, examSessionId);
+      if (!showFeedback) {
+        onNext();
+        return;
+      }
       setResult(res);
       setShowingScore(true);
     } finally {

@@ -9,9 +9,10 @@ interface Props {
   onNext: () => void;
   mode?: 'practice' | 'exam';
   examSessionId?: string;
+  showFeedback?: boolean;
 }
 
-export default function Essay({ question, onNext, mode = 'practice', examSessionId }: Props) {
+export default function Essay({ question, onNext, mode = 'practice', examSessionId, showFeedback = true }: Props) {
   const [text, setText] = useState('');
   const [result, setResult] = useState<SubmitAnswerResponse | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -32,6 +33,10 @@ export default function Essay({ question, onNext, mode = 'practice', examSession
         user_answer: text,
         time_spent_seconds: 0,
       });
+      if (!showFeedback) {
+        onNext();
+        return;
+      }
       setResult(res);
       setShowingScore(true);
     } finally {

@@ -55,6 +55,7 @@ export function useExamEngine() {
   const [sectionAnswers, setSectionAnswers] = useState<ExamAnswer[]>([]);
   const [results, setResults] = useState<any>(null);
   const [isTrial, setIsTrial] = useState(false);
+  const [feedbackMode, setFeedbackMode] = useState(false);
   const [sectionTimeRemaining, setSectionTimeRemaining] = useState(0);
   const [questionTimeRemaining, setQuestionTimeRemaining] = useState(0);
   const [hasSavedExam, setHasSavedExam] = useState<boolean>(() => !!readSavedExam());
@@ -135,6 +136,7 @@ export function useExamEngine() {
             currentQuestionIndex,
             sectionAnswers,
             isTrial,
+            feedbackMode,
             sectionTimeRemaining,
           }),
         );
@@ -143,7 +145,7 @@ export function useExamEngine() {
         /* storage full / unavailable — non-fatal */
       }
     }
-  }, [state, sessionId, sections, currentSectionIndex, currentQuestionIndex, sectionAnswers, isTrial, sectionTimeRemaining]);
+  }, [state, sessionId, sections, currentSectionIndex, currentQuestionIndex, sectionAnswers, isTrial, feedbackMode, sectionTimeRemaining]);
 
   const resume = useCallback(() => {
     const s = readSavedExam();
@@ -157,6 +159,7 @@ export function useExamEngine() {
     setCurrentQuestionIndex(s.currentQuestionIndex || 0);
     setSectionAnswers(s.sectionAnswers || []);
     setIsTrial(!!s.isTrial);
+    setFeedbackMode(!!s.feedbackMode);
     setSectionTimeRemaining(s.sectionTimeRemaining || 0);
     questionStartTime.current = Date.now();
     setState(s.state === 'SECTION_BREAK' ? 'SECTION_BREAK' : 'IN_PROGRESS');
@@ -185,10 +188,11 @@ export function useExamEngine() {
     finishSection(allAnswers);
   }, [currentSection, currentQuestionIndex, sectionAnswers]);
 
-  const start = useCallback(async (trial: boolean = false) => {
+  const start = useCallback(async (trial: boolean = false, feedback: boolean = false) => {
     clearSavedExam();
     setHasSavedExam(false);
     setIsTrial(trial);
+    setFeedbackMode(feedback);
     const data = await startExam(trial);
     setSessionId(data.session_id);
     setSections(data.sections as ExamSection[]);
@@ -297,6 +301,7 @@ export function useExamEngine() {
     start,
     results,
     isTrial,
+    feedbackMode,
     hasSavedExam,
     resume,
     discardSavedExam,
