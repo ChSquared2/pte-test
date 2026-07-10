@@ -51,8 +51,13 @@ export async function submitSpeakingAnswer(
   timeSpent: number,
   examSessionId?: string,
 ): Promise<SubmitAnswerResponse> {
+  // Name the upload after the recording's real codec (the browser sends the
+  // authoritative Content-Type from audioBlob.type regardless of this
+  // filename, but matching it here keeps backend/uploads/ and logs honest —
+  // see AUDIO_MIME_TO_EXT in backend/routes/scoring.py).
+  const ext = (audioBlob.type.split(';')[0].split('/')[1] || 'webm').replace('mpeg', 'mp3');
   const formData = new FormData();
-  formData.append('audio', audioBlob, 'recording.webm');
+  formData.append('audio', audioBlob, `recording.${ext}`);
   formData.append('question_id', questionId);
   formData.append('question_type', questionType);
   formData.append('mode', mode);

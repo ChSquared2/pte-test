@@ -133,14 +133,27 @@ Respond ONLY with valid JSON:
         return {"score_details": {"error": str(e)}, "total_score": 0, "max_score": 100, "feedback": f"Scoring unavailable: {str(e)}"}
 
 
-def _audio_part(audio_path: str):
+_AUDIO_EXT_TO_MIME = {
+    ".webm": "audio/webm", ".mp4": "audio/mp4", ".m4a": "audio/mp4",
+    ".aac": "audio/aac", ".wav": "audio/wav", ".mp3": "audio/mpeg",
+    ".ogg": "audio/ogg",
+}
+
+
+def _audio_part(audio_path: str, mime_type: str | None = None):
     """Read the audio as inline bytes for the request.
 
     Speaking clips are a few seconds / a few hundred KB, well under the ~20MB
     inline limit. Inline avoids the Files API upload round-trip and the
     ACTIVE-state polling loop, which were the main source of speaking latency.
+
+    `mime_type` should be the browser-reported Content-Type of the recording
+    (different browsers record different codecs — e.g. audio/webm on Chrome/
+    Firefox vs audio/mp4 on Safari/iOS). Falls back to guessing from the file
+    extension only if the caller doesn't have it, to avoid breaking on stale
+    callers.
     """
-    mime = "audio/webm" if audio_path.endswith(".webm") else "audio/wav"
+    mime = mime_type or _AUDIO_EXT_TO_MIME.get(os.path.splitext(audio_path)[1].lower(), "audio/webm")
     with open(audio_path, "rb") as f:
         data = f.read()
     return types.Part.from_bytes(data=data, mime_type=mime)
@@ -179,7 +192,7 @@ def resolve_media_path(url: str) -> str | None:
     return None
 
 
-def _score_speaking_strict(audio_path: str, question_type: str, reference_text: str) -> dict:
+def _score_speaking_strict(audio_path: str, question_type: str, reference_text: str, mime_type: str | None = None) -> dict:
     """Strict word-level scoring for Read Aloud and Repeat Sentence."""
     ref_words = reference_text.split()
     total_words = len(ref_words)
@@ -226,7 +239,7 @@ Respond ONLY with valid JSON (no other text):
     try:
         response = client.models.generate_content(
             model=MODEL,
-            contents=[scoring_prompt, _audio_part(audio_path)],
+            contents=[scoring_prompt, _audio_part(audio_path, mime_type)],
             config=GEN_CONFIG,
         )
         scores = _parse_json_response(response.text)
@@ -264,12 +277,17 @@ Respond ONLY with valid JSON (no other text):
         return {"score_details": {"error": str(e)}, "total_score": 0, "max_score": 100, "feedback": f"Scoring unavailable: {str(e)}"}
 
 
-def score_speaking(audio_path: str, question_type: str, reference_text: str = "", image_path: str | None = None) -> dict:
-    """Score a speaking response using Gemini multimodal (audio input, +image for describe_image)."""
+def score_speaking(audio_path: str, question_type: str, reference_text: str = "", image_path: str | None = None, mime_type: str | None = None) -> dict:
+    """Score a speaking response using Gemini multimodal (audio input, +image for describe_image).
+
+    `mime_type` should be the browser-reported Content-Type of the recording
+    (see routes/scoring.py) so the audio isn't mislabeled for browsers that
+    don't record webm/opus (e.g. Safari/iOS records audio/mp4).
+    """
 
     # For question types with exact reference text, use strict word-level analysis
     if question_type in ("read_aloud", "repeat_sentence") and reference_text:
-        return _score_speaking_strict(audio_path, question_type, reference_text)
+        return _score_speaking_strict(audio_path, question_type, reference_text, mime_type)
 
     # For open-ended speaking types, use general scoring.
     # Only treat it as a scorable image if it's a supported raster format —
@@ -284,9 +302,17 @@ def score_speaking(audio_path: str, question_type: str, reference_text: str = ""
     type_instructions = {
         "describe_image": (
             "You are shown the image the student was asked to describe, and their spoken "
-            "description as audio. Score content based on how ACCURATELY and COMPLETELY the "
-            "description matches what is actually shown in the image — deduct heavily for "
-            "inaccurate, invented, or missing details the student did not actually see."
+            "description as audio. This is a ~40-second task — a good response covers the "
+            "main subject, setting, and key elements/actions with a coherent overview, NOT "
+            "an exhaustive inventory of every detail in the image. Do NOT penalize the "
+            "student for reasonable details they didn't get to mention in the time given. "
+            "DO penalize for details that are INVENTED or CONTRADICT what the image actually "
+            "shows — that is the one thing to be strict about.\n"
+            "Content scoring guide: 5 = covers the main elements well and gives a coherent "
+            "overview/interpretation; 3-4 = covers most of the main elements accurately; "
+            "1-2 = mentions only a few elements, or has notable inaccuracies; 0 = no "
+            "meaningful attempt, or the description is substantially invented/contradicts "
+            "the image."
             if has_image else
             "The student described an image (not available for scoring). Score the quality, "
             "detail, and organization of the description."
@@ -299,11 +325,24 @@ def score_speaking(audio_path: str, question_type: str, reference_text: str = ""
 
     instruction = type_instructions.get(question_type, "Score this speaking response.")
 
-    scoring_prompt = f"""You are a STRICT PTE Academic speaking scorer. Do NOT be generous.
+    # describe_image (with a real image attached) gets its own calibrated
+    # framing (see instruction above) — the generic "STRICT / missing info =
+    # low score" framing below otherwise contradicts it and was the main
+    # cause of unfairly low content scores. All other types — and legacy
+    # describe_image questions without a real image to check against — keep
+    # the original strict wording unchanged.
+    if has_image:
+        preamble = "You are a fair, accurate PTE Academic speaking scorer."
+        content_criterion = "1. content - see the content scoring guide above"
+    else:
+        preamble = "You are a STRICT PTE Academic speaking scorer. Do NOT be generous."
+        content_criterion = "1. content - accuracy, completeness, relevance. Be STRICT: missing key information = low score"
+
+    scoring_prompt = f"""{preamble}
 {instruction}
 
 Score on these criteria (each 0-5, where 0=no response, 5=native-like):
-1. content - accuracy, completeness, relevance. Be STRICT: missing key information = low score
+{content_criterion}
 2. pronunciation - clarity, phoneme accuracy, word stress, intonation
 3. oral_fluency - rhythm, pacing, no hesitations or unnatural pauses
 
@@ -313,7 +352,7 @@ Respond ONLY with valid JSON:
     contents = [scoring_prompt]
     if has_image:
         contents.append(_image_part(image_path))
-    contents.append(_audio_part(audio_path))
+    contents.append(_audio_part(audio_path, mime_type))
 
     try:
         response = client.models.generate_content(

@@ -12,6 +12,21 @@ router = APIRouter()
 UPLOADS_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "uploads")
 os.makedirs(UPLOADS_DIR, exist_ok=True)
 
+# Maps the browser-reported Content-Type (MediaRecorder's real codec, e.g.
+# audio/mp4 on Safari/iOS vs audio/webm on Chrome/Firefox) to a file extension.
+# Previously the upload was always saved as "<uuid>.webm" regardless of the
+# actual recorded format, which made Gemini receive a mislabeled audio/webm
+# mime for non-webm recordings — a likely cause of inconsistent transcription.
+AUDIO_MIME_TO_EXT = {
+    "audio/webm": ".webm",
+    "audio/mp4": ".mp4",
+    "audio/aac": ".aac",
+    "audio/wav": ".wav",
+    "audio/x-wav": ".wav",
+    "audio/mpeg": ".mp3",
+    "audio/ogg": ".ogg",
+}
+
 # AI-scored question types
 AI_TYPES = {
     "essay", "summarize_written_text", "summarize_spoken_text",
@@ -61,8 +76,13 @@ async def submit_speaking(
     exam_session_id: str = Form(None),
     user_id: str = Form("nicole"),
 ):
-    # Save uploaded audio
-    filename = f"{uuid.uuid4()}.webm"
+    # Save uploaded audio with the extension matching its real Content-Type
+    # (the browser sets this from the actual MediaRecorder Blob, independent
+    # of the filename the frontend sends) so downstream scoring doesn't have
+    # to guess — see AUDIO_MIME_TO_EXT above.
+    content_type = (audio.content_type or "").split(";")[0].strip().lower()
+    ext = AUDIO_MIME_TO_EXT.get(content_type, ".webm")
+    filename = f"{uuid.uuid4()}{ext}"
     filepath = os.path.join(UPLOADS_DIR, filename)
     content = await audio.read()
     with open(filepath, "wb") as f:
@@ -80,8 +100,9 @@ async def submit_speaking(
         if question_type == "describe_image":
             image_path = resolve_media_path(question.get("image_url", ""))
 
-    # Score with Gemini
-    result = score_speaking(filepath, question_type, reference, image_path)
+    # Score with Gemini — pass the real content_type explicitly rather than
+    # letting it be re-guessed from the file extension.
+    result = score_speaking(filepath, question_type, reference, image_path, content_type or None)
 
     # Determine section
     section = "speaking"
