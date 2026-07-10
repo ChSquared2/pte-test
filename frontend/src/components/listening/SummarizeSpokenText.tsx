@@ -59,7 +59,7 @@ export default function SummarizeSpokenText({ question, onNext, mode = 'practice
       onTimeExpire={handleSubmit}
     >
       <div className="mb-4">
-        <AudioPlayer src={question.audio_url} playbackRate={0.75} maxPlays={1} onEnded={() => setAudioPlayed(true)} />
+        <AudioPlayer src={question.audio_url} maxPlays={1} onEnded={() => setAudioPlayed(true)} />
         {!audioPlayed && !isReview && <p className="text-xs text-gray-400 mt-1">Listen to the audio before writing your summary.</p>}
       </div>
 

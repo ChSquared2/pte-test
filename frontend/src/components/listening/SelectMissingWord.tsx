@@ -62,7 +62,7 @@ export default function SelectMissingWord({ question, onNext }: Props) {
       onTimeExpire={handleSubmit}
     >
       <div className="mb-4">
-        <AudioPlayer src={question.audio_url} playbackRate={0.75} maxPlays={1} />
+        <AudioPlayer src={question.audio_url} maxPlays={1} />
       </div>
       <div className="space-y-2">
         {shuffledIndices.map((origIdx: number, displayIdx: number) => (

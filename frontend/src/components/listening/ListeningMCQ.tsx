@@ -100,7 +100,7 @@ export default function ListeningMCQ({ question, onNext, multiple = false }: Pro
       onTimeExpire={handleSubmit}
     >
       <div className="mb-4">
-        <AudioPlayer src={question.audio_url} playbackRate={0.75} maxPlays={1} />
+        <AudioPlayer src={question.audio_url} maxPlays={1} />
       </div>
       {question.prompt && <p className="font-medium text-[#003057] mb-3">{question.prompt}</p>}
       <div className="space-y-2">

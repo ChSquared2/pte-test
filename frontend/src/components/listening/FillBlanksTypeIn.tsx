@@ -52,7 +52,7 @@ export default function FillBlanksTypeIn({ question, onNext }: Props) {
       onTimeExpire={handleSubmit}
     >
       <div className="mb-4">
-        <AudioPlayer src={question.audio_url} playbackRate={0.75} maxPlays={1} />
+        <AudioPlayer src={question.audio_url} maxPlays={1} />
       </div>
       <div className="bg-gray-50 p-4 rounded-lg text-sm leading-loose">
         {parts.map((part: string, i: number) => {

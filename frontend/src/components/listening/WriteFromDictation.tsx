@@ -43,7 +43,7 @@ export default function WriteFromDictation({ question, onNext }: Props) {
       onTimeExpire={handleSubmit}
     >
       <div className="mb-4">
-        <AudioPlayer src={question.audio_url} playbackRate={0.9} maxPlays={1} />
+        <AudioPlayer src={question.audio_url} maxPlays={1} />
       </div>
       <input type="text" value={text}
         onChange={(e) => !isReview && setText(e.target.value)}
